@@ -18,7 +18,7 @@ function App() {
       <br />
       <br />
       <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
+        <label htmlFor="name">Enter your nickname: &nbsp;</label>
         <input id="name" alt="Name" type="text" />
         <button type="submit">Submit!</button>
       </form>
