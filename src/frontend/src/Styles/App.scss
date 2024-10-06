@@ -1,0 +1,111 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.top-bar {
+  width: 100%;
+  background-color: #007bff;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+
+  .tab {
+    color: white;
+    margin: 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+
+    &.active {
+      border-bottom: 2px solid white;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.main-content {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+
+  .gallon-section {
+    margin-bottom: 20px;
+
+    .gallon-image {
+      width: 200px;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+  }
+
+  .bottle-tracking-section {
+    width: 100%;
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    .bottle-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+
+      .bottle-image {
+        width: 50px;
+        height: auto;
+        margin: 5px;
+      }
+    }
+
+    .message-bubble {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-top: 20px;
+
+      .bubble-image {
+        width: 150px;
+        height: auto;
+      }
+
+      p {
+        position: absolute;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+  }
+}
