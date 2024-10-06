@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from "react";
 import "./Styles/App.scss";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   //const { loggedIn, email } = props
