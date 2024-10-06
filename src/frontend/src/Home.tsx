@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Styles/App.scss";
 import "./index.scss";
-import { Navigate } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
 interface HomeProps {
@@ -20,7 +19,7 @@ const Home: React.FC<HomeProps> = ({ email, loggedIn, setLoggedIn }) => {
       setLoggedIn(false);
     } else {
 
-      navigate('/LogIn');
+      navigate('./LogIn');
     }
   };
 

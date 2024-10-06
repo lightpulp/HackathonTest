@@ -48,7 +48,7 @@ const RouterComponent: React.FC = () => {
             path="/"
             element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
           />
-          <Route path="/LogIn" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
+          <Route path="./LogIn" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
         </Routes>
       </BrowserRouter>
     </div>
