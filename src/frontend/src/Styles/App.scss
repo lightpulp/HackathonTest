@@ -1,9 +1,8 @@
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: Arial, sans-serif;
-}
+$primary-color: #00BFFF; // Light blue for the theme
+$secondary-color: #F0F0F0; // Light gray background
+$font-family: 'Arial', sans-serif;
+
+
 .mainContainer {
   flex-direction: column;
   display: flex;
@@ -67,106 +66,168 @@
   border: 1px solid grey;
   padding-left: 8px;
 }
-.top-bar {
-  width: 100%;
-  background-color: #007bff;
+
+* {
+  box-sizing: border-box; // Ensure padding and borders are included in element's total width and height
+}
+
+body {
+  margin: 0; 
+  font-family: $font-family; 
+  background-color: $secondary-color; // Set background color
+}
+
+.app-container {
   display: flex;
-  justify-content: center;
-  padding: 10px 0;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; // Padding around the container
+}
 
-  .tab {
-    color: white;
-    margin: 0 15px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; // Use fixed positioning
+  top: 0; // Align to the top
+  left: 0; // Align to the left
+  right: 0; // Align to the right
+  padding: 0.5rem; // Reduced padding for less height
+  background: linear-gradient(to bottom, #e0e0e0, #ffffff); // Gradient for top bar background
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Shadow effect
+  z-index: 1000; // Ensure it stays on top of other content
+}
+.logo {
+  display: flex;
+  align-items: center;
 
-    &.active {
-      border-bottom: 2px solid white;
-    }
+  img {
+    height: 40px; // Logo size
+    margin-right: 10px; // Spacing
+  }
 
-    &:hover {
-      text-decoration: underline;
-    }
+  h1 {
+    font-size: 1.5rem; // Logo font size
+    color: $primary-color; // Primary color for logo text
   }
 }
 
-.main-content {
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
-  text-align: center;
+.nav {
+  display: flex;
+  gap: 20px; // Space between tabs
+}
 
-  .gallon-section {
-    margin-bottom: 20px;
+.tab {
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: color 0.3s; // Transition effect
 
-    .gallon-image {
-      width: 200px;
-      height: auto;
-    }
+  // Default border for all tabs
+  border-bottom: 3px solid transparent; // Thicker default border
 
-    h1 {
-      font-size: 24px;
-      margin-top: 10px;
-    }
+  &.active {
+    font-weight: bold; // Bold font for active tab
+    color: black; // Font color for active tab
+    border-bottom: 3px solid lightgrey; // Lighter grey underline for active tab
   }
 
-  .bottle-tracking-section {
-    width: 100%;
+  &:hover {
+    color: #5474eb; // Dark blue on hover for all tabs
+    border-bottom: 3px solid #5474eb; // Blue underline on hover
+  }
 
-    h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
+  &:not(.active) {
+    color: grey; // Grey color when not active
+  }
+}
 
-    button {
-      margin-bottom: 20px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+.greeting {
+  display: flex;
+  align-items: center; // Align items vertically
+  font-weight: bold; // Make greeting text bold
+}
 
-      &:hover {
-        background-color: #0056b3;
+.dropdown-arrow {
+  margin-left: 5px; // Space between greeting and arrow
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px; // Adjust this margin for content to be below the fixed top bar
+  width: 100%; // Full width for content
+
+  .overview-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .gallon-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px; // Vertical centering adjustment
+
+      .gallon-image {
+        width: 1200px; // Image width
+        height: auto; // Auto height for image
+        max-height: 90vh; // Max height limit
       }
     }
 
-    .bottle-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-height: 200px;
-      overflow-y: auto;
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-radius: 5px;
+    .bottle-tracking-section {
+      text-align: center; // Center text
+
+      h2 {
+        margin: 10px 0;
+        color: $primary-color; // Section title color
+      }
+
+      .add-bottle-button {
+        background-color: $primary-color; // Button background
+        color: white; // Button text color
+        border: none; // No border
+        border-radius: 5px; // Rounded corners
+        padding: 10px 15px; // Button padding
+        cursor: pointer; // Pointer on hover
+        transition: background-color 0.3s; // Transition effect
+
+        &:hover {
+          background-color: darken($primary-color, 10%); // Darken on hover
+        }
+      }
+
+      .bottle-list {
+        display: flex;
+        flex-wrap: wrap; // Wrap bottles to the next line
+        justify-content: center; // Center the bottles
+        margin-top: 10px; // Space above bottle list
+      }
 
       .bottle-image {
-        width: 50px;
-        height: auto;
-        margin: 5px;
-      }
-    }
-
-    .message-bubble {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      margin-top: 20px;
-
-      .bubble-image {
-        width: 150px;
-        height: auto;
+        width: 50px; // Bottle size
+        margin: 5px; // Space between bottles
       }
 
-      p {
-        position: absolute;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
+      .message-bubble {
+        display: flex;
+        align-items: center; // Align bubble items
+        margin-top: 20px; // Space above bubble
+        padding: 10px; // Bubble padding
+        background-color: white; // Bubble background
+        border-radius: 10px; // Rounded corners
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Shadow for bubble
+
+        .bubble-image {
+          width: 40px; // Image size
+          margin-right: 10px; // Space between image and text
+        }
+
+        p {
+          margin: 0; // No margin for paragraph
+          color: $primary-color; // Text color
+        }
       }
     }
   }
