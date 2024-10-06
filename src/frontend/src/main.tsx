@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import LogIn from "./LogIn";
+import LogIn from './LogIn';
+import Home from './Home';
 import './index.scss';
 import './Styles/App.scss';
 

@@ -3,11 +3,7 @@ import "./Styles/App.scss";
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  //const { loggedIn, email } = props
-  const navigate = useNavigate()
-
-  const onButtonClick = () => {
-    // You'll update this function later
+      
   }
 
   return (
