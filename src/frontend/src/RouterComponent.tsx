@@ -47,7 +47,7 @@ const RouterComponent: React.FC = () => {
        return (
     <Routes>
       <Route path="/" element={<Home email="" loggedIn={false} setLoggedIn={() => {}} />} />
-      <Route path="./LogIn" element={<LogIn setLoggedIn={() => { } } setEmail={function (value: React.SetStateAction<string>): void {
+      <Route path="/LogIn" element={<LogIn setLoggedIn={() => { } } setEmail={function (value: React.SetStateAction<string>): void {
                   throw new Error('Function not implemented.');
               } } />} />
       {/* Add other routes here as necessary */}
