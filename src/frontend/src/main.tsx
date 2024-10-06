@@ -9,6 +9,6 @@ import Login from './LogIn';
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <LogIn/>
+    <App/>
   </React.StrictMode>,
 );
