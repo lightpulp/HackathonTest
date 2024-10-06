@@ -4,7 +4,7 @@ import React from 'react'
 const Home = () => {
 
   const onButtonClick = () => {
-    
+    <a href="page2.html"></a>
   }
 
   return (
