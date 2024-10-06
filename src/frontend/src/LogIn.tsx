@@ -1,12 +1,10 @@
 import { useState } from 'react';
 
 function LogIn_Button() {
-  return (
 
-  );
 }
 
-export default function LogIn(event: any) {
+function LogIn() {
   return (
     <div>
       
@@ -21,6 +19,5 @@ export default function LogIn(event: any) {
     </div>
   );
 }
-
 
 export default LogIn;
