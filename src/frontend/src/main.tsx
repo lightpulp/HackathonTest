@@ -5,9 +5,10 @@ import LogIn from './LogIn';
 import Home from './Home';
 import './index.scss';
 import './Styles/App.scss';
+import Login from './LogIn';
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Home />
+    <Login />
   </React.StrictMode>,
 );
