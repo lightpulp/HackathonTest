@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-//import { useNavigate } from 'react-router-dom'
+
 
 const LogIn = () => {
   const [email, setEmail] = useState('')
@@ -7,7 +7,7 @@ const LogIn = () => {
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
 
-  //const navigate = useNavigate()
+
 
   const onButtonClick = () => {
 

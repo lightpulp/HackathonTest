@@ -1,12 +1,10 @@
 import React from 'react'
-//import { useNavigate } from 'react-router-dom'
+
 
 const Home = () => {
-  //const { loggedIn, email } = props
-  //const navigate = useNavigate()
 
   const onButtonClick = () => {
-    // You'll update this function later
+    
   }
 
   return (
@@ -20,9 +18,8 @@ const Home = () => {
           className={'inputButton'}
           type="button"
           onClick={onButtonClick}
-          //value={loggedIn ? 'Log out' : 'Log in'}
+          value= "Login"
         />
-        {/*loggedIn ? <div>Your email address is {email}</div> : */<div />}
       </div>
     </div>
   )
