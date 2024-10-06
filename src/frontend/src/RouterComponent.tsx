@@ -49,10 +49,9 @@ const RouterComponent: React.FC = () => {
       <Route path="/LogIn" element={<LogIn setLoggedIn={() => { } } setEmail={function (value: React.SetStateAction<string>): void {
                   throw new Error('Function not implemented.');
               } } />} />
-      {/* Add other routes here as necessary */}
-      <Route path="./App" element={<App />} />
+      
+      <Route path="/App" element={<App />} />
     </Routes>
-        );
     </div>
   );
 };

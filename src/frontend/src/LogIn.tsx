@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import App from "./App";
 import { useNavigate } from 'react-router-dom';
 import "./Styles/App.scss";
 import "./index.scss";
@@ -39,7 +40,10 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
       setPasswordError('The password must be 8 characters or longer');
       return;
     }
-    console.log('Form is valid, proceed with authentication...');
+    else {
+      navigate('/App');
+      console.log('Form is valid, proceed with authentication...');
+    }
   };
 
   return (

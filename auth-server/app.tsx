@@ -1,135 +1,119 @@
+// Import necessary modules
 import express, { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
 import low from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
-import { LowdbSync } from 'lowdb';
 
 // Define the User interface
 interface User {
-  id: number;
   email: string;
   password: string;
 }
 
-// Create a LowDB adapter
-const adapter = new FileSync<{ users: User[] }>('./database.json');
-const db: LowdbSync<{ users: User[] }> = low(adapter);
+// Set up the LowDB adapter and database
+const adapter = new FileSync('./database.json');
+const db = low(adapter);
 
-// Set up initial data if not present
-db.defaults({ users: [] }).write();
-
+// Initialize Express app
 const app = express();
-const jwtSecretKey = process.env.JWT_SECRET_KEY || 'your-secret-key';
 
+// Define a JWT secret key. This should be isolated by using env variables for security
+const jwtSecretKey = 'dsfdsfsdfdsvcsvdfgefg'; // Ideally, store this in an environment variable
+
+// Set up CORS and JSON middlewares
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Register endpoint
-app.post('/register', async (req: Request, res: Response) => {
-  const { email, password } = req.body;
+// Initialize the database with an empty user array if it doesn't exist
+db.defaults({ users: [] }).write();
 
-  // Check if user already exists
-  const userExists = db.get('users').find({ email }).value();
-  if (userExists) {
-    return res.status(400).json({ message: 'User already exists' });
-  }
-
-  // Hash the password
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  // Create new user
-  const newUser: User = {
-    id: Date.now(),
-    email,
-    password: hashedPassword,
-  };
-
-  // Save user to the database
-  db.get('users').push(newUser).write();
-
-  res.status(201).json({ message: 'User registered successfully' });
+// Basic home route for the API
+app.get('/', (_req: Request, res: Response) => {
+  res.send('Auth API.\nPlease use POST /auth & POST /verify for authentication');
 });
 
-// Log in endpoint
-app.post('/login', async (req: Request, res: Response) => {
-  const { email, password } = req.body;
-
-  // Find the user in the database
-  const user = db.get('users').find({ email }).value();
-
-  if (!user) {
-    return res.status(400).json({ message: 'User not found' });
-  }
-
-  // Check if the password is correct
-  const isPasswordValid = await bcrypt.compare(password, user.password);
-
-  if (!isPasswordValid) {
-    return res.status(400).json({ message: 'Invalid credentials' });
-  }
-
-  // Generate JWT token
-  const token = jwt.sign({ userId: user.id }, jwtSecretKey, { expiresIn: '1h' });
-
-  res.status(200).json({ token });
-});
-
-// Authentication route
+// The auth endpoint that creates a new user record or logs a user based on an existing record
 app.post('/auth', (req: Request, res: Response) => {
-  const { email, password } = req.body;
+  const { email, password }: { email: string; password: string } = req.body;
 
-  const user = db.get('users').find({ email }).value();
+  // Look up the user entry in the database
+  const user = db.get('users').filter((user: User) => email === user.email).value();
 
-  if (user) {
-    bcrypt.compare(password, user.password, (err, result) => {
-      if (!result) {
+  // If found, compare the hashed passwords and generate the JWT token for the user
+  if (user.length === 1) {
+    bcrypt.compare(password, user[0].password, (err, result) => {
+      if (err || !result) {
         return res.status(401).json({ message: 'Invalid password' });
       } else {
-        const token = jwt.sign({ email }, jwtSecretKey, { expiresIn: '1h' });
+        const loginData = {
+          email,
+          signInTime: Date.now(),
+        };
+
+        const token = jwt.sign(loginData, jwtSecretKey);
         res.status(200).json({ message: 'success', token });
       }
     });
-  } else {
+  } 
+  // If no user is found, hash the given password and create a new entry in the auth db with the email and hashed password
+  else {
     bcrypt.hash(password, 10, (err, hash) => {
+      if (err) {
+        return res.status(500).json({ message: 'Error creating user' });
+      }
+
+      console.log({ email, password: hash });
       db.get('users').push({ email, password: hash }).write();
-      const token = jwt.sign({ email }, jwtSecretKey, { expiresIn: '1h' });
+
+      const loginData = {
+        email,
+        signInTime: Date.now(),
+      };
+
+      const token = jwt.sign(loginData, jwtSecretKey);
       res.status(200).json({ message: 'success', token });
     });
   }
 });
 
-// Verify JWT route
+// The verify endpoint that checks if a given JWT token is valid
 app.post('/verify', (req: Request, res: Response) => {
-  const token = req.headers['jwt-token'] as string;
+  const tokenHeaderKey = 'jwt-token';
+  const authToken = req.headers[tokenHeaderKey] as string;
+
   try {
-    const verified = jwt.verify(token, jwtSecretKey);
+    const verified = jwt.verify(authToken, jwtSecretKey);
     if (verified) {
-      res.status(200).json({ status: 'logged in', message: 'success' });
+      return res.status(200).json({ status: 'logged in', message: 'success' });
     } else {
-      res.status(401).json({ status: 'invalid auth', message: 'error' });
+      return res.status(401).json({ status: 'invalid auth', message: 'error' });
     }
   } catch (error) {
-    res.status(401).json({ status: 'invalid auth', message: 'error' });
+    return res.status(401).json({ status: 'invalid auth', message: 'error' });
   }
 });
 
-// Check account existence route
+// An endpoint to see if there's an existing account for a given email address
 app.post('/check-account', (req: Request, res: Response) => {
-  const { email } = req.body;
+  const { email }: { email: string } = req.body;
 
-  const user = db.get('users').find({ email }).value();
+  console.log(req.body);
+
+  const user = db.get('users').filter((user: User) => email === user.email).value();
+
+  console.log(user);
 
   res.status(200).json({
-    status: user ? 'User exists' : 'User does not exist',
-    userExists: !!user,
+    status: user.length === 1 ? 'User exists' : 'User does not exist',
+    userExists: user.length === 1,
   });
 });
 
-// Set up the Express server
-const PORT = process.env.PORT || 3080;
+// Start the server
+const PORT = 3080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
