@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import Login from './LogIn';
 import './Styles/App.scss';
-import './indes.scss';
+import './index.scss';
 import { useEffect, useState } from 'react';
 
 const RouterComponent: React.FC = () => {
@@ -45,7 +45,7 @@ const RouterComponent: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/"
+            path="./Home"
             element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
           />
           <Route path="./LogIn" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />

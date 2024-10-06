@@ -18,7 +18,6 @@ const Home: React.FC<HomeProps> = ({ email, loggedIn, setLoggedIn }) => {
       localStorage.removeItem('user');
       setLoggedIn(false);
     } else {
-
       navigate('./LogIn');
     }
   };
