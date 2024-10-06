@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-
-const LogIn = () => {
+const Login = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
 
-
+  const navigate = useNavigate()
 
   const onButtonClick = () => {
-
+    // You'll update this function later...
   }
 
   return (
@@ -45,4 +45,5 @@ const LogIn = () => {
     </div>
   )
 }
-export default LogIn;
+
+export default Login

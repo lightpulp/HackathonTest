@@ -1,19 +1,26 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Home from './Home';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './Home'
+import Login from './LogIn'
+import './App.css'
+import { useEffect, useState } from 'react'
 
 function App1() {
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [email, setEmail] = useState('')
+
   return (
-    <Router>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/page2">Go to Page 2</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
-  );
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
+          />
+          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
 }
 
-export default App1;
+export default App1
