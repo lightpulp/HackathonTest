@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.scss";
+import "./Styles/App.scss";
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
 import WaterBottle from "../public/Water_Bottle.png";
 import MessageBubble from "../public/Message_Bubble_Big.png";
