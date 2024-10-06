@@ -10,8 +10,6 @@ import { useNavigate } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Home email={""} loggedIn={false} setLoggedIn={function (value: React.SetStateAction<boolean>): void {
-      throw new Error("Function not implemented.");
-    } } />
+    <App/>
   </React.StrictMode>,
 );
