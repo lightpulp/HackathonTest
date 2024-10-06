@@ -9,7 +9,6 @@ const LogIn: React.FC = () => {
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
 
-  const navigate = useNavigate()
 
   const onButtonClick = () => {
     // You'll update this function later...
