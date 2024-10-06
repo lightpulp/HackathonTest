@@ -8,6 +8,6 @@ import './Styles/App.scss';
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Home />
+    <LogIn />
   </React.StrictMode>,
 );
