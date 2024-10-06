@@ -10,7 +10,7 @@
             "assets": [
                 [
                     "src/frontend/dist",
-                    "dist"
+                    "dis"
                 ]
             ],
             "build_assets": "npm run build",
