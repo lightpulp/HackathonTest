@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import "./Styles/App.scss";
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
-      
+const Home: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<string>("Overview");
+  
+  const onButtonClick = () => {
+    // You'll update this function later...
   }
 
   return (
