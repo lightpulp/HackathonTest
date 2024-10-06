@@ -1,18 +1,45 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "./Styles/App.scss";
 import "./index.scss";
 
-const LogIn: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("Overview");
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [emailError, setEmailError] = useState('')
-  const [passwordError, setPasswordError] = useState('')
 
+interface LoginProps {
+  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
+  const [email, updateEmail] = useState<string>('');
+  const [password, updatePassword] = useState<string>('');
+  const [emailError, setEmailError] = useState<string>(''); 
+  const [passwordError, setPasswordError] = useState<string>('');
+
+  const navigate = useNavigate();
 
   const onButtonClick = () => {
-    // You'll update this function later...
-  }
+    setEmailError('');
+    setPasswordError('');
+    if (email.trim() === '') {
+      setEmailError('Please enter your email');
+      return;
+    }
+    const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (!emailPattern.test(email)) {
+      setEmailError('Please enter a valid email');
+      return;
+    }
+    if (password.trim() === '') {
+      setPasswordError('Please enter a password');
+      return;
+    }
+
+    if (password.length < 8) {
+      setPasswordError('The password must be 8 characters or longer');
+      return;
+    }
+    console.log('Form is valid, proceed with authentication...');
+  };
 
   return (
     <div className={'mainContainer'}>
@@ -24,7 +51,7 @@ const LogIn: React.FC = () => {
         <input
           value={email}
           placeholder="Enter your email here"
-          onChange={(ev) => setEmail(ev.target.value)}
+          onChange={(ev) => updateEmail(ev.target.value)}
           className={'inputBox'}
         />
         <label className="errorLabel">{emailError}</label>
@@ -34,8 +61,9 @@ const LogIn: React.FC = () => {
         <input
           value={password}
           placeholder="Enter your password here"
-          onChange={(ev) => setPassword(ev.target.value)}
+          onChange={(ev) => updatePassword(ev.target.value)}
           className={'inputBox'}
+          type="password"
         />
         <label className="errorLabel">{passwordError}</label>
       </div>
@@ -44,7 +72,7 @@ const LogIn: React.FC = () => {
         <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
       </div>
     </div>
-  )
+  );
 };
 
 export default LogIn;
