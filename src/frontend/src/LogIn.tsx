@@ -15,7 +15,6 @@ function LogIn() {
         <input id="name" alt="password" type="password" />
         <button type="submit">LogIn</button>
       </form>
-      
     </div>
   );
 }
