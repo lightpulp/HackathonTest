@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       <div className={'titleContainer'}>
         <div>Welcome!</div>
       </div>
-      <div>This is the home page.</div>
+      <div>Water Foot Print</div>
       <div className={'buttonContainer'}>
         <input
           className={'inputButton'}
