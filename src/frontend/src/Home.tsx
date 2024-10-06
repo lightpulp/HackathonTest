@@ -11,6 +11,27 @@ const Home: React.FC = () => {
 
   return (
     <div className="mainContainer">
+      <header className="top-bar">
+        <div className="logo">
+          <img src="../public/Water_Gallon_Main.png" alt="Water Drop Logo" />
+          <h1>WaterSaver</h1>
+        </div>
+        <nav className="nav">
+          {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
+            <div
+              key={tab}
+              className={`tab ${activeTab === tab ? "active" : ""}`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </div>
+          ))}
+        </nav>
+        <div className="greeting">
+          <span>Hi, Jack!</span>
+          <span className="dropdown-arrow">▼</span>
+        </div>
+      </header>
       <div className={'titleContainer'}>
         <div>Welcome!</div>
       </div>
