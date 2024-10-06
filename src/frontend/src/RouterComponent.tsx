@@ -44,7 +44,6 @@ const RouterComponent: React.FC = () => {
   
   return (
     <div className="App">
-       return (
     <Routes>
       <Route path="/" element={<Home email="" loggedIn={false} setLoggedIn={() => {}} />} />
       <Route path="/LogIn" element={<LogIn setLoggedIn={() => { } } setEmail={function (value: React.SetStateAction<string>): void {
