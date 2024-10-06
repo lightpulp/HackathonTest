@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./index.scss";
 
 const LogIn: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<string>("Overview");
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
