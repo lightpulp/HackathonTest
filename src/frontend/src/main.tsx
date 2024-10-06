@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import LogIn from './LogIn';
-import Home from './Home';
-import RouterComponent from "./RouterComponent";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import RouterComponent from "./RouterComponent"; // Ensure RouterComponent handles routes
 import './index.scss';
 import './Styles/App.scss';
-import { useNavigate } from 'react-router-dom';
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+const rootElement = document.getElementById("root") as HTMLElement;
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <Home email={""} loggedIn={false} setLoggedIn={function (value: React.SetStateAction<boolean>): void {
-      throw new Error("Function not implemented.");
-    } }/>
-  </React.StrictMode>,
+    <BrowserRouter>
+      <RouterComponent />
+    </BrowserRouter>
+  </React.StrictMode>
 );

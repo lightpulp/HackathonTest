@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import Login from './LogIn';
+import React from "react";
+import Home from "./Home"; // Your Home component
+import LogIn from "./LogIn"; // Your LogIn component
+import App from "./App"; // If you have an App component
 import './Styles/App.scss';
 import './index.scss';
 import { useEffect, useState } from 'react';
@@ -42,15 +44,16 @@ const RouterComponent: React.FC = () => {
   
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="./Home"
-            element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
-          />
-          <Route path="./LogIn" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-        </Routes>
-      </BrowserRouter>
+       return (
+    <Routes>
+      <Route path="/" element={<Home email="" loggedIn={false} setLoggedIn={() => {}} />} />
+      <Route path="./LogIn" element={<LogIn setLoggedIn={() => { } } setEmail={function (value: React.SetStateAction<string>): void {
+                  throw new Error('Function not implemented.');
+              } } />} />
+      {/* Add other routes here as necessary */}
+      <Route path="./App" element={<App />} />
+    </Routes>
+        );
     </div>
   );
 };
