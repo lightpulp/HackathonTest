@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("Overview");
-
+  
   const onButtonClick = () => {
     // You'll update this function later...
   }
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
           className={'inputButton'}
           type="button"
           onClick={onButtonClick}
-          value= 'Log In'}
+          value={'Log in'}
         />
         {<div />}
       </div>
