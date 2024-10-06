@@ -18,5 +18,8 @@
     ],
     "dependencies": {
         "react-router-dom": "^6.26.2"
+    },
+    "devDependencies": {
+        "@types/lowdb": "^1.0.15"
     }
 }
