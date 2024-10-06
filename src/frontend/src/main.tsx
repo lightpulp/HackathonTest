@@ -6,6 +6,7 @@ import Home from './Home';
 import RouterComponent from "./RouterComponent";
 import './index.scss';
 import './Styles/App.scss';
+import { useNavigate } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
