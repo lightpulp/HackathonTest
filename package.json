@@ -17,9 +17,18 @@
         "src/frontend"
     ],
     "dependencies": {
+        "@types/bcrypt": "^5.0.2",
+        "@types/express": "^5.0.0",
+        "@types/jsonwebtoken": "^9.0.7",
+        "bcrypt": "^5.1.1",
+        "cors": "^2.8.5",
+        "express": "^4.21.0",
+        "jsonwebtoken": "^9.0.2",
+        "lowdb": "^7.0.1",
         "react-router-dom": "^6.26.2"
     },
     "devDependencies": {
-        "@types/lowdb": "^1.0.15"
+        "@types/lowdb": "^1.0.15",
+        "@types/node": "^22.7.4"
     }
 }
