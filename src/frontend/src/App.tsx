@@ -18,7 +18,7 @@ const App: React.FC = () => {
     <div className="app-container">
       <header className="top-bar">
         <div className="logo">
-          <img src="../public/Water_Gallon_Main.png" alt="Water Drop Logo" />
+          <img src={WaterGallonMain} alt="Water Drop Logo" />
           <h1>WaterSaver</h1>
         </div>
         <nav className="nav">
