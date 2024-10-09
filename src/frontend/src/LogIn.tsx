@@ -60,7 +60,9 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
       navigate('/'); 
     } else if (tab === "Sign Up") {
       navigate('/SignUp'); 
-    } 
+    } else if (tab === "Log In") {
+
+    }
   };
 
   return (
