@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./Styles/App.scss";
 import "./index.scss";
 import { useNavigate } from 'react-router-dom';
+import WaterGallonMain from "../public/Water_Gallon_Main.png";
+import WaterBottle from "../public/Water_Bottle.png";
+import MessageBubble from "../public/Message_Bubble_Big.png";
 
 interface HomeProps {
   email: string;
