@@ -45,7 +45,7 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
     return isValid;
   };
 
-  const onButtonClick_LogIn = () => {
+  const onButtonClick = () => {
     if (validateForm()) {
       setLoggedIn(true);
       setEmail(email);
@@ -114,7 +114,7 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
       </div>
       <br />
       <div className={'inputContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick_LogIn} value={'Log in'} />
+        <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
       </div>
     </div>
   );
