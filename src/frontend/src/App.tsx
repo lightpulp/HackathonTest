@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Styles/App.scss";
 import LogIn from "./LogIn";
 import Home from "./Home";
+import { useNavigate } from 'react-router-dom';
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
 import WaterGallonEmpty from "../public/Water_Gallon_Empty.png";
 import WaterGallonFilled from "../public/Water_Gallon_Filled.png";
