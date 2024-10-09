@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Styles/App.scss";
 import "./index.scss";
@@ -10,7 +10,7 @@ interface LoginProps {
 }
 
 const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
-  const [activeTab, setActiveTab] = useState<string>("Overview");
+  const [activeTab, setActiveTab] = useState<string>("Log In");
   const [email, updateEmail] = useState<string>('');
   const [password, updatePassword] = useState<string>('');
   const [emailError, setEmailError] = useState<string>(''); 
@@ -18,30 +18,50 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
 
   const navigate = useNavigate();
 
-  const onButtonClick = () => {
+  const validateForm = () => {
     setEmailError('');
     setPasswordError('');
+    let isValid = true;
+
     if (email.trim() === '') {
       setEmailError('Please enter your email');
-      return;
-    }
-    const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    if (!emailPattern.test(email)) {
-      setEmailError('Please enter a valid email');
-      return;
-    }
-    if (password.trim() === '') {
-      setPasswordError('Please enter a password');
-      return;
+      isValid = false;
+    } else {
+      const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+      if (!emailPattern.test(email)) {
+        setEmailError('Please enter a valid email');
+        isValid = false;
+      }
     }
 
-    if (password.length < 8) {
+    if (password.trim() === '') {
+      setPasswordError('Please enter a password');
+      isValid = false;
+    } else if (password.length < 8) {
       setPasswordError('The password must be 8 characters or longer');
-      return;
+      isValid = false;
     }
-    else {
+
+    return isValid;
+  };
+
+  const onButtonClick_LogIn = () => {
+    if (validateForm()) {
+      setLoggedIn(true);
+      setEmail(email);
       navigate('/App');
       console.log('Form is valid, proceed with authentication...');
+    }
+  };
+
+  const handleTabClick = (tab: string) => {
+    setActiveTab(tab);
+    if (tab === "Home") {
+      navigate('/'); 
+    } else if (tab === "Sign Up") {
+      navigate('/SignUp'); 
+    } else if (tab === "Log In") {
+
     }
   };
 
@@ -53,18 +73,18 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
           <h1>WaterSaver</h1>
         </div>
         <nav className="nav">
-          {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
+          {["Home", "Log In", "Sign Up"].map(tab => (
             <div
               key={tab}
               className={`tab ${activeTab === tab ? "active" : ""}`}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => handleTabClick(tab)}
             >
               {tab}
             </div>
           ))}
         </nav>
         <div className="greeting">
-          <span>Hi, Jack!</span>
+          <span>Hi!</span>
           <span className="dropdown-arrow">▼</span>
         </div>
       </header>
@@ -94,7 +114,7 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
       </div>
       <br />
       <div className={'inputContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
+        <input className={'inputButton'} type="button" onClick={onButtonClick_LogIn} value={'Log in'} />
       </div>
     </div>
   );

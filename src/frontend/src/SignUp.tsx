@@ -1,0 +1,213 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import "./Styles/App.scss";
+import "./index.scss";
+import WaterGallonMain from "../public/Water_Gallon_Main.png";
+
+interface SignUpProps {
+  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const regions = [
+  "Ilocos Region (Region I)", 
+  "Cagayan Valley (Region II)", 
+  "Central Luzon (Region III)", 
+  "CALABARZON (Region IV-A)", 
+  "MIMAROPA (Region IV-B)", 
+  "Bicol Region (Region V)", 
+  "Western Visayas (Region VI)", 
+  "Central Visayas (Region VII)", 
+  "Eastern Visayas (Region VIII)", 
+  "Zamboanga Peninsula (Region IX)", 
+  "Northern Mindanao (Region X)", 
+  "Davao Region (Region XI)", 
+  "SOCCSKSARGEN (Region XII)", 
+  "Caraga (Region XIII)", 
+  "Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)", 
+  "National Capital Region (NCR)", 
+  "Cordillera Administrative Region (CAR)"
+];
+
+const SignUp: React.FC<SignUpProps> = ({ setLoggedIn, setEmail }) => {
+  const [firstName, updateFirstName] = useState<string>('');
+  const [middleName, updateMiddleName] = useState<string>('');
+  const [lastName, updateLastName] = useState<string>('');
+  const [location, updateLocation] = useState<string>('');
+  const [email, updateEmail] = useState<string>('');
+  const [password, updatePassword] = useState<string>('');
+  const [firstNameError, setFirstNameError] = useState<string>(''); 
+  const [middleNameError, setMiddleNameError] = useState<string>(''); 
+  const [lastNameError, setLastNameError] = useState<string>(''); 
+  const [locationError, setLocationError] = useState<string>(''); 
+  const [emailError, setEmailError] = useState<string>(''); 
+  const [passwordError, setPasswordError] = useState<string>('');
+  const [activeTab, setActiveTab] = useState<string>("Sign Up");
+
+  const navigate = useNavigate();
+
+  const validateForm = () => {
+    setFirstNameError('');
+    setMiddleNameError('');
+    setLastNameError('');
+    setLocationError('');
+    setEmailError('');
+    setPasswordError('');
+    let isValid = true;
+
+    if (firstName.trim() === '') {
+      setFirstNameError('Please enter your first name');
+      isValid = false;
+    }
+    
+    if (middleName.trim() === '') {
+      setMiddleNameError('Please enter your middle name');
+      isValid = false;
+    }
+
+    if (lastName.trim() === '') {
+      setLastNameError('Please enter your last name');
+      isValid = false;
+    }
+    
+    if (location.trim() === '') {
+      setLocationError('Please select your location');
+      isValid = false;
+    }
+
+    if (email.trim() === '') {
+      setEmailError('Please enter your email');
+      isValid = false;
+    } else {
+      const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+      if (!emailPattern.test(email)) {
+        setEmailError('Please enter a valid email');
+        isValid = false;
+      }
+    }
+
+    if (password.trim() === '') {
+      setPasswordError('Please enter a password');
+      isValid = false;
+    } else if (password.length < 8) {
+      setPasswordError('The password must be 8 characters or longer');
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
+  const onButtonClick_SignUp = () => {
+    if (validateForm()) {
+      setLoggedIn(true);
+      setEmail(email);
+      navigate('/App');
+      console.log('Form is valid, proceed with registration...');
+    }
+  };
+
+  return (
+    <div className={'mainContainer'}>
+      <header className="top-bar">
+        <div className="logo">
+          <img src={WaterGallonMain} alt="Water Drop Logo" />
+          <h1>WaterSaver</h1>
+        </div>
+        <nav className="nav">
+          {["Home", "Log In", "Sign Up"].map(tab => (
+            <div
+              key={tab}
+              className={`tab ${activeTab === tab ? "active" : ""}`}
+              onClick={() => {
+                setActiveTab(tab);
+                if (tab === "Home") navigate('/');
+                else if (tab === "Log In") navigate('/LogIn');
+                else if (tab === "Sign Up") navigate('/SignUp');
+              }}
+            >
+              {tab}
+            </div>
+          ))}
+        </nav>
+        <div className="greeting">
+          <span>Hi!</span>
+          <span className="dropdown-arrow">▼</span>
+        </div>
+      </header>
+      <div className={'titleContainer'}>
+        <div>Sign Up</div>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <input
+          value={firstName}
+          placeholder="Enter your first name here"
+          onChange={(ev) => updateFirstName(ev.target.value)}
+          className={'inputBox'}
+        />
+        <label className="errorLabel">{firstNameError}</label>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <input
+          value={middleName}
+          placeholder="Enter your middle name here"
+          onChange={(ev) => updateMiddleName(ev.target.value)}
+          className={'inputBox'}
+        />
+        <label className="errorLabel">{middleNameError}</label>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <input
+          value={lastName}
+          placeholder="Enter your last name here"
+          onChange={(ev) => updateLastName(ev.target.value)}
+          className={'inputBox'}
+        />
+        <label className="errorLabel">{lastNameError}</label>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <select 
+          value={location}
+          onChange={(ev) => updateLocation(ev.target.value)}
+          className={'inputBox'}
+        >
+          <option value="">Select your location</option>
+          {regions.map((region) => (
+            <option key={region} value={region}>{region}</option>
+          ))}
+        </select>
+        <label className="errorLabel">{locationError}</label>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <input
+          value={email}
+          placeholder="Enter your email here"
+          onChange={(ev) => updateEmail(ev.target.value)}
+          className={'inputBox'}
+        />
+        <label className="errorLabel">{emailError}</label>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <input
+          value={password}
+          placeholder="Enter your password here"
+          onChange={(ev) => updatePassword(ev.target.value)}
+          className={'inputBox'}
+          type="password"
+        />
+        <label className="errorLabel">{passwordError}</label>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <input className={'inputButton'} type="button" onClick={onButtonClick_SignUp} value={'Sign Up'} />
+      </div>
+    </div>
+  );
+};
+
+export default SignUp;

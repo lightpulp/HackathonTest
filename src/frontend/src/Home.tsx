@@ -23,6 +23,16 @@ const Home: React.FC<HomeProps> = ({ email, loggedIn, setLoggedIn }) => {
     }
   };
 
+  const handleTabClick = (tab: string) => {
+    setActiveTab(tab);
+    if (tab === "Home") { 
+    } else if (tab === "Sign Up") {
+      navigate('/SignUp'); 
+    } else if (tab === "Log In") {
+      navigate('/LogIn'); 
+    }
+  };
+
   return (
     <div className="mainContainer">
        <header className="top-bar">
@@ -31,11 +41,11 @@ const Home: React.FC<HomeProps> = ({ email, loggedIn, setLoggedIn }) => {
           <h1>WaterSaver</h1>
         </div>
         <nav className="nav">
-          {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
+          {["Home", "Log In", "Sign Up"].map(tab => (
             <div
               key={tab}
               className={`tab ${activeTab === tab ? "active" : ""}`}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => handleTabClick(tab)}
             >
               {tab}
             </div>

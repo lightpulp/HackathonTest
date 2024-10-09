@@ -2,7 +2,6 @@ $primary-color: #00BFFF; // Light blue for the theme
 $secondary-color: #F0F0F0; // Light gray background
 $font-family: 'Arial', sans-serif;
 
-
 .mainContainer {
   flex-direction: column;
   display: flex;
@@ -167,14 +166,35 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative; // Allow absolute positioning for child elements
       margin-top: 50px; // Vertical centering adjustment
-
+    
       .gallon-image {
-        width: 1200px; // Image width
+        width: 1200px; // Width of the main image
         height: auto; // Auto height for image
         max-height: 90vh; // Max height limit
       }
+    
+      .water-bottle-images {
+        position: absolute; // Position absolutely to center over the main image
+        top: 50%; // Center vertically
+        left: 50%; // Center horizontally
+        transform: translate(-50%, -50%); // Adjust to truly center
+        display: flex; // Use flexbox for alignment
+        flex-direction: column; // Stack images vertically
+        align-items: center; // Center align images
+      }
+    
+      .water-image {
+        width: 500px; // Set width for images
+        height: auto; // Auto height for images
+        object-fit: cover; // Maintain aspect ratio
+      }
     }
+    
+    
+    
+    
 
     .bottle-tracking-section {
       text-align: center; // Center text

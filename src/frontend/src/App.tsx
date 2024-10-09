@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./Styles/App.scss";
+import LogIn from "./LogIn";
+import Home from "./Home";
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
+import WaterGallonEmpty from "../public/Water_Gallon_Empty.png";
+import WaterGallonFilled from "../public/Water_Gallon_Filled.png";
 import WaterBottle from "../public/Water_Bottle.png";
 import MessageBubble from "../public/Message_Bubble_Big.png";
 
@@ -16,7 +20,7 @@ const App: React.FC = () => {
     <div className="app-container">
       <header className="top-bar">
         <div className="logo">
-          <img src={WaterGallonMain} alt="Water Drop Logo" />
+          <img src="../public/Water_Gallon_Main.png" alt="Water Drop Logo" />
           <h1>WaterSaver</h1>
         </div>
         <nav className="nav">
@@ -41,6 +45,10 @@ const App: React.FC = () => {
           <div className="overview-section">
             <div className="gallon-section">
               <img src={WaterGallonMain} alt="Water Gallon" className="gallon-image" />
+              <div className="water-bottle-images">
+                <img src={WaterGallonEmpty} alt="Empty Water Bottle" className="water-image" />
+                <img src={WaterGallonFilled} alt="Filled Water Bottle" className="water-image" />
+              </div>
             </div>
 
             <div className="bottle-tracking-section">

@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React from "react";
-import Home from "./Home"; // Your Home component
-import LogIn from "./LogIn"; // Your LogIn component
-import App from "./App"; // If you have an App component
+import Home from "./Home"; 
+import LogIn from "./LogIn"; 
+import App from "./App"; 
 import './Styles/App.scss';
 import './index.scss';
 import { useEffect, useState } from 'react';
+import SignUp from './SignUp';
 
 const RouterComponent: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
@@ -49,7 +50,11 @@ const RouterComponent: React.FC = () => {
       <Route path="/LogIn" element={<LogIn setLoggedIn={() => { } } setEmail={function (value: React.SetStateAction<string>): void {
                   throw new Error('Function not implemented.');
               } } />} />
-      
+      <Route path="/SignUp" element={<SignUp setLoggedIn={function (value: React.SetStateAction<boolean>): void {
+          throw new Error('Function not implemented.');
+        } } setEmail={function (value: React.SetStateAction<string>): void {
+          throw new Error('Function not implemented.');
+        } } />} />
       <Route path="/App" element={<App />} />
     </Routes>
     </div>
