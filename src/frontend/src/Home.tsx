@@ -3,8 +3,6 @@ import "./Styles/App.scss";
 import "./index.scss";
 import { useNavigate } from 'react-router-dom';
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
-import WaterBottle from "../public/Water_Bottle.png";
-import MessageBubble from "../public/Message_Bubble_Big.png";
 
 interface HomeProps {
   email: string;
@@ -29,7 +27,7 @@ const Home: React.FC<HomeProps> = ({ email, loggedIn, setLoggedIn }) => {
     <div className="mainContainer">
        <header className="top-bar">
         <div className="logo">
-          <img src="../public/Water_Gallon_Main.png" alt="Water Drop Logo" />
+          <img src={WaterGallonMain} alt="Water Drop Logo" />
           <h1>WaterSaver</h1>
         </div>
         <nav className="nav">

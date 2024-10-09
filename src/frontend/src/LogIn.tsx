@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import App from "./App";
 import { useNavigate } from 'react-router-dom';
 import "./Styles/App.scss";
 import "./index.scss";
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
-import WaterBottle from "../public/Water_Bottle.png";
-import MessageBubble from "../public/Message_Bubble_Big.png";
 
 interface LoginProps {
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
