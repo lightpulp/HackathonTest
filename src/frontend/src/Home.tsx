@@ -52,7 +52,7 @@ const Home: React.FC<HomeProps> = ({ email, loggedIn, setLoggedIn }) => {
           ))}
         </nav>
         <div className="greeting">
-          <span>Hi, Jack!</span>
+          <span>Hi!</span>
           <span className="dropdown-arrow">▼</span>
         </div>
       </header>

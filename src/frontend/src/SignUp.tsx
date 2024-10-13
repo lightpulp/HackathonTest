@@ -101,7 +101,7 @@ const SignUp: React.FC<SignUpProps> = ({ setLoggedIn, setEmail }) => {
     if (validateForm()) {
       setLoggedIn(true);
       setEmail(email);
-      navigate('/App');
+      navigate('/LogIn');
       console.log('Form is valid, proceed with registration...');
     }
   };

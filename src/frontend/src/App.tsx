@@ -33,7 +33,7 @@ const App: React.FC = () => {
           ))}
         </nav>
         <div className="greeting">
-          <span>Hi, Jack!</span>
+          <span>Hi!</span>
           <span className="dropdown-arrow">▼</span>
         </div>
       </header>
