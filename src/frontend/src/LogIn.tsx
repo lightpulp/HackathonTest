@@ -52,6 +52,7 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
       navigate('/App');
       console.log('Form is valid, proceed with authentication...');
     }
+    navigate('/App');
   };
 
   const handleTabClick = (tab: string) => {
