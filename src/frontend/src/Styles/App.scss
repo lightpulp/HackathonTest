@@ -291,31 +291,46 @@ body {
       }
     }
 
-    .arrow-container {
-      position: relative;
-      display: inline-block; // Ensure it only takes up the space of its content
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column; // Stack text and arrows vertically
+      align-items: center; // Center horizontally
+      justify-content: center; // Center vertically (if needed)
+      margin-top: -105%; // Adjust space above the section
     
-      img {
-        width: 100%; // Adjust width as needed
-        height: auto; // Maintain aspect ratio
-    
-        // Hide the gif initially
-        &.static {
-          display: block; // Show the static image by default
-        }
-    
-        &.bouncing {
-          display: none; // Hide the bouncing gif initially
-        }
+      .scroll-text {
+        color: darkgrey; // Text color
+        margin-bottom: -5%; // Space below the text
+        font-size: 1.2rem; // Font size
+        text-align: center; // Center text
       }
     
-      &:hover {
-        img.static {
-          display: none; // Hide static image on hover
+      .arrow-container {
+        display: flex; // Flexbox to align arrows
+        justify-content: center; // Center arrows horizontally
+    
+        img {
+          width: 30%; // Adjust width as needed
+          height: auto; // Maintain aspect ratio
+    
+          // Hide the gif initially
+          &.static {
+            display: block; // Show the static image by default
+          }
+    
+          &.bouncing {
+            display: none; // Hide the bouncing gif initially
+          }
         }
     
-        img.bouncing {
-          display: block; // Show bouncing gif on hover
+        &:hover {
+          img.static {
+            display: none; // Hide static image on hover
+          }
+    
+          img.bouncing {
+            display: block; // Show bouncing gif on hover
+          }
         }
       }
     }

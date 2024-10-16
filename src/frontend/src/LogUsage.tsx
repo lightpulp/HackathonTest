@@ -32,7 +32,7 @@ const LogUsage: React.FC = () => {
               navigate('/App');
           }
           else if (tab === "Impact") {
-              navigate('/App');
+              navigate('/Impact');
           }
     };
 

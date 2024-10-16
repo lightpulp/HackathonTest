@@ -4,6 +4,7 @@ import Home from "./Home";
 import LogIn from "./LogIn"; 
 import App from "./App"; 
 import Tips from "./Tips";
+import Impact from "./Impact";
 import LogUsage from "./LogUsage";
 import './Styles/App.scss';
 import './index.scss';
@@ -60,6 +61,7 @@ const RouterComponent: React.FC = () => {
       <Route path="/App" element={<App />} />
       <Route path="/LogUsage" element={<LogUsage />} />
       <Route path="/Tips" element={<Tips />} />
+      <Route path="/Impact" element={<Impact />} />
     </Routes>
     </div>
   );

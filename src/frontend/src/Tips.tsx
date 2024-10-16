@@ -20,7 +20,7 @@ const Tips: React.FC = () => {
             navigate('/App');
         }
         else if (tab === "Impact") {
-            navigate('/App');
+            navigate('/Impact');
         }
     };
     return(
