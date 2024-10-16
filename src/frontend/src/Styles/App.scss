@@ -89,6 +89,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-content: center;
   position: fixed; // Use fixed positioning
   top: 0; // Align to the top
   left: 0; // Align to the left
@@ -96,7 +97,7 @@ body {
   padding: 0.5rem; // Reduced padding for less height
   background: linear-gradient(to bottom, #e0e0e0, #ffffff); // Gradient for top bar background
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Shadow effect
-  z-index: 1000; // Ensure it stays on top of other content
+  z-index: 1000; // Ensures the topbar stays on top of other content
 }
 .logo {
   display: flex;
@@ -110,6 +111,7 @@ body {
   h1 {
     font-size: 1.5rem; // Logo font size
     color: $primary-color; // Primary color for logo text
+    margin-right: -20%;
   }
 }
 
@@ -146,6 +148,7 @@ body {
   display: flex;
   align-items: center; // Align items vertically
   font-weight: bold; // Make greeting text bold
+  margin-left: 13%;
 }
 
 .dropdown-arrow {
