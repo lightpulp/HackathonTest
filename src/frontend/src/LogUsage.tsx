@@ -27,14 +27,12 @@ const LogUsage: React.FC = () => {
           setDrinkingWaterError('Please enter a value for drinking water consumption.');
           isValid = false;
         }
+        return isValid;
     };        
 
     const onButtonClick_Submit = () => {
         if (validateForm()) {
-          setLoggedIn(true);
-          setEmail(email);
-          navigate('/LogIn');
-          console.log('Form is valid, proceed with registration...');
+          
         }
       };
 

@@ -9,6 +9,7 @@ import BouncingArrows from "../public/Bouncing_Arrows.gif";
 import StaticArrows from "../public/Static_Arrows.png";
 import WaterBottle from "../public/Water_Bottle.png";
 import MessageBubble from "../public/Message_Bubble_Big.png";
+import WaterdropLogo from "../public/Waterdrop_logo.png";
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const App: React.FC = () => {
     <div className="app-container">
       <header className="top-bar">
         <div className="logo">
-          <img src={WaterGallonMain} alt="Water Drop Logo" />
+          <img src={WaterdropLogo} alt="Water Drop Logo" />
           <h1>WaterSaver</h1>
         </div>
         <nav className="nav">
@@ -84,7 +85,7 @@ const App: React.FC = () => {
                   <img src={BouncingArrows} alt="Bouncing Arrows" className="bouncing" />
                   </div>
                 </div>
-                
+
               <div className="message-bubble">
                 <img src={MessageBubble} alt="Message Bubble" className="bubble-image" />
                 <p>{bottlesUsed.length} bottles used</p>
