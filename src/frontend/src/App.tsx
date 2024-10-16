@@ -62,7 +62,40 @@ const App: React.FC = () => {
         )}
 
         {activeTab === "Log Usage" && <div><h2>Log Your Water Usage</h2><p>Functionality to log water usage will go here.</p></div>}
-        {activeTab === "Tips & Advice" && <div><h2>Water-Saving Tips & Advice</h2><p>Tips and advice about saving water will go here.</p></div>}
+        {activeTab === "Tips & Advice" && <div><h2 className="titleForActivetab">Water-Saving Tips & Advice</h2><p className="advice">Conserving water can also extend the life of your septic system by reducing soil saturation, and reducing any pollution due to leaks. Overloading municipal sewer systems can also cause untreated sewage to flow to lakes and rivers. The smaller the amount of water flowing through these systems, the lower the likelihood of pollution. In some communities, costly sewage system expansion has been avoided by community wide household water conservation.
+                          There are a number of ways to save water, and they all start with you.
+                          Designate one glass for your drinking water each day, or refill a water bottle. This will cut down on the number of glasses to wash
+                          Reuse leftover water from cooked or steamed foods to start a nutritious soup, it's one more way to get eight glasses of water a day.
+                          If you accidentally drop ice cubes, don't throw them in the sink. Drop them in a house plant instead.
+                          Washing dark clothes in cold water saves water and energy and helps your clothes retain their color.
+                          Toilet leaks can be silent! be sure to test your toilet for leaks at least once a year.
+                          Turn off the water while you brush your teeth and save up to 4 gallons a minute. That's up to 200 gallons a week for a family of four.
+                          Take 5-minute showers instead of baths. A full bathtub requires up to 70 gallons of water.
+                          Teach children to turn off faucets tightly after each use.
+                          Monitor your water bill for unusually high use. You bill and water meter are tools that can help you discover leaks.
+                          Learn how to use your water meter to check for leaks.
+                          Grab a wrench and fix that leaky faucet. It's simple, inexpensive, and you can sace 140 gallons a week.
+                          Be e leak detective! check all hoses, connectors, and faucets regularly for leaks.
+                          Minimize evaporation by watering during the early morning hours when temperatures are cooler and winds are lighter.
+                          Use a rain barrel to harvest rainwater from gutter for watering gardens and landscapes.
+                          Report broken pipes, leaky hydrants and errant sprinklers to property owners or your local water provider.
+                          </p>
+                          <div>
+                          <h4 className="subTitleForActivetab">For Every Room in the House With Plumbing</h4>
+                          <li className="listContent">Check for leaks in pipes, hoses, faucets, toilets and couplings.</li>
+                          <li className="listContent">Consider replacing old equipment (like toilets, dishwahers and laundry machines).</li>
+                          <li className="listContent">Turn off faucets tightly after each use.</li>
+                          <li className="listContent">Find and fix any leaky faucets</li>
+                          </div>
+                          <div>
+                          <h4 className="subTitleForActivetab">For Every Room in the House With Plumbing</h4>
+                          <li className="listContent">Check for leaks in pipes, hoses, faucets, toilets and couplings.</li>
+                          <li className="listContent">Consider replacing old equipment (like toilets, dishwahers and laundry machines).</li>
+                          <li className="listContent">Turn off faucets tightly after each use.</li>
+                          <li className="listContent">Find and fix any leaky faucets</li>
+                          </div>
+
+                          </div>}
         {activeTab === "Goals" && <div><h2>Your Water Usage Goals</h2><p>Set and track your water usage goals here.</p></div>}
         {activeTab === "Impact" && <div><h2>Impact of Your Water Usage</h2><p>View the environmental impact of your water usage here.</p></div>}
       </main>

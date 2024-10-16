@@ -2,6 +2,35 @@ $primary-color: #00BFFF; // Light blue for the theme
 $secondary-color: #F0F0F0; // Light gray background
 $font-family: 'Arial', sans-serif;
 
+.advice{
+    
+      align-content: center;
+      font-size: 90%;
+      text-align: justify;
+      text-indent: 5%;  
+}
+
+.titleForActivetab{
+    align-content: center;
+    text-align: center;
+    font-size: 300%;
+    margin-top: -5%;
+    font-weight: bolder;
+}
+.subTitleForActivetab{
+  align-content: center;
+  font-size: 90%;
+  text-align: justify;
+  margin-left: 10%;
+  margin-bottom: .3%;
+}
+
+.listContent{
+      font-size: 90%;
+      text-align: normal;
+      margin-left: 10%;
+}
+
 .mainContainer {
   flex-direction: column;
   display: flex;
