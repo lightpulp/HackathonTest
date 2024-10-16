@@ -105,7 +105,18 @@ const SignUp: React.FC<SignUpProps> = ({ setLoggedIn, setEmail }) => {
       console.log('Form is valid, proceed with registration...');
     }
   };
+/*
 
+function handleSubmit(event: any) {
+    event.preventDefault();
+    const name = event.target.elements.name.value;
+    fetch(`${import.meta.env.VITE_CANISTER_URL}/greet?name=${name}`)
+      .then(response => response.json()).then((json) => {
+        setGreeting(json.greeting)
+      });
+  }
+
+*/
   return (
     <div className={'mainContainer'}>
       <header className="top-bar">

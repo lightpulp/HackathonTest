@@ -214,10 +214,17 @@ body {
         object-fit: cover; // Maintain aspect ratio
       }
     }
+
+    .scroll-indicator {
+      display: flex;
+      justify-content: center; // Center the GIF horizontally
+      margin-top: -200%; // Add space above the GIF
     
-    
-    
-    
+      .bouncing-arrows {
+        width: 35%; // Set the width of the GIF
+        height: auto; // Maintain aspect ratio
+      }
+    }
 
     .bottle-tracking-section {
       display: flex;

@@ -19,16 +19,13 @@ export class User extends BaseEntity {
   @Column({ type: 'varchar', length: 50 }) //5.  Username
   user_Username: string;
 
-  @Column({ type: 'varchar', length: 11 }) //6. Age
-  user_Age: string;
-
-  @Column({ type: 'varchar', length: 100 }) //7. Email
+  @Column({ type: 'varchar', length: 100 }) //6. Email
   user_Email: string;
 
-  @Column({ type: 'varchar', length: 50 }) //8. Password
+  @Column({ type: 'varchar', length: 50 }) //7. Password
   user_Password: string;
  
-  @Column({ type: 'varchar', length: 100 }) //9. Region
+  @Column({ type: 'varchar', length: 100 }) //8. Region
   user_Region: string;
 
 }

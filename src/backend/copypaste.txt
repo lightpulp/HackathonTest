@@ -1,0 +1,58 @@
+fetch TL;DR
+Azle canisters use a custom fetch implementation to perform cross-canister calls and to perform HTTPS outcalls.
+
+Here's an example of performing a cross-canister call:
+
+
+import { serialize } from 'azle/experimental';
+import express from 'express';
+
+const app = express();
+
+app.use(express.json());
+
+app.post('/cross-canister-call', async (req, res) => {
+    const to: string = req.body.to;
+    const amount: number = req.body.amount;
+
+    const response = await fetch(`icp://dfdal-2uaaa-aaaaa-qaama-cai/transfer`, {
+        body: serialize({
+            candidPath: '/token.did',
+            args: [to, amount]
+        })
+    });
+    const responseJson = await response.json();
+
+    res.json(responseJson);
+});
+
+app.listen();
+Keep these important points in mind when performing a cross-canister call:
+
+Use the icp:// protocol in the URL
+The canister id of the canister that you are calling immediately follows icp:// in the URL
+The canister method that you are calling immediately follows the canister id in the URL
+The candidPath property of the body is the path to the Candid file defining the method signatures of the canister that you are calling. You must obtain this file and copy it into your canister. See the Assets chapter for info on copying files into your canister
+The args property of the body is an array of the arguments that will be passed to the canister method that you are calling
+Here's an example of performing an HTTPS outcall:
+
+import express from 'express';
+
+const app = express();
+
+app.use(express.json());
+
+app.post('/https-outcall', async (_req, res) => {
+    const response = await fetch(`https://httpbin.org/headers`, {
+        headers: {
+            'X-Azle-Request-Key-0': 'X-Azle-Request-Value-0',
+            'X-Azle-Request-Key-1': 'X-Azle-Request-Value-1',
+            'X-Azle-Request-Key-2': 'X-Azle-Request-Value-2'
+        }
+    });
+    const responseJson = await response.json();
+
+    res.json(responseJson);
+});
+
+app.listen();   

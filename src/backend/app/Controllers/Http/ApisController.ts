@@ -127,7 +127,6 @@ static async insert_user(request: Request, response: Response) {
         user_MiddleName,
         user_LastName,
         user_Username,
-        user_Age,
         user_Email,
         user_Password,
         user_Region
@@ -173,7 +172,6 @@ static async update_user(request: Request, response: Response) {
                 user_MiddleName,
                 user_LastName,
                 user_Username,
-                user_Age,
                 user_Email,
                 user_Password,
                 user_Region

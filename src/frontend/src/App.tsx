@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Styles/App.scss";
 import "./Styles/ActiveTab.scss";
+import { useNavigate } from 'react-router-dom';
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
 import WaterGallonEmpty from "../public/Water_Gallon_Empty.png";
 import WaterGallonFilled from "../public/Water_Gallon_Filled.png";
@@ -9,13 +10,13 @@ import WaterBottle from "../public/Water_Bottle.png";
 import MessageBubble from "../public/Message_Bubble_Big.png";
 
 const App: React.FC = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<string>("Overview");
   const [bottlesUsed, setBottlesUsed] = useState<number[]>([]);
 
   const addBottle = () => {
     setBottlesUsed([...bottlesUsed, bottlesUsed.length + 1]);
   };
-
   return (
     <div className="app-container">
       <header className="top-bar">
@@ -49,7 +50,9 @@ const App: React.FC = () => {
               <img src={WaterGallonFilled} alt="Water Gallon Filled" className="gallon-filled-image" />
             </div>
           
-            
+            <div className="scroll-section">
+              <img src={BouncingArrows} alt="Bouncing Arrows" className="bouncing-arrows" />
+            </div>
 
             <div className="bottle-tracking-section">
               <button className="add-bottle-button" onClick={addBottle}>Add Bottle</button>
@@ -57,6 +60,11 @@ const App: React.FC = () => {
                 {bottlesUsed.map((_, index) => (
                   <img key={index} src={WaterBottle} alt={`Bottle ${index + 1}`} className="bottle-image" />
                 ))}
+              </div>
+
+              {/* Bouncing Arrows GIF */}
+                <div className="scroll-indicator">
+                <img src={BouncingArrows} alt="Scroll down" className="bouncing-arrows" />
               </div>
 
               <div className="message-bubble">
@@ -67,7 +75,7 @@ const App: React.FC = () => {
           </div>
         )}
 
-        {activeTab === "Log Usage" && <div><h2>Log Your Water Usage</h2><p>Functionality to log water usage will go here.</p></div>}
+        {activeTab === "Log Usage" && <div><h2>Log Your Water Usage</h2></div>}
         {activeTab === "Tips & Advice" && <div><h2 className="titleForActivetab">Water-Saving Tips & Advice</h2><p className="advice">Conserving water can also extend the life of your septic system by reducing soil saturation, and reducing any pollution due to leaks. Overloading municipal sewer systems can also cause untreated sewage to flow to lakes and rivers. The smaller the amount of water flowing through these systems, the lower the likelihood of pollution. In some communities, costly sewage system expansion has been avoided by community wide household water conservation.
                           There are a number of ways to save water, and they all start with you.
                           Designate one glass for your drinking water each day, or refill a water bottle. This will cut down on the number of glasses to wash
@@ -115,7 +123,7 @@ const App: React.FC = () => {
                           <li className="listContent">Regularly inspect hoses and connections for leaks to prevent water waste.</li>
                           </div>
                           <div className="divForContentLast">
-                          <h4 className="subTitleForActivetab">Outdoor</h4>
+                          <h4 className="divForContentLast">Outdoor</h4>
                           <li className="listContentLast">Water During the early parts of the day; Avoid watering when it’s windy.</li>
                           <li className="listContentLast"> Use a broom, not a hose, to clean driveways and sidewalks.</li>
                           <li className="listContentLast">Check water bills for any instances of high water use, as this may be an indication of leak.</li>
