@@ -120,6 +120,7 @@ h4 {
     text-decoration: underline;
 }
 
+
 .input-container {
     background-color: #ffffff;
     border-radius: 8px;
@@ -138,6 +139,8 @@ h4 {
 }
 
 .form-group {
+    display: flex; // Use flexbox for alignment
+    flex-direction: column; // Stack label and input vertically
     margin-bottom: 1.5rem;
     text-align: left;
 }
@@ -145,14 +148,17 @@ h4 {
 label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: bold;
+    font-weight: normal; // Change to normal weight
+    font-size: 0.875rem; // Smaller font size
+    width: 100%; // Make label full width
 }
 
 input {
-    width: 100%;
+    width: 100%; // Ensure inputs take full width
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; // Include padding and border in width
 }
 
 .input-button {
@@ -174,3 +180,7 @@ input {
     font-size: 0.9rem;
     color: #555;
 }
+
+
+
+

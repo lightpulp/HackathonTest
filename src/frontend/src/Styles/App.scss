@@ -94,7 +94,7 @@ body {
   top: 0; // Align to the top
   left: 0; // Align to the left
   right: 0; // Align to the right
-  padding: 0.5rem; // Reduced padding for less height
+  padding: .3%; // Reduced padding for less height
   background: linear-gradient(to bottom, #e0e0e0, #ffffff); // Gradient for top bar background
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Shadow effect
   z-index: 1000; // Ensures the topbar stays on top of other content
@@ -105,7 +105,7 @@ body {
 
   img {
     height: 40px; // Logo size
-    margin-right: 10px; // Spacing
+    margin-right: 13%; // Spacing
   }
 
   h1 {
@@ -137,6 +137,7 @@ body {
   &:hover {
     color: #5474eb; // Dark blue on hover for all tabs
     border-bottom: 3px solid #5474eb; // Blue underline on hover
+    transition: 0.2s;
   }
 
   &:not(.active) {
@@ -274,23 +275,13 @@ body {
       }
 
       .message-bubble {
-        display: flex;
-        align-items: center; // Align bubble items
-        margin-top: 20px; // Space above bubble
-        padding: 10px; // Bubble padding
-        background-color: white; // Bubble background
-        border-radius: 10px; // Rounded corners
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Shadow for bubble
-
-        .bubble-image {
-          width: 40px; // Image size
-          margin-right: 10px; // Space between image and text
-        }
-
-        p {
-          margin: 0; // No margin for paragraph
-          color: $primary-color; // Text color
-        }
+        align-items: right;
+        padding: 1rem; // Padding inside the bubble
+        font-size: 0.9rem; // Font size for the message
+        text-align: center; // Center text in the bubble
+        max-width: 300px; // Max width for the bubble
+        margin-top: 0.5rem; // Margin above the bubble
+        color: #fff; // Text color (adjust as needed for visibility)
       }
     }
 
@@ -337,4 +328,27 @@ body {
         }
       }
     }
+    .message-bubble {
+      position: relative;
+      display: inline-block;
+      align-items: right;
+      margin-left: 20px; // Adjust spacing as needed
+  
+      img {
+          max-width: 100%; // Adjust size as needed
+          height: auto;
+          position:right
+      }
+  
+      .bubble-text {
+          position: right;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #000; // Adjust text color as needed
+          font-size: 16px; // Adjust font size as needed
+          text-align: center;
+          pointer-events: none; // Prevents interaction
+      }
+  }
   }

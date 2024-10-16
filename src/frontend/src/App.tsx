@@ -8,8 +8,9 @@ import WaterGallonFilled from "../public/Water_Gallon_Filled.png";
 import BouncingArrows from "../public/Bouncing_Arrows.gif";
 import StaticArrows from "../public/Static_Arrows.png";
 import WaterBottle from "../public/Water_Bottle.png";
-import MessageBubble from "../public/Message_Bubble_Big.png";
-import WaterdropLogo from "../public/Waterdrop_logo.png";
+import MessageBubbleBig from "../public/Message_Bubble_Big.png";
+import MessageBubbleSmall from "../public/Message_Bubble_Small.png";
+import WaterdropLogo from "../public/Waterdrop_Logo.png";
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -86,9 +87,16 @@ const App: React.FC = () => {
                   </div>
                 </div>
 
+              {/* Message Bubble for Bottles Used */}
               <div className="message-bubble">
-                <img src={MessageBubble} alt="Message Bubble" className="bubble-image" />
-                <p>{bottlesUsed.length} bottles used</p>
+                <img src={MessageBubbleBig} alt="Message Bubble" className="bubble-image" />
+                <p className="bubble-text">{bottlesUsed.length} bottles used</p>
+              </div>
+              
+              {/* Message Bubble for Daily Water Usage */}
+              <div className="message-bubble">
+                <img src={MessageBubbleSmall} alt="Message Bubble" className="bubble-image" />
+                <p className="bubble-text">Your daily water usage is 0.8 gallons. Keep it up!</p>
               </div>
             </div>
           </div>

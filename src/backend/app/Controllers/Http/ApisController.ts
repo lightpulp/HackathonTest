@@ -1,5 +1,6 @@
 import { Configuration } from 'Database/entities/configuration';
 import { User } from 'Database/entities/user';
+import { WaterConsumption } from 'Database/entities/waterconsumption'
 import { Response, Request } from 'express';
 
 export default class ApisController {
@@ -71,7 +72,6 @@ export default class ApisController {
             message: "Configuration has been deleted!",
         });
     }
-
 
 
 
@@ -223,4 +223,151 @@ static async delete_user(request: Request, response: Response) {
     }
 }
 
+
+
+
+
+
+
+//Water Consumption table 
+
+
+// REEEEEEEEEEAAAAAAAAAAAADDDDDDDDDDDDDDDDDD
+static async waterconsumptions(request: Request, response: Response) {
+    try {
+        const consumptions = await WaterConsumption.find();
+        response.json({
+            status: 1,
+            data: consumptions
+        });
+    } catch (error) {
+        console.error("Error fetching water consumptions:", error);
+        response.json({
+            status: 0,
+            message: "An error occurred while fetching water consumptions."
+        });
+    }
+}
+
+// INSSSSSSSEEEEEEEEEEEEEEERRRRRRRRRRRRRTTTTTTTTTTTT
+static async insertWaterConsumption(request: Request, response: Response) {
+    const {
+        showerConsump,
+        brushConsump,
+        washhandConsump,
+        drinkingConsump,
+        laundryConsump,
+        dishwashingConsump,
+        flushingConsump,
+        foodprepConsump,
+        otherConsump,
+    } = request.body;
+
+    // Insert the new water consumption record into the database
+    const newConsumption = await WaterConsumption.create({
+        showerConsump,
+        brushConsump,
+        washhandConsump,
+        drinkingConsump,
+        laundryConsump,
+        dishwashingConsump,
+        flushingConsump,
+        foodprepConsump,
+        otherConsump
+    }).save();
+
+    response.json({
+        status: 1,
+        message: "Water consumption has been inserted!",
+        data: newConsumption
+    });
+}
+
+// UPPPPPPPPPDAAAAAAAAAAAAATTTTTTEEEEEEEEEEEE
+static async updateWaterConsumption(request: Request, response: Response) {
+    const {
+        user_Id, // Assuming user_Id is the identifier for the water consumption record
+        showerConsump,
+        brushConsump,
+        washhandConsump,
+        drinkingConsump,
+        laundryConsump,
+        dishwashingConsump,
+        flushingConsump,
+        foodprepConsump,
+        otherConsump,
+    } = request.body;
+
+    try {
+        // Find water consumption record by user ID
+        const getConsumption = await WaterConsumption.findOneBy({ user_Id });
+
+        if (!getConsumption) {
+            response.json({
+                status: 0,
+                message: "Water consumption record not found!"
+            });
+            return;
+        }
+
+        // Update water consumption details
+        await WaterConsumption.update(
+            { user_Id },
+            {
+                showerConsump,
+                brushConsump,
+                washhandConsump,
+                drinkingConsump,
+                laundryConsump,
+                dishwashingConsump,
+                flushingConsump,
+                foodprepConsump,
+                otherConsump
+            }
+        );
+
+        response.json({
+            status: 1,
+            message: "Water consumption has been updated!",
+        });
+    } catch (error) {
+        console.error("Error updating water consumption:", error);
+        response.json({
+            status: 0,
+            message: "An error occurred while updating the water consumption."
+        });
+    }
+}
+
+// DEEEEEEEEELEEEEEEEEEEEEEETEEEEEEEEEEEEE
+static async deleteWaterConsumption(request: Request, response: Response) {
+    const { user_Id } = request.body; // Get the user ID from the request body
+
+    try {
+        // Find water consumption record by user ID
+        const getConsumption = await WaterConsumption.findOneBy({ user_Id });
+
+        if (!getConsumption) {
+            response.json({
+                status: 0,
+                message: "Water consumption record not found!"
+            });
+            return;
+        }
+
+        // Delete the water consumption record
+        await WaterConsumption.delete({ user_Id });
+
+        response.json({
+            status: 1,
+            message: "Water consumption record has been deleted!",
+        });
+    } catch (error) {
+        console.error("Error deleting water consumption:", error);
+        response.json({
+            status: 0,
+            message: "An error occurred while deleting the water consumption."
+        });
+    }
+}
 }

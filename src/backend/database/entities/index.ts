@@ -1,3 +1,4 @@
 import { Configuration } from './configuration';
 import { User } from './user';
-export const ENTITIES = [Configuration, User];
+import { WaterConsumption } from './waterconsumption'
+export const ENTITIES = [Configuration, User, WaterConsumption];
