@@ -1,7 +1,6 @@
-# ICP Development Environment with Azle and React
+# Water Usage Tracker Application
 
-This template gives you everything you need to build a full-stack Web3 application on the [Internet Computer](https://internetcomputer.org/).
-It includes a frontend built with Vite and React, and a backend written in JS/TS (Azle).
+This application tracks water usage and provides insights to help users reduce water consumption. Below are the setup instructions for running the project.
 
 ## Get started with one click:
 ### Locally:
@@ -14,20 +13,63 @@ Make sure you have you have the latest version of Docker (e.g. >25) and VS Code 
 
 In Gitpod 
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/icPHubPH/azle-react/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Sempiiee/Hackathon/)
 
 ## 🚀 Develop
 
 When the editor opened, run the following commands to start a local ICP node and deploy the canister smart contract:
+Follow these steps to set up and run the backend of the application:
 
-```bash
-dfx start --clean # Start a local ICP node
-# In a new terminal window:
-dfx deploy # Deploy smart contract locally
+## Installation Guide
+
+Follow these steps to set up and run the backend of the application:
+   
+1. **Install npm version 10.9.0 globally**:
+
+   ```bash
+   npm install -g npm@10.9.0
+   ```
+
+2. **Make the build script executable**:
+   ```bash
+   chmod +x ./build_backend.sh
+   ```
+
+3. **Fix npm vulnerabilities**:
+   ```bash
+   npm audit fix
+   ```
+
+4. **Run the following in a new terminal window** to force fix vulnerabilities:
+   ```bash
+   npm audit fix --force
+   ```
+
+5. **Start the Internet Computer local replica**:
+   ```bash
+   dfx start --clean
+   ```
+
+6. **Create the backend canister**:
+   ```bash
+   dfx canister create backend
+   ```
+
+7. **Build the canister**:
+   ```bash
+   dfx build
+   ```
+
+8. **Deploy the canister**:
+   ```bash
+   dfx deploy
+   ```
+
+---
+
 ```
 
 The smart contract will be reachable under `http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943`.
-Call the smart contract using `curl` on the command line: 
 
 ```bash
 # create configuration
