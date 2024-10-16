@@ -3,6 +3,8 @@ import "./Styles/App.scss";
 import LogIn from "./LogIn";
 import Home from "./Home";
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
+import WaterGallonEmpty from "../public/Water_Gallon_Empty.png";
+import WaterGallonFilled from "../public/Water_Gallon_Filled.png";
 import WaterBottle from "../public/Water_Bottle.png";
 import MessageBubble from "../public/Message_Bubble_Big.png";
 
@@ -43,6 +45,8 @@ const App: React.FC = () => {
           <div className="overview-section">
             <div className="gallon-section">
               <img src={WaterGallonMain} alt="Water Gallon" className="gallon-image" />
+              <img src={WaterGallonEmpty} alt="Water Gallon Empty" className="gallon-empty-image" />
+              <img src={WaterGallonFilled} alt="Water Gallon Filled" className="gallon-filled-image" />
             </div>
 
             <div className="bottle-tracking-section">

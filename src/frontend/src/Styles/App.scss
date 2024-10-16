@@ -223,12 +223,33 @@ body {
       align-items: center;
       position: relative; // Allow absolute positioning for child elements
       margin-top: 50px; // Vertical centering adjustment
+      width: 500px; // Container width (same as images)
+      height: auto;
+      max-height: 90vh; // Max height limit for the container
+    }
     
-      .gallon-image {
-        width: 1200px; // Width of the main image
-        height: auto; // Auto height for image
-        max-height: 90vh; // Max height limit
-      }
+    .gallon-image,
+    .gallon-empty-image,
+    .gallon-filled-image {
+      position: absolute; // Stack all images on top of each other
+      top: 0;
+      left: 0;
+      width: 100%; // Ensure they take up the full container size
+      height: auto; // Maintain aspect ratio
+      max-height: 90vh;
+    }
+    
+    .gallon-image {
+      z-index: 0; // Base layer
+    }
+    
+    .gallon-empty-image {
+      z-index: 1; // Middle layer
+    }
+    
+    .gallon-filled-image {
+      z-index: 2; // Top layer
+    }
     
       .water-bottle-images {
         position: absolute; // Position absolutely to center over the main image
@@ -306,4 +327,3 @@ body {
       }
     }
   }
-}

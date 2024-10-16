@@ -1,3 +1,3 @@
 import { Configuration } from './configuration';
-
-export const ENTITIES = [Configuration];
+import { User } from './user';
+export const ENTITIES = [Configuration, User];
