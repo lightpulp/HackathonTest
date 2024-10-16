@@ -80,20 +80,39 @@ const App: React.FC = () => {
                           Use a rain barrel to harvest rainwater from gutter for watering gardens and landscapes.
                           Report broken pipes, leaky hydrants and errant sprinklers to property owners or your local water provider.
                           </p>
-                          <div>
+                          <div className="divForContent">
                           <h4 className="subTitleForActivetab">For Every Room in the House With Plumbing</h4>
                           <li className="listContent">Check for leaks in pipes, hoses, faucets, toilets and couplings.</li>
                           <li className="listContent">Consider replacing old equipment (like toilets, dishwahers and laundry machines).</li>
                           <li className="listContent">Turn off faucets tightly after each use.</li>
                           <li className="listContent">Find and fix any leaky faucets</li>
                           </div>
-                          <div>
-                          <h4 className="subTitleForActivetab">For Every Room in the House With Plumbing</h4>
-                          <li className="listContent">Check for leaks in pipes, hoses, faucets, toilets and couplings.</li>
-                          <li className="listContent">Consider replacing old equipment (like toilets, dishwahers and laundry machines).</li>
-                          <li className="listContent">Turn off faucets tightly after each use.</li>
-                          <li className="listContent">Find and fix any leaky faucets</li>
+                          <div className="divForContent">
+                          <h4 className="subTitleForActivetab">In the Kitchen</h4>
+                          <li className="listContent">Do not throw hugas-bigas (rice wash) down the drain. Use it for watering plants.</li>
+                          <li className="listContent">When washing dishes by hand, don’t leave the water running for rinsing.</li>
+                          <li className="listContent">When cooking, peel and clean vegetables in a large bowl of water instead of under running water.</li>
+                          <li className="listContent">Only run the dishwasher when it’s full.</li>
                           </div>
+                          <div className="divForContent">
+                          <h4 className="subTitleForActivetab">In the Bathroom</h4>
+                          <li className="listContent">Take short showers instead of baths.</li>
+                          <li className="listContent">Turn off the water to brush teeth, shave and soap up in the shower. Fill the sink to shave.</li>
+                          <li className="listContent">Never use your toilet as a wastebasket.</li>
+                          <li className="listContent">Check toilets to verify they are working properly.</li>
+                          </div>
+                          <div className="divForContent">
+                          <h4 className="subTitleForActivetab">Laundry</h4>
+                          <li className="listContent">Run full loads of laundry.</li>
+                          <li className="listContent"> When purchasing a new washing machine, buy a water saving model that can be adjusted to the load size.</li>
+                          </div>
+                          <div className="divForContentLast">
+                          <h4 className="subTitleForActivetab">Outdoor</h4>
+                          <li className="listContentLast">Water During the early parts of the day; Avoid watering when it’s windy.</li>
+                          <li className="listContentLast"> Use a broom, not a hose, to clean driveways and sidewalks.</li>
+                          <li className="listContentLast">Check water bills for any instances of high water use, as this may be an indication of leak.</li>
+                          </div>
+
 
                           </div>}
         {activeTab === "Goals" && <div><h2>Your Water Usage Goals</h2><p>Set and track your water usage goals here.</p></div>}

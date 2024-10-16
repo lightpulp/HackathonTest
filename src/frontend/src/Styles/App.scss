@@ -7,7 +7,9 @@ $font-family: 'Arial', sans-serif;
       align-content: center;
       font-size: 90%;
       text-align: justify;
-      text-indent: 5%;  
+      text-indent: 5%;
+      margin-left: 3%;
+      margin-right: 3%;
 }
 
 .titleForActivetab{
@@ -21,14 +23,37 @@ $font-family: 'Arial', sans-serif;
   align-content: center;
   font-size: 90%;
   text-align: justify;
-  margin-left: 10%;
+  margin-left: 8%;
   margin-bottom: .3%;
 }
 
 .listContent{
       font-size: 90%;
       text-align: normal;
-      margin-left: 10%;
+      margin-left: 8%;
+}
+.listContentLast{
+  font-size: 90%;
+  text-align: normal;
+  margin-left: 8%;
+  align-content: center;
+}
+
+
+.divForContent{
+  width: 50%;
+  float: left;
+}
+.divForContentLast{
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 25%;
+  align-content: center;
+  align-self: center;
+
+  h4{
+    text-align: center;
+  }
 }
 
 .mainContainer {
