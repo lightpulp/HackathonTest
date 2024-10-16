@@ -3,6 +3,8 @@ import React from "react";
 import Home from "./Home"; 
 import LogIn from "./LogIn"; 
 import App from "./App"; 
+import Tips from "./Tips";
+import LogUsage from "./LogUsage";
 import './Styles/App.scss';
 import './index.scss';
 import { useEffect, useState } from 'react';
@@ -56,6 +58,8 @@ const RouterComponent: React.FC = () => {
           throw new Error('Function not implemented.');
         } } />} />
       <Route path="/App" element={<App />} />
+      <Route path="/LogUsage" element={<LogUsage />} />
+      <Route path="/Tips" element={<Tips />} />
     </Routes>
     </div>
   );

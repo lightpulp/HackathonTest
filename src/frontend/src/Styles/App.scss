@@ -218,10 +218,15 @@ body {
     .scroll-indicator {
       display: flex;
       justify-content: center; // Center the GIF horizontally
-      margin-top: -200%; // Add space above the GIF
+      margin-top: -100%; // Add space above the GIF
     
       .bouncing-arrows {
-        width: 35%; // Set the width of the GIF
+        width: 30%; // Set the width of the GIF
+        height: auto; // Maintain aspect ratio
+      }
+    
+      .static-arrows {
+        width: 30%; // Set the width of the static image
         height: auto; // Maintain aspect ratio
       }
     }
@@ -282,6 +287,35 @@ body {
         p {
           margin: 0; // No margin for paragraph
           color: $primary-color; // Text color
+        }
+      }
+    }
+
+    .arrow-container {
+      position: relative;
+      display: inline-block; // Ensure it only takes up the space of its content
+    
+      img {
+        width: 100%; // Adjust width as needed
+        height: auto; // Maintain aspect ratio
+    
+        // Hide the gif initially
+        &.static {
+          display: block; // Show the static image by default
+        }
+    
+        &.bouncing {
+          display: none; // Hide the bouncing gif initially
+        }
+      }
+    
+      &:hover {
+        img.static {
+          display: none; // Hide static image on hover
+        }
+    
+        img.bouncing {
+          display: block; // Show bouncing gif on hover
         }
       }
     }
