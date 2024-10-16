@@ -86,7 +86,7 @@ const App: React.FC = () => {
                   <img src={BouncingArrows} alt="Bouncing Arrows" className="bouncing" />
                   </div>
                 </div>
-
+              <div className="bubbles">
               {/* Message Bubble for Bottles Used */}
               <div className="message-bubble">
                 <img src={MessageBubbleBig} alt="Message Bubble" className="bubble-image" />
@@ -97,6 +97,7 @@ const App: React.FC = () => {
               <div className="message-bubble">
                 <img src={MessageBubbleSmall} alt="Message Bubble" className="bubble-image" />
                 <p className="bubble-text">Your daily water usage is 0.8 gallons. Keep it up!</p>
+              </div>
               </div>
             </div>
           </div>
