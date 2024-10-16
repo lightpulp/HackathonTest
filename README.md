@@ -65,8 +65,6 @@ Follow these steps to set up and run the backend of the application:
    dfx deploy
    ```
 
-Your backend should now be running!
-
 ---
 
 ```
