@@ -223,6 +223,7 @@ body {
       display: flex;
       justify-content: center; // Center the GIF horizontally
       margin-top: -100%; // Add space above the GIF
+      transition: 0.5s;
     
       .bouncing-arrows {
         width: 30%; // Set the width of the GIF
@@ -274,15 +275,6 @@ body {
         margin: 5px; // Space between bottles
       }
 
-      .message-bubble {
-        align-items: right;
-        padding: 1rem; // Padding inside the bubble
-        font-size: 0.9rem; // Font size for the message
-        text-align: center; // Center text in the bubble
-        max-width: 300px; // Max width for the bubble
-        margin-top: 0.5rem; // Margin above the bubble
-        color: #fff; // Text color (adjust as needed for visibility)
-      }
     }
 
     .scroll-indicator {
@@ -302,6 +294,7 @@ body {
       .arrow-container {
         display: flex; // Flexbox to align arrows
         justify-content: center; // Center arrows horizontally
+        transition: 1s;
     
         img {
           width: 30%; // Adjust width as needed
@@ -329,26 +322,28 @@ body {
       }
     }
     .message-bubble {
-      position: relative;
-      display: inline-block;
-      align-items: right;
-      margin-left: 20px; // Adjust spacing as needed
-  
-      img {
-          max-width: 100%; // Adjust size as needed
-          height: auto;
-          position:right
-      }
-  
-      .bubble-text {
-          position: right;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          color: #000; // Adjust text color as needed
-          font-size: 16px; // Adjust font size as needed
-          text-align: center;
-          pointer-events: none; // Prevents interaction
-      }
+      display: flex;
+      justify-content: right; /* Align to the right */
+      margin-top: 0.5rem; /* Space between bubbles */
+      padding: 1rem; /* Padding inside the bubble */
+      max-width: 500%; /* Max width for the bubble */
+    }
+    
+    .message-bubble img {
+      width: 500%; /* Bubble image takes the full width of its container */
+      height: auto;
+    }
+    
+    .bubble-text {
+      position: absolute; /* Position the text inside the image */
+      top: 50%; 
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the text within the bubble */
+      color: #000; // Adjust text color as needed 
+      font-size: 16px; // Font size for readability 
+      text-align: center;
+      pointer-events: none;
+    }
   }
-  }
+
+ 

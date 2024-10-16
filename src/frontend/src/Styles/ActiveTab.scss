@@ -126,19 +126,21 @@ h4 {
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
     margin: 5% auto;
-    text-align: center;
+    text-align: left;
 }
 
 .input-title {
     font-size: 2rem;
     margin-bottom: 1.5rem;
     color: #00796b;
+    text-align: center;
 }
 
 .form-group {
+    max-width: 100%;
     display: flex; // Use flexbox for alignment
     flex-direction: column; // Stack label and input vertically
     margin-bottom: 1.5rem;
@@ -146,21 +148,25 @@ h4 {
 }
 
 label {
-    display: block;
+    max-width: 1000%;
+    display: flex;
     margin-bottom: 0.5rem;
     font-weight: normal; // Change to normal weight
     font-size: 0.875rem; // Smaller font size
-    width: 100%; // Make label full width
+    width: 1000%; // Make label full width
 }
 
 input {
-    width: 100%; // Ensure inputs take full width
+    max-width: 100%;
+    width: 5000px; 
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; // Include padding and border in width
+    box-sizing: border-box;
 }
-
+h2 {
+    text-align: center;
+}
 .input-button {
     background-color: #00796b;
     color: white;
