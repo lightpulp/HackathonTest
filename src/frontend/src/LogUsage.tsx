@@ -17,18 +17,27 @@ const LogUsage: React.FC = () => {
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         console.log(`Water usage input: ${usage} liters`);
-        setUsage(''); // Reset the input after submission
+        setUsage('');
     };
 
     const validateForm = () => {
         setDrinkingWaterError('');
         let isValid = true;
-    
         if (drinkingWaterError.trim() === '') {
           setDrinkingWaterError('Please enter a value for drinking water consumption.');
           isValid = false;
         }
     };        
+
+    const onButtonClick_Submit = () => {
+        if (validateForm()) {
+          setLoggedIn(true);
+          setEmail(email);
+          navigate('/LogIn');
+          console.log('Form is valid, proceed with registration...');
+        }
+      };
+
 
     const handleTabClick = (tab: string) => {
         setActiveTab(tab);
