@@ -68,6 +68,7 @@ const App: React.FC = () => {
               <img src={WaterGallonEmpty} alt="Water Gallon Empty" className="gallon-empty-image" />
               <img src={WaterGallonFilled} alt="Water Gallon Filled" className="gallon-filled-image" />
             </div>
+
             <div className="bottle-tracking-section">
               <button className="add-bottle-button" onClick={addBottle}>Add Bottle</button>
               <div className="bottle-list">
@@ -75,6 +76,7 @@ const App: React.FC = () => {
                   <img key={index} src={WaterBottle} alt={`Bottle ${index + 1}`} className="bottle-image" />
                 ))}
               </div>
+
               <div className="scroll-indicator">
                 <p className="scroll-text">Scroll down to see your statistics</p>
                   <div className="arrow-container">
@@ -82,6 +84,7 @@ const App: React.FC = () => {
                   <img src={BouncingArrows} alt="Bouncing Arrows" className="bouncing" />
                   </div>
                 </div>
+                
               <div className="message-bubble">
                 <img src={MessageBubble} alt="Message Bubble" className="bubble-image" />
                 <p>{bottlesUsed.length} bottles used</p>

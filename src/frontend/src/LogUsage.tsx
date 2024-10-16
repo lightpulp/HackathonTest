@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
 
 const LogUsage: React.FC = () => {
+    const [drinkingWaterError, setDrinkingWaterError] = useState<string>(''); 
     const [usage, setUsage] = useState<number | ''>('');
     const [activeTab, setActiveTab] = useState<string>("Log Usage"); // Initialize activeTab
     const navigate = useNavigate();
@@ -18,6 +19,16 @@ const LogUsage: React.FC = () => {
         console.log(`Water usage input: ${usage} liters`);
         setUsage(''); // Reset the input after submission
     };
+
+    const validateForm = () => {
+        setDrinkingWaterError('');
+        let isValid = true;
+    
+        if (drinkingWaterError.trim() === '') {
+          setDrinkingWaterError('Please enter a value for drinking water consumption.');
+          isValid = false;
+        }
+    };        
 
     const handleTabClick = (tab: string) => {
         setActiveTab(tab);

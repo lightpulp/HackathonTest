@@ -97,7 +97,7 @@ const SignUp: React.FC<SignUpProps> = ({ setLoggedIn, setEmail }) => {
     return isValid;
   };
 
-  const onButtonClick_SignUp = () => {
+  const onButtonClick_Submit = () => {
     if (validateForm()) {
       setLoggedIn(true);
       setEmail(email);
