@@ -5,7 +5,7 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 })
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn() //1. ID
-  id: number;
+  user_Id: number;
 
   @Column({ type: 'varchar', length: 50 }) //2. First Name
   user_FirstName: string;
@@ -19,7 +19,7 @@ export class User extends BaseEntity {
   @Column({ type: 'varchar', length: 50 }) //5.  Username
   user_Username: string;
 
-  @Column({ type: 'int', length: 11 }) //6. Age
+  @Column({ type: 'varchar', length: 11 }) //6. Age
   user_Age: string;
 
   @Column({ type: 'varchar', length: 100 }) //7. Email

@@ -1,0 +1,119 @@
+.advice {
+    align-content: center;
+    font-size: 90%;
+    text-align: justify;
+    text-indent: 5%;
+    margin-left: 20%;
+    width: 60%;
+}
+
+.titleForActivetab {
+    align-content: center;
+    text-align: center;
+    font-size: 300%;
+    margin-top: 0;
+    font-weight: bolder;
+}
+
+.subTitleForActivetab {
+    margin-left: 20%;
+    align-content: center;
+    font-size: 90%;
+    text-align: justify;
+    margin-bottom: 0.3%;
+}
+
+.listContent {
+    font-size: 90%;
+    text-align: normal;
+    margin-left: 20%;
+}
+
+.listContentLast {
+    font-size: 90%;
+    text-align: normal;
+    margin-left: 20%;
+}
+
+.divForContent {
+    width: 20%;
+    float: left;
+    margin-left: 20%;
+}
+
+.divForContentLast {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    align-content: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+.article-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 2%;
+    font-family: Arial, sans-serif;
+}
+
+.article-header {
+    text-align: center;
+    margin-bottom: 2%;
+    margin-top: 0;
+}
+
+.article-header h1 {
+    font-size: 90%;
+    margin: 0;
+}
+
+.author-date {
+    color: #777;
+    font-size: 2%;
+}
+
+.article-content {
+    margin-bottom: 3%;
+}
+
+.article-content p {
+    line-height: 1.6;
+    margin: 1.5% 0;
+}
+
+.article-image {
+    width: 100%;
+    height: auto;
+    margin: 2% 0;
+}
+
+.related-articles {
+    border-top: 1px solid #ccc;
+    padding-top: 2%;
+}
+
+.related-articles h2 {
+    font-size: 90%;
+}
+
+.related-articles ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.related-articles li {
+    margin: 1%;
+}
+
+.related-articles a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.related-articles a:hover {
+    text-decoration: underline;
+}

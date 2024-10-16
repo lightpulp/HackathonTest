@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Styles/App.scss";
-import LogIn from "./LogIn";
-import Home from "./Home";
+import "./Styles/ActiveTab.scss";
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
 import WaterGallonEmpty from "../public/Water_Gallon_Empty.png";
 import WaterGallonFilled from "../public/Water_Gallon_Filled.png";
@@ -109,6 +108,8 @@ const App: React.FC = () => {
                           <h4 className="subTitleForActivetab">Laundry</h4>
                           <li className="listContent">Run full loads of laundry.</li>
                           <li className="listContent"> When purchasing a new washing machine, buy a water saving model that can be adjusted to the load size.</li>
+                          <li className="listContent">Skip pre-rinsing clothes unless absolutely necessary. Most modern machines do a great job of cleaning without extra rinsing.</li>
+                          <li className="listContent">Regularly inspect hoses and connections for leaks to prevent water waste.</li>
                           </div>
                           <div className="divForContentLast">
                           <h4 className="subTitleForActivetab">Outdoor</h4>
@@ -118,7 +119,39 @@ const App: React.FC = () => {
                           </div>
                           </div>}
         {activeTab === "Goals" && <div><h2>Your Water Usage Goals</h2><p>Set and track your water usage goals here.</p></div>}
-        {activeTab === "Impact" && <div><h2>Impact of Your Water Usage</h2><p>View the environmental impact of your water usage here.</p></div>}
+        {activeTab === "Impact" && <div><h2 className="article-header">Impact of Your Water Usage</h2> 
+                        <div className="article-container">
+                            <header className="article-header">
+                                <h1>Tapped Out: Exploring the Impacts of Water Pollution and Overuse</h1>
+                                <p className="author-date">By Author Name | Date</p>
+                            </header>
+
+                            <section className="article-content">
+                                <p>
+                                    Water pollution and overuse are two critical issues facing our planet today. As the world population grows,
+                                    so does the demand for clean water. Unfortunately, our water resources are becoming increasingly compromised.
+                                </p>
+                                <p>
+                                    In this article, we will explore the various impacts of water pollution and the steps that can be taken to mitigate it.
+                                </p>
+                                <img src="water-pollution.jpg" alt="Water Pollution" className="article-image" />
+                                <h2 className="article-header">Understanding Water Pollution</h2>
+                                <p>
+                                    Water pollution is caused by the introduction of harmful contaminants into water bodies. These contaminants
+                                    can be chemical, physical, or biological and can have severe consequences on ecosystems and human health.
+                                </p>
+                            </section>
+
+                            <aside className="related-articles">
+                                <h2 className="article-header">You Might Also Like</h2>
+                                <ul>
+                                    <li><a href="/article1">Understanding Aquatic Ecosystems</a></li>
+                                    <li><a href="/article2">The Crisis of Clean Water Access</a></li>
+                                    <li><a href="/article3">Innovative Solutions for Water Conservation</a></li>
+                                </ul>
+                            </aside>
+                        </div>
+        </div>}
       </main>
     </div>
   );

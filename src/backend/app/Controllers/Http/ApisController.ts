@@ -79,70 +79,150 @@ export default class ApisController {
 //User table 
 
 
-
-/*
-    static async users(request: Request, response: Response){
-        const user = await User.find();
+//REEEEEEEEEEEAAAAAAAAAAAADDDDDDDDDDDDDDDDDD
+static async users(request: Request, response: Response) {
+    try {
+        const users = await User.find();
 
         response.json({
             status: 1,
-            data: user
+            data: users
+        });
+    } catch (error) {
+        console.error("Error fetching users:", error);
+        response.json({
+            status: 0,
+            message: "An error occurred while fetching users."
         });
     }
+}
 
-    static async insert_user(request: Request, response: Response){
-        const { key, value } = request.body;
-        await Configuration.insert({key, value});
+//INSSSSSSSEEEEEEEEEEEEEEERRRRRRRRRRRRRTTTTTTTTTTTT
+static async insert_user(request: Request, response: Response) {
+    const {
+        user_FirstName,
+        user_MiddleName,
+        user_LastName,
+        user_Username,
+        user_Age,
+        user_Email,
+        user_Password,
+        user_Region
+    } = request.body;
 
-        const checkIfExist = await Configuration.findBy({ key });
+    // Check if a user with the same username or email already exists
+    const checkIfExist = await User.findOne({ where: { user_Username, user_Email } });
 
-        if(!checkIfExist){
-            response.json({
-                status: 0,
-                message: "Configuration already exists!"
-            });
-        }
-
+    if (checkIfExist) {
         response.json({
-            status: 1,
-            message: "Configuration has been inserted!",
+            status: 0,
+            message: "User with this username or email already exists!"
         });
+        return;
     }
 
-    static async update_configuration(request: Request, response: Response){
-        const { key, value } = request.body;
-        const getConfiguration = await Configuration.findBy({ key });
+    // Insert the new user into the database
+    await User.insert({
+        user_FirstName,
+        user_MiddleName,
+        user_LastName,
+        user_Username,
+        user_Age,
+        user_Email,
+        user_Password,
+        user_Region
+    });
 
-        if(!getConfiguration){
+    response.json({
+        status: 1,
+        message: "User has been inserted!"
+    });
+}
+
+//UPPPPPPPPPDDAAAAAAAAAAAAATTTTTTEEEEEEEEEEEE
+static async update_user(request: Request, response: Response) {
+    const {
+        user_Id,
+        user_FirstName,
+        user_MiddleName,
+        user_LastName,
+        user_Username,
+        user_Age,
+        user_Email,
+        user_Password,
+        user_Region
+    } = request.body;
+
+    try {
+        // Find user by ID
+        const getUser = await User.findOneBy({ user_Id });
+
+        if (!getUser) {
             response.json({
                 status: 0,
-                message: "Configuration not found!"
+                message: "User not found!"
             });
+            return;
         }
-        
-        await Configuration.update({ key }, { value });
+
+        // Update user details
+        await User.update(
+            { user_Id },
+            {
+                user_FirstName,
+                user_MiddleName,
+                user_LastName,
+                user_Username,
+                user_Age,
+                user_Email,
+                user_Password,
+                user_Region
+            }
+        );
+
         response.json({
             status: 1,
-            message: "Configuration has been updated!",
+            message: "User has been updated!",
+        });
+    } catch (error) {
+        console.error("Error updating user:", error);
+        response.json({
+            status: 0,
+            message: "An error occurred while updating the user."
         });
     }
+}
 
-    static async delete_configuration(request: Request, response: Response){
-        const { key } = request.body;
-        const getConfiguration = await Configuration.findBy({ key });
+//DEEEEEEEEELEEEEEEEEEEEEEETEEEEEEEEEEEEE
+static async delete_user(request: Request, response: Response) {
+    const { user_Id } = request.body; // Get the user ID from the request body
 
-        if(!getConfiguration){
+    try {
+        // Find user by ID
+        const getUser = await User.findOneBy({ user_Id });
+
+        if (!getUser) {
             response.json({
                 status: 0,
-                message: "Configuration not found!"
+                message: "User not found!"
             });
+            return;
         }
 
-        await Configuration.delete({ key });
+        // Delete the user
+        await User.delete({ user_Id });
 
         response.json({
             status: 1,
-            message: "Configuration has been deleted!",
+            message: "User has been deleted!",
         });
-    }*/
+    } catch (error) {
+        console.error("Error deleting user:", error);
+        response.json({
+            status: 0,
+            message: "An error occurred while deleting the user."
+        });
+    }
+}
+
 }

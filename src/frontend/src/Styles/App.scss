@@ -2,59 +2,6 @@ $primary-color: #00BFFF; // Light blue for the theme
 $secondary-color: #F0F0F0; // Light gray background
 $font-family: 'Arial', sans-serif;
 
-.advice{
-    
-      align-content: center;
-      font-size: 90%;
-      text-align: justify;
-      text-indent: 5%;
-      margin-left: 3%;
-      margin-right: 3%;
-}
-
-.titleForActivetab{
-    align-content: center;
-    text-align: center;
-    font-size: 300%;
-    margin-top: -5%;
-    font-weight: bolder;
-}
-.subTitleForActivetab{
-  align-content: center;
-  font-size: 90%;
-  text-align: justify;
-  margin-left: 8%;
-  margin-bottom: .3%;
-}
-
-.listContent{
-      font-size: 90%;
-      text-align: normal;
-      margin-left: 8%;
-}
-.listContentLast{
-  font-size: 90%;
-  text-align: normal;
-  margin-left: 8%;
-  align-content: center;
-}
-
-
-.divForContent{
-  width: 50%;
-  float: left;
-}
-.divForContentLast{
-  margin-left: 30%;
-  margin-right: 30%;
-  margin-top: 25%;
-  align-content: center;
-  align-self: center;
-
-  h4{
-    text-align: center;
-  }
-}
 
 .mainContainer {
   flex-direction: column;
@@ -222,8 +169,8 @@ body {
       justify-content: center;
       align-items: center;
       position: relative; // Allow absolute positioning for child elements
-      margin-top: 50px; // Vertical centering adjustment
-      width: 500px; // Container width (same as images)
+      margin-top: -15%; // Vertical centering adjustment
+      width: 800px; // Container width (same as images)
       height: auto;
       max-height: 90vh; // Max height limit for the container
     }
@@ -273,13 +220,17 @@ body {
     
 
     .bottle-tracking-section {
-      text-align: center; // Center text
-
+      display: flex;
+      flex-direction: column; // Ensure the button is below the gallon section
+      align-items: center;
+      text-align: center;
+      margin-top: 500px; // Adjust space between gallon image and button
+  
       h2 {
         margin: 10px 0;
         color: $primary-color; // Section title color
       }
-
+  
       .add-bottle-button {
         background-color: $primary-color; // Button background
         color: white; // Button text color
@@ -287,13 +238,14 @@ body {
         border-radius: 5px; // Rounded corners
         padding: 10px 15px; // Button padding
         cursor: pointer; // Pointer on hover
+        margin-top: 150%; // Add margin to space it out from the gallon images
         transition: background-color 0.3s; // Transition effect
-
+  
         &:hover {
           background-color: darken($primary-color, 10%); // Darken on hover
         }
       }
-
+  
       .bottle-list {
         display: flex;
         flex-wrap: wrap; // Wrap bottles to the next line
