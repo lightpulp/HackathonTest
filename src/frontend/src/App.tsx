@@ -112,8 +112,6 @@ const App: React.FC = () => {
                           <li className="listContentLast"> Use a broom, not a hose, to clean driveways and sidewalks.</li>
                           <li className="listContentLast">Check water bills for any instances of high water use, as this may be an indication of leak.</li>
                           </div>
-
-
                           </div>}
         {activeTab === "Goals" && <div><h2>Your Water Usage Goals</h2><p>Set and track your water usage goals here.</p></div>}
         {activeTab === "Impact" && <div><h2>Impact of Your Water Usage</h2><p>View the environmental impact of your water usage here.</p></div>}
@@ -121,5 +119,4 @@ const App: React.FC = () => {
     </div>
   );
 };
-
 export default App;
