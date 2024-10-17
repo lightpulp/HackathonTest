@@ -134,7 +134,7 @@ body {
   flex-direction: row;
   justify-content: center;
   position: absolute;
-  left: 27%;
+  left: 30%;
   width: 40%;
   text-align: center;
 
@@ -194,42 +194,40 @@ body {
   display: flex; // Enable flexbox for centering
   justify-content: center; // Center text horizontally
   align-items: center; // Center text vertically
-  transition: color 0.3s, background-color 0.3s;
+  transition: color 0.3s;
+
+  // Default border set to transparent
+  border-bottom: 3px solid transparent; 
 
   &.active {
     font-weight: bold;
-    color: black;
-    border-bottom: 3px solid lightgrey;
+    color: black; // Active tab color
+    border-bottom: 3px solid lightgrey; // Active tab border
 
     @media (max-width: 768px) {
-      background-color: rgb(207, 207, 207);
-      border-bottom: none;
+      background-color: rgb(207, 207, 207); // Mobile background
+      border-bottom: none; // No border for active on mobile
     }
   }
 
   &:hover {
-    color: #5474eb;
-    border-bottom: 3px solid #5474eb;
-    transition: 0.1s;
-
-    @media (max-width: 768px) {
-      background-color: none;
-      border-bottom: none;
-    }
+    color: #5474eb; // Text color on hover
+    border-bottom: 3px solid #5474eb; // Show blue bar on hover
   }
 
   &:not(.active) {
-    color: grey;
+    color: grey; // Inactive tab color
   }
 
   @media (max-width: 768px) {
     &.active {
-      background-color: lightgrey;
-      color: black;
-      border: none;
+      background-color: lightgrey; // Mobile active background
+      color: black; // Text color for active on mobile
+      border: none; // No border for active on mobile
     }
   }
 }
+
 
 // Greeting section
 .greeting {
