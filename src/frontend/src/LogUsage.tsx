@@ -105,7 +105,7 @@ const LogUsage: React.FC = () => {
         } else if (tab === "Overview") {
             navigate('/App');
         } else if (tab === "Goals") {
-            navigate('/App');
+            navigate('/Goal');
         } else if (tab === "Impact") {
             navigate('/Impact');
         }

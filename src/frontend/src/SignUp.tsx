@@ -184,7 +184,7 @@ function handleSubmit(event: any) {
         <select 
           value={location}
           onChange={(ev) => updateLocation(ev.target.value)}
-          className={'inputBox'}
+          className={'inputBoxSelect'}
         >
           <option value="">Select your location</option>
           {regions.map((region) => (

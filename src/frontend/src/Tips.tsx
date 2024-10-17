@@ -18,7 +18,7 @@ const Tips: React.FC = () => {
           navigate('/App');
         }
         else if (tab === "Goals") {
-            navigate('/App');
+            navigate('/Goal');
         }
         else if (tab === "Impact") {
             navigate('/Impact');

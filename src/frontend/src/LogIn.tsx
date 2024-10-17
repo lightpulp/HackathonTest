@@ -92,7 +92,6 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
       <div className={'titleContainer'}>
         <div>Login</div>
       </div>
-      <br />
       <div className={'inputContainer'}>
         <input
           value={email}

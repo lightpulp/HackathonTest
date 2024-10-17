@@ -1,0 +1,132 @@
+.notes-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 500px;
+    margin: 10rem auto;
+    text-align: left;
+
+    .input-area {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+
+        input {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #004d40;
+            }
+        }
+    }
+
+    .notes-list {
+        .note {
+            display: flex;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 1rem;
+            background-color: #f9f9f9;
+
+            .progress-circle {
+                width: 60px;
+                height: 60px;
+                margin-right: 1rem;
+                position: relative;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    transform: rotate(-180deg);
+                }
+
+                span {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 0.8rem;
+                    color: #00796b;
+                }
+            }
+
+            .note-content {
+                flex-grow: 1;
+
+                p {
+                    margin: 0;
+                    margin-bottom: 0.5rem;
+                }
+
+                .note-actions {
+                    display: flex;
+                    justify-content: space-between;
+
+                    button {
+                        background-color: #e0e0e0;
+                        color: black;
+                        border: none;
+                        border-radius: 4px;
+                        padding: 0.25rem 0.5rem;
+
+                        &:hover {
+                            background-color: #bdbdbd;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Responsive Styles
+    @media (max-width: 768px) {
+        margin: 5rem 1rem; // Reduce top margin and add side margin
+        padding: 1rem;
+
+        .input-area {
+            flex-direction: column; // Stack input and button
+            button {
+                margin-top: 0.5rem; // Add space between input and button
+                width: 100%; // Full width button
+            }
+        }
+        input{
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-left: 0.1rem;
+        }
+        .notes-list {
+            .note {
+                flex-direction: column; // Stack progress circle and content
+                align-items: flex-start; // Align items to the start
+
+                .progress-circle {
+                    margin-bottom: 0.5rem; // Add space below the circle
+                }
+            }
+            .note-actions{
+                display: flex;
+                justify-content: space-between;
+                width: 16rem;
+                padding: 5rem auto;
+            }
+        }
+    }
+}

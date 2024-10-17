@@ -30,7 +30,7 @@ const App: React.FC = () => {
     } else if (tab === "Overview") {
       navigate('/App');
     } else if (tab === "Goals") {
-      navigate('/App');
+      navigate('/Goal');
     } else if (tab === "Impact") {
       navigate('/Impact');
     }
@@ -45,7 +45,7 @@ const App: React.FC = () => {
     <div className="app-container">
       <header className="top-bar">
       {/* Hamburger Menu Button */}
-      <div className="menu-button" onClick={toggleMenu}>
+      <div className={`menu-button ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
         <div></div>
         <div></div>
         <div></div>

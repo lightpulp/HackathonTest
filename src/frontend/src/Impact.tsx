@@ -19,7 +19,7 @@ const Impact: React.FC = () => {
             navigate('/App');
           }
           else if (tab === "Goals") {
-              navigate('/App');
+              navigate('/Goal');
           }
           else if (tab === "Impact") {
               navigate('/Impact');
@@ -32,7 +32,7 @@ const Impact: React.FC = () => {
 
     return (
         <div className="app-container">
-                   <header className="top-bar">
+                <header className="top-bar">
                 {/* Hamburger Menu Button */}
                 <div className="menu-button" onClick={toggleMenu}>
                     <div></div>

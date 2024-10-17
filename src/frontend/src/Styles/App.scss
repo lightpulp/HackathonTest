@@ -89,7 +89,7 @@ body {
 .top-bar {
   display: flex;
   justify-content: space-between; // Keep desktop layout
-  align-items: center;
+  align-items: center; // Center items vertically
   position: fixed;
   top: 0;
   left: 0;
@@ -107,24 +107,36 @@ body {
 
 .menu-button {
   display: none; // Hidden by default
+  background-color: transparent; // Default background
 
   @media (max-width: 768px) {
-    position: absolute;
-    left: 3%;
     display: flex; // Show on mobile
-    flex-direction: column;
+    position: absolute;
+    left: 3%; // Adjust as needed
+    top: 50%; // Center vertically
+    transform: translateY(-50%); // Adjust to truly center vertically
+    flex-direction: column; // Stack bars vertically
     cursor: pointer;
     margin-right: 2.5%; // Space from the logo
-    width: 80px; // Increase width for easier touch
-    height: 80px; // Increase height for easier touch
+    width: 60px; // Width for easier touch
+    height: 60px; // Height for easier touch
+    align-items: center; // Center bars horizontally
+
+    &.open {
+      background-color: rgb(207, 207, 207); // Background when menu is open
+      border-radius: 3px;
+    }
 
     div {
-      width: 30px; // Width of the bars
+      width: 35px; // Width of the bars
       height: 4px; // Height of the bars
-      background: #00BFFF; // Color of the bars
-      margin: 4px 0; // Spacing between the bars
+      background: #000000; // Color of the bars
       border-radius: 3px; // Rounded edges for a nicer look
+      margin: 2px 0; // Space between bars
+      margin-top: 11px;
+      transform: scaleX(1.2);
     }
+
   }
 }
 
@@ -161,17 +173,17 @@ body {
 
   img {
     height: 40px;
-    margin-right: 10px;
+    margin-right: none;
   }
 
   h1 {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color: black;
   }
 
   @media (max-width: 768px) {
     position: absolute;
-    left: 49%;
+    left: 48.5%;
     transform: translateX(-50%);
     align-items: center;
     justify-content: center;
@@ -216,17 +228,23 @@ body {
     display: flex; // Show on mobile
     flex-direction: column;
     cursor: pointer;
-    width: 80px; // Set a width for the button
-    height: 80px; // Set a height for the button
-    padding: 15px; // Add padding for larger touch area
+    width: 60px; // Button width
+    height: 60px; // Button height
+    margin: auto; // Center the button in its container
     justify-content: center; // Center the bars vertically
     align-items: center; // Center the bars horizontally
+    text-align: center; // Center text if needed
+
+    &.open {
+      background-color: rgb(255, 0, 0); // Change background when open
+    }
 
     div {
-      width: 50px; // Width of the bars
-      height: 6px; // Height of the bars
-      background: black; // Color of the bars
-      margin: 6px 0; // Spacing between the bars
+      width: 30px; // Width of the bars
+      height: 4px; // Height of the bars
+      background: #000000; // Color of the bars
+      margin: 2px 0; // Spacing between the bars
+      border-radius: 3px; // Rounded edges
     }
   }
 }
@@ -259,13 +277,22 @@ body {
   &.active {
     font-weight: bold; // Bold font for active tab
     color: black; // Font color for active tab
-    border-bottom: 3px solid lightgrey; // Lighter grey underline for active tab
+    border-bottom: 3px solid lightgrey; // Lighter grey underline for active tab ////////////
+
+    @media (max-width: 768px) {
+      background-color: rgb(207, 207, 207);
+      border-bottom: none;
+    }
   }
 
   &:hover {
     color: #5474eb; // Dark blue on hover for all tabs
     border-bottom: 3px solid #5474eb; // Blue underline on hover
     transition: 0.2s;
+    @media (max-width: 768px) {
+      background-color: none;
+      border-bottom: none;
+    }
   }
 
   &:not(.active) {
@@ -288,6 +315,7 @@ body {
   display: flex;
   font-weight: 400;
   align-items: center; // Vertically center
+  font-size: 1.5rem;
 }
 
 .dropdown-arrow {
@@ -300,6 +328,7 @@ body {
   align-items: center;
   margin-top: 80px; // Adjust this margin for content to be below the fixed top bar
   width: 100%; // Full width for content
+  max-width: 100%;
 
   .overview-section {
     display: flex;
@@ -308,24 +337,25 @@ body {
 
     .gallon-section {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative; // Allow absolute positioning for child elements
-      margin-top: -15%; // Vertical centering adjustment
-      width: 800px; // Container width (same as images)
-      height: auto;
-      max-height: 90vh; // Max height limit for the container
+  justify-content: center; /* Center contents horizontally */
+  align-items: center; /* Center contents vertically */
+  position: relative; 
+  margin-top: 20px; 
+  width: 100%; /* Full width */
+  max-height: 70vh; /* Max height limit for the container */
+  flex-wrap: wrap; /* Allow items to wrap if needed */
+  padding: 0 10%; /* Add padding to center on larger screens */
     }
     
     .gallon-image,
     .gallon-empty-image,
     .gallon-filled-image {
-      position: absolute; // Stack all images on top of each other
+      position: absolute; // Stack images on top of each other
       top: 0;
       left: 0;
-      width: 100%; // Ensure they take up the full container size
+      width: 100%; // Responsive width
       height: auto; // Maintain aspect ratio
-      max-height: 90vh;
+      max-height: 70vh; // Responsive max height
     }
     
     .gallon-image {
@@ -339,15 +369,21 @@ body {
     .gallon-filled-image {
       z-index: 2; // Top layer
     }
+
+    @media (max-width: 768px) {
+      position: relative;
+      margin-top: none; // Adjust margin for mobile
+      width: 100%;
+      justify-content: center; /* Center contents horizontally */
+      align-items: center;
+    }
     
     .water-bottle-images {
-      position: absolute; // Position absolutely to center over the main image
-      top: 50%; // Center vertically
-      left: 50%; // Center horizontally
-      transform: translate(-50%, -50%); // Adjust to truly center
       display: flex; // Use flexbox for alignment
       flex-direction: column; // Stack images vertically
       align-items: center; // Center align images
+      position: relative; // Ensure correct positioning
+      width: auto; // Auto width to avoid overflow
     }
     
     .water-image {
@@ -511,7 +547,8 @@ body {
   }
 
   .gallon-section {
-    width: 100%; // Full width for gallon section
+    width: 100%;
+    margin-left: 40%;
   }
 
   .water-image {
