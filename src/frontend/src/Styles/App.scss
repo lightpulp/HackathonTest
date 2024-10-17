@@ -81,9 +81,11 @@ body {
 // Dropdown menu styling
 .dropdown-menu {
   display: none; // Hide menu by default
+  transition: opacity 0.5s ease; // Transition for fade effect
 
   &.open {
     display: flex;
+    opacity: 1;
     flex-direction: column;
     position: absolute;
     top: 50px;
@@ -189,12 +191,12 @@ body {
 // Tab styling
 .tab {
   cursor: pointer;
-  padding: 10px; // Maintain padding for better spacing
-  flex: 1; // Allow tabs to grow equally
-  min-width: 200px; // Set a minimum width for the tabs
-  display: flex; // Enable flexbox for centering
-  justify-content: center; // Center text horizontally
-  align-items: center; // Center text vertically
+  padding: 10px; 
+  flex: 1; 
+  min-width: 200px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
   transition: color 0.3s;
   
   // Default border set to transparent
@@ -202,29 +204,33 @@ body {
 
   &.active {
     font-weight: bold;
-    color: black; // Active tab color
-    border-bottom: 3px solid lightgrey; // Active tab border
+    color: black; 
+    border-bottom: 3px solid lightgrey; 
 
     @media (max-width: 768px) {
-      background-color: rgb(207, 207, 207); // Mobile background
       border-bottom: none; // No border for active on mobile
     }
   }
 
   &:hover {
-    color: #5474eb; // Text color on hover
+    color: #5474eb; 
     border-bottom: 3px solid #5474eb; // Show blue bar on hover
   }
 
   &:not(.active) {
-    color: grey; // Inactive tab color
+    color: grey; 
   }
 
   @media (max-width: 768px) {
+    border-bottom: none; // Remove underline for all tabs on mobile
+
     &.active {
-      background-color: lightgrey; // Mobile active background
-      color: black; // Text color for active on mobile
-      border: none; // No border for active on mobile
+      background-color: lightgrey; 
+      color: black; 
+    }
+
+    &:hover {
+      border-bottom: none; // Ensure no underline on hover
     }
   }
 }

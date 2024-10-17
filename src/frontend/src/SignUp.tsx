@@ -174,7 +174,7 @@ function handleSubmit(event: any) {
                     </div>
             </header>
       <div className={'titleContainer'}>
-        <div>Sign Up</div>
+        <div><h1 className="homeTitle">Sign Up</h1></div>
       </div>
       <br />
       <div className={'inputContainer'}>

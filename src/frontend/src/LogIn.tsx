@@ -110,7 +110,7 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
                     </div>
             </header>
       <div className={'titleContainer'}>
-        <div>Login</div>
+        <div><h1 className="homeTitle">Login</h1></div>
       </div>
       <div className={'inputContainer'}>
         <input
