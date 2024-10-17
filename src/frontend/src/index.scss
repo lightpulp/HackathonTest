@@ -1,14 +1,13 @@
-body {
-  font-family: sans-serif;
-  font-size: 1.2rem; // Smaller base font size for mobile
-}
-
 .mainContainer {
-  max-width: 90%; // Wider for mobile
-  margin: 0 auto; // Centered
+  max-width: 100%; // Wider for mobile
+  margin-top: 10%; // Centered
   padding: 1rem; // Adequate padding
+  position: relative;
+  background-color: transparent;
+  display: flex; // Use flexbox for centering
+  flex-direction: column; // Column layout
+  align-items: center; // Center items horizontally
 }
-
 
 input[type='button'] {
   border: none;
@@ -16,6 +15,7 @@ input[type='button'] {
   color: white;
   padding: 12px; // Consistent padding
   width: 100%; // Full width for buttons
+  max-width: 300px; // Limit button width
   margin-top: 1rem; // Space above button
   font-size: 1rem; // Responsive font size
   border-radius: 8px;
@@ -23,7 +23,10 @@ input[type='button'] {
 }
 
 .inputContainer {
-  margin-bottom: 1rem; // Space between inputs
+  margin-bottom: 1rem;
+  width: 100%; // Full width for input container
+  display: flex; // Flexbox for centering inputs
+  justify-content: center; // Center inputs
 }
 
 .inputBox {
@@ -31,7 +34,9 @@ input[type='button'] {
   padding: 0.75rem; // Comfortable padding
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem; // Consistent font size for inputs
+  font-size: 1rem;
+  margin-left: 0; // Reset margin
+  width: 30%; // Adjust width to fit nicely
 }
 
 .inputBoxSelect {
@@ -40,19 +45,19 @@ input[type='button'] {
   border-radius: 4px;
   font-size: 1rem; // Consistent font size for inputs
   max-width: 80%;
-  margin-left: 10%;
+  width: 30%; // Make select input width responsive
 }
 
 .signUp {
-      display: flex;
-      color: blue;
-      border: none;
-      border-radius: 4px;
-      padding: 0.25rem 0.5rem;
+  display: flex;
+  color: blue;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
 
-      &:hover {
-          background-color: #bdbdbd;
-      }
+  &:hover {
+    background-color: #bdbdbd;
+  }
 }
 
 .errorLabel {
@@ -70,34 +75,28 @@ input[type='button'] {
     font-size: 1rem; // Further reduce font size on very small screens
   }
 
-  input[type='button'] {
-    font-size: 0.9rem;
-    border: none;
-    background: cornflowerblue;
-    color: white;
-    padding: 12px; // Consistent padding
-    width: 100%; // Full width for buttons
-    margin-top: 1rem; // Space above button
-    font-size: 1rem; // Responsive font size
-    border-radius: 8px;
-    cursor: pointer;
-  }
-
   .inputBox {
-    margin-left: 2%;
+    margin-left: 0; // Reset margin for mobile
     font-size: 0.9rem;
+    max-width: 100%;
+    margin-left: -25%;
     min-width: fit-content;
-    width: 30%;
+    width: 40%; // Full width on mobile
   }
 
   .inputBoxSelect {
-    margin-left: 13%;
+    margin-left: 0; // Reset margin for mobile
     font-size: 0.9rem;
-    width: 75%;
+    max-width: 80%;
+    margin-left: -25%;
+    width: 70%; // Full width on mobile
   }
+
   .titleContainer {
     text-align: center; // Center title for better aesthetics
-    margin-top: 20rem;
+    margin-top: 10rem;
     margin-bottom: 2rem;
   }
 }
+
+

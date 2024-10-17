@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./Styles/App.scss";
 import "./Styles/ActiveTab.scss";
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +16,7 @@ const App: React.FC = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<string>("Overview");
   const [bottlesUsed, setBottlesUsed] = useState<number[]>([]);
+  const bottleTrackingRef = useRef<HTMLDivElement>(null);
 
   const addBottle = () => {
     setBottlesUsed([...bottlesUsed, bottlesUsed.length + 1]);
@@ -39,6 +40,19 @@ const App: React.FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
     setMenuOpen(prev => !prev);
+  };
+
+  const handleGallonClick = () => {
+    if (bottleTrackingRef.current) {
+      const offset = -200; // Adjust this value to change the scroll offset
+      const elementPosition = bottleTrackingRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
+  
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
   };
 
   return (
@@ -81,13 +95,13 @@ const App: React.FC = () => {
         <main className="main-content">
           {activeTab === "Overview" && (
             <div className="overview-section">
-              <div className="gallon-section">
+              <div className="gallon-section" onClick={handleGallonClick}> {/* Click handler for scrolling */}
                 <img src={WaterGallonMain} alt="Water Gallon" className="gallon-image" />
                 <img src={WaterGallonEmpty} alt="Water Gallon Empty" className="gallon-empty-image" />
                 <img src={WaterGallonFilled} alt="Water Gallon Filled" className="gallon-filled-image" />
               </div>
 
-              <div className="bottle-tracking-section">
+              <div className="bottle-tracking-section" ref={bottleTrackingRef}> {/* Ref for tracking section */}
                 <button className="add-bottle-button" onClick={addBottle}>Add Bottle</button>
                 <div className="bottle-list">
                   {bottlesUsed.map((_, index) => (
@@ -105,14 +119,14 @@ const App: React.FC = () => {
                 <div className="bubbles">
                   {/* Message Bubble for Bottles Used */}
                   <div className="message-bubble">
-                    <img src={MessageBubbleBig} alt="Message Bubble" className="bubble-image" />
-                    <p className="bubble-text">{bottlesUsed.length} bottles used</p>
-                  </div>
+                  <p className="bubble-text">{bottlesUsed.length} bottles used</p>
+                  <img src={MessageBubbleBig} alt="Message Bubble" className="bubble-image" />
+                </div>
 
                   {/* Message Bubble for Daily Water Usage */}
                   <div className="message-bubble">
-                    <img src={MessageBubbleSmall} alt="Message Bubble" className="bubble-image" />
                     <p className="bubble-text">Your daily water usage is 0.8 gallons. Keep it up!</p>
+                    <img src={MessageBubbleSmall} alt="Message Bubble" className="bubble-image" />
                   </div>
                 </div>
               </div>

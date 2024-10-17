@@ -1,3 +1,4 @@
+
 // Variables
 $primary-color: #00BFFF; // Light blue for the theme
 $secondary-color: #F0F0F0; // Light gray background
@@ -261,41 +262,54 @@ body {
       margin-top: 20px; 
       width: 100%;
       padding: 0 10%; 
-
-      .gallon-image,
-      .gallon-empty-image,
-      .gallon-filled-image {
-        position: absolute; 
-        top: 0;
-        left: 0;
-        width: 100%; 
-        height: auto; 
-        max-height: 70vh; 
-      }
-
-      .gallon-image {
-        z-index: 0; 
-      }
-
-      .gallon-empty-image {
-        z-index: 1; 
-      }
-
-      .gallon-filled-image {
-        z-index: 2; 
-      }
-
-      @media (max-width: 768px) {
-        justify-content: center;
-        margin-top: -50px; 
-        margin-left: 0%;
-        padding: 0 0; 
-
+      flex: 1;
+    
+      // Apply hover effect to the parent container
+      &:hover {
         .gallon-image,
         .gallon-empty-image,
         .gallon-filled-image {
-          width: 100%; 
-          max-width: 768px; 
+          transform: scale(1.1); // Scale up to 110%
+          transition: transform 0.3s ease; // Smooth transition
+        }
+      }
+    
+      .gallon-image,
+      .gallon-empty-image,
+      .gallon-filled-image {
+      position: absolute; 
+      top: 0;
+      left: 0;
+      width: 100%; 
+      height: auto; 
+      max-height: 70vh; 
+      transition: transform 0.3s ease; // Smooth transition for both scaling up and down
+  }
+    
+      .gallon-image {
+        z-index: 0; 
+      }
+    
+      .gallon-empty-image {
+        z-index: 1; 
+      }
+    
+      .gallon-filled-image {
+        z-index: 2; 
+      }
+    
+      @media (max-width: 768px) {
+        .gallon-section {
+          justify-content: center;
+          margin-top: -50px; /* Adjust margin for mobile */
+          padding: 0 5%; /* Add padding to center on smaller screens */
+        }
+      
+        .gallon-image,
+        .gallon-empty-image,
+        .gallon-filled-image {
+          width: 100%; /* Responsive width for mobile */
+          max-width: 3000px; /* Set a max width for better control */
         }
       }
     }
@@ -321,6 +335,7 @@ body {
     align-items: center;
     text-align: center;
     margin-top: 500px; 
+    flex: 1;
 
     h2 {
       margin: 10px 0;
@@ -357,84 +372,96 @@ body {
 
   .scroll-indicator {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: -133%; 
+    flex-direction: column; // Stack text and arrows vertically
+    align-items: center; // Center horizontally
+    justify-content: center; // Center vertically
+    margin-top: -133%; // Adjust space above the section
 
     .scroll-text {
-      color: darkgrey; 
-      margin-bottom: -5%; 
-      font-size: 1.2rem; 
-      text-align: center; 
+      color: darkgrey; // Text color
+      margin-bottom: -5%; // Space below the text
+      font-size: 1.2rem; // Font size
+      text-align: center; // Center text
     }
 
     .arrow-container {
-      display: flex; 
-      justify-content: center; 
-      margin-top: -10px; 
+      display: flex; // Flexbox to align arrows
+      justify-content: center; // Center arrows horizontally
+      margin-top: -10px; // Space above arrows
       transition: 1s;
-    
+
       img {
-        width: 30%; 
-        height: auto; 
-    
+        width: 30%; // Adjust width as needed
+        height: auto; // Maintain aspect ratio
+
+        // Hide the gif initially
         &.static {
-          display: block; 
+          display: block; // Show the static image by default
         }
-    
+
         &.bouncing {
-          display: none; 
+          display: none; // Hide the bouncing gif initially
         }
       }
-    
+
       &:hover {
         img.static {
-          display: none; 
+          display: none; // Hide static image on hover
         }
-    
+
         img.bouncing {
-          display: block; 
+          display: block; // Show bouncing gif on hover
         }
       }
     }
-    
+
     @media (max-width: 768px) {
-      margin-top: -115%; 
-      margin-left: 25%;
-    
+      margin-top: -175%; // Adjust margin for smaller screens
+      margin-left: 0%; // Adjust margin from the left
+  
       .scroll-text {
-        font-size: 1rem; 
+        font-size: 1rem; // Reduce font size for mobile
+
       }
-      
+  
       .arrow-container img {
-        width: 50%; 
+        width: 50%; // Increase size of arrows on mobile
       }
     }
     
     // Message bubble styling
+    .bubbles {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; /* Align bubbles to the right */
+      position: absolute; /* Ensure they are positioned absolutely */
+      right: 20px; /* Align to the right edge with some margin */
+      top: 20%; /* Adjust as necessary */
+      margin-right: 20px; /* Space from the edge */
+      z-index: 100; /* Ensure it appears above other elements */
+    }
+    
     .message-bubble {
       display: flex;
-      justify-content: right; 
+      justify-content: space-between; /* Space between text and image */
+      align-items: center; /* Center items vertically */
       margin-top: 0.5rem; 
       padding: 1rem; 
-      max-width: 500%; 
+      max-width: 300px; /* Adjusted width for better layout */
+      background-color: $primary-color; /* Optional: background color */
+      border-radius: 10px; /* Optional: rounded corners */
+      color: #000; /* Text color */
+    }
     
-      img {
-        width: 500%; 
-        height: auto;
-      }
+    .bubble-text {
+      font-size: 16px; 
+      text-align: left; /* Text aligned left */
+      margin-right: 10px; /* Space between text and image */
+    }
     
-      .bubble-text {
-        position: absolute; 
-        top: 125%; 
-        left: 50%;
-        transform: translate(-50%, -50%); 
-        color: #000; 
-        font-size: 16px; 
-        text-align: center;
-        pointer-events: none;
-      }
+    .bubble-image {
+      width: 40px; /* Adjust size as necessary */
+      height: auto; 
     }
     
     // Media queries for mobile responsiveness
