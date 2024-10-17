@@ -184,9 +184,8 @@ function handleSubmit(event: any) {
           onChange={(ev) => updateFirstName(ev.target.value)}
           className={'inputBox'}
         />
-        
+        <label className="errorLabel">{firstNameError}</label>
       </div>
-      <label className="errorLabel">{firstNameError}</label>
       <br />
       <div className={'inputContainer'}>
         <input
@@ -195,8 +194,8 @@ function handleSubmit(event: any) {
           onChange={(ev) => updateMiddleName(ev.target.value)}
           className={'inputBox'}
         />
+        <label className="errorLabel">{middleNameError}</label>
       </div>
-      <label className="errorLabel">{middleNameError}</label>
       <br />
       <div className={'inputContainer'}>
         <input
@@ -205,9 +204,8 @@ function handleSubmit(event: any) {
           onChange={(ev) => updateLastName(ev.target.value)}
           className={'inputBox'}
         />
-        
+        <label className="errorLabel">{lastNameError}</label>
       </div>
-      <label className="errorLabel">{lastNameError}</label>
       <br />
       <div className={'inputContainer'}>
         <select 
@@ -220,9 +218,8 @@ function handleSubmit(event: any) {
             <option key={region} value={region}>{region}</option>
           ))}
         </select>
-        
+        <label className="errorLabel">{locationError}</label>
       </div>
-      <label className="errorLabel">{locationError}</label>
       <br />
       <div className={'inputContainer'}>
         <input
@@ -231,9 +228,8 @@ function handleSubmit(event: any) {
           onChange={(ev) => updateEmail(ev.target.value)}
           className={'inputBox'}
         />
-        
+        <label className="errorLabel">{emailError}</label>
       </div>
-      <label className="errorLabel">{emailError}</label>
       <br />
       <div className={'inputContainer'}>
         <input
@@ -243,9 +239,8 @@ function handleSubmit(event: any) {
           className={'inputBox'}
           type="password"
         />
-        
+        <label className="errorLabel">{passwordError}</label>
       </div>
-      <label className="errorLabel">{passwordError}</label>
       <br />
       <div className={'inputContainer'}>
         <input className={'inputButton'} type="button" onClick={onButtonClick_SignUp} value={'Sign Up'} />
