@@ -9,9 +9,6 @@ body {
   padding: 1rem; // Adequate padding
 }
 
-.header {
-  text-align: center; // Center header text
-}
 
 input[type='button'] {
   border: none;
@@ -30,7 +27,7 @@ input[type='button'] {
 }
 
 .inputBox {
-  width: 100%; // Full width inputs
+  max-width: 100%; // Full width inputs
   padding: 0.75rem; // Comfortable padding
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -38,14 +35,25 @@ input[type='button'] {
 }
 
 .inputBoxSelect {
-  width: 100%; // Full width inputs
   padding: 0.75rem; // Comfortable padding
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem; // Consistent font size for inputs
+  max-width: 80%;
+  margin-left: 10%;
 }
 
+.signUp {
+      display: flex;
+      color: blue;
+      border: none;
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
 
+      &:hover {
+          background-color: #bdbdbd;
+      }
+}
 
 .errorLabel {
   color: red;
@@ -57,13 +65,23 @@ input[type='button'] {
   margin-bottom: 1rem; // Space below title
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   body {
     font-size: 1rem; // Further reduce font size on very small screens
   }
 
   input[type='button'] {
-    font-size: 0.9rem; // Smaller button text
+    font-size: 0.9rem;
+    border: none;
+    background: cornflowerblue;
+    color: white;
+    padding: 12px; // Consistent padding
+    width: 100%; // Full width for buttons
+    margin-top: 1rem; // Space above button
+    font-size: 1rem; // Responsive font size
+    border-radius: 8px;
+    cursor: pointer;
+    
   }
 
   .inputBox {

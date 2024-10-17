@@ -55,6 +55,10 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
     navigate('/App');
   };
 
+  const onButtonSignUp = () => {
+    navigate('/SignUp');
+  };
+
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
     if (tab === "Home") {
@@ -115,6 +119,7 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
       <br />
       <div className={'inputContainer'}>
         <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
+        <button className = "signUp" onClick={onButtonSignUp}>Don't have and account? Sign Up!</button>
       </div>
     </div>
   );

@@ -106,6 +106,9 @@ const SignUp: React.FC<SignUpProps> = ({ setLoggedIn, setEmail }) => {
       console.log('Form is valid, proceed with registration...');
     }
   };
+  const onButtonLogIn = () => {
+    navigate('/LogIn');
+  };
 /*
 
 function handleSubmit(event: any) {
@@ -217,6 +220,7 @@ function handleSubmit(event: any) {
       <br />
       <div className={'inputContainer'}>
         <input className={'inputButton'} type="button" onClick={onButtonClick_SignUp} value={'Sign Up'} />
+        <button className = "signUp" onClick={onButtonLogIn}>Already Have an account? Log In!</button>
       </div>
     </div>
   );

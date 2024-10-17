@@ -100,7 +100,7 @@ body {
   z-index: 1000;
 
   @media (max-width: 768px) {
-    height: 90px; // Increase the height for mobile
+    height: 70px; // Increase the height for mobile
     padding: 15px 10px; // Adjust padding if needed
   }
 }
@@ -112,7 +112,7 @@ body {
   @media (max-width: 768px) {
     display: flex; // Show on mobile
     position: absolute;
-    left: 3%; // Adjust as needed
+    left: 1%; // Adjust as needed
     top: 50%; // Center vertically
     transform: translateY(-50%); // Adjust to truly center vertically
     flex-direction: column; // Stack bars vertically
@@ -134,7 +134,7 @@ body {
       border-radius: 3px; // Rounded edges for a nicer look
       margin: 2px 0; // Space between bars
       margin-top: 11px;
-      transform: scaleX(1.2);
+      transform: scaleX(1.15);
     }
 
   }
@@ -149,7 +149,7 @@ body {
     display: flex; // Show when open
     flex-direction: column;
     position: absolute;
-    top: 60px; // Position below the top bar
+    top: 50px; // Position below the top bar
     left: 0;
     right: 0;
     background-color: #fff;
@@ -177,7 +177,7 @@ body {
   }
 
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: black;
   }
 
@@ -209,7 +209,7 @@ body {
     display: flex; // Show on mobile
     flex-direction: column; // Stack vertically
     position: absolute; // Position absolutely
-    top: 98px; // Below the top bar
+    top: 80px; // Below the top bar
     left: 8px; // Align to the left
     right: 0; // Ensure full width
     background: white;
@@ -256,7 +256,7 @@ body {
     display: flex; // Show dropdown on mobile
     flex-direction: column;
     position: absolute;
-    top: 60px; // Position below the top bar
+    top: 50px; // Position below the top bar
     left: 0;
     right: 0;
     background-color: #fff;
@@ -313,9 +313,9 @@ body {
 .greeting {
   margin-left: auto; // Ensure it's pushed to the right
   display: flex;
-  font-weight: 400;
+  font-weight: 525;
   align-items: center; // Vertically center
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .dropdown-arrow {
@@ -325,10 +325,9 @@ body {
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 80px; // Adjust this margin for content to be below the fixed top bar
-  width: 100%; // Full width for content
-  max-width: 100%;
+  align-items: center; /* Center content */
+  margin-top: 80px; /* Adjust this margin for content to be below the fixed top bar */
+  width: 100%; /* Full width for content */
 
   .overview-section {
     display: flex;
@@ -337,14 +336,14 @@ body {
 
     .gallon-section {
       display: flex;
-  justify-content: center; /* Center contents horizontally */
-  align-items: center; /* Center contents vertically */
-  position: relative; 
-  margin-top: 20px; 
-  width: 100%; /* Full width */
-  max-height: 70vh; /* Max height limit for the container */
-  flex-wrap: wrap; /* Allow items to wrap if needed */
-  padding: 0 10%; /* Add padding to center on larger screens */
+      justify-content: center; /* Center contents horizontally */
+      align-items: center; /* Center contents vertically */
+      position: relative; 
+      margin-top: 20px; 
+      width: 100%; /* Full width */
+      max-height: 70vh; /* Max height limit for the container */
+      flex-wrap: wrap; /* Allow items to wrap if needed */
+      padding: 0 10%; /* Add padding to center on larger screens */
     }
     
     .gallon-image,
@@ -371,11 +370,19 @@ body {
     }
 
     @media (max-width: 768px) {
-      position: relative;
-      margin-top: none; // Adjust margin for mobile
-      width: 100%;
-      justify-content: center; /* Center contents horizontally */
-      align-items: center;
+      .gallon-section {
+        justify-content: center;
+        margin-top: 10px; /* Adjust margin for mobile */
+        margin-left: 10%;
+        padding: 0 5%; /* Add padding to center on smaller screens */
+      }
+    
+      .gallon-image,
+      .gallon-empty-image,
+      .gallon-filled-image {
+        width: 90%; /* Responsive width for mobile */
+        max-width: 300px; /* Set a max width for better control */
+      }
     }
     
     .water-bottle-images {
