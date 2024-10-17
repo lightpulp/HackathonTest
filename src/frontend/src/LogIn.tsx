@@ -119,8 +119,9 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
           onChange={(ev) => updateEmail(ev.target.value)}
           className={'inputBox'}
         />
-        <label className="errorLabel">{emailError}</label>
+        
       </div>
+      <label className="errorLabel">{emailError}</label>
       <br />
       <div className={'inputContainer'}>
         <input
@@ -130,14 +131,15 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
           className={'inputBox'}
           type="password"
         />
-        <label className="errorLabel">{passwordError}</label>
+       
       </div>
+      <label className="errorLabel">{passwordError}</label>
       <br />
       <div className={'inputContainer'}>
         <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
       </div>
       <div className={'inputContainer'}>
-      <button className = "signUp" onClick={onButtonSignUp}>Don't have and account? Sign Up!</button>
+      <button className = "signUp" onClick={onButtonSignUp}>Don't have and account? Sign Up</button>
       </div>
     </div>
   );

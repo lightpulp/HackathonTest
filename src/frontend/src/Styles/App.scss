@@ -81,11 +81,12 @@ body {
 // Dropdown menu styling
 .dropdown-menu {
   display: none; // Hide menu by default
-  transition: opacity 0.5s ease; // Transition for fade effect
+  opacity: 0;
+  transition: opacity 0.3s ease; // Transition for fade effect
 
   &.open {
-    display: flex;
-    opacity: 1;
+    display: flex; // Show menu
+    opacity: 1; // Set opacity to 1
     flex-direction: column;
     position: absolute;
     top: 50px;
