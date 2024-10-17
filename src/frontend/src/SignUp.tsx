@@ -109,6 +109,22 @@ const SignUp: React.FC<SignUpProps> = ({ setLoggedIn, setEmail }) => {
   const onButtonLogIn = () => {
     navigate('/LogIn');
   };
+
+  const handleTabClick = (tab: string) => {
+    setActiveTab(tab);
+    if (tab === "Home") {
+      navigate('/'); 
+    } else if (tab === "Sign Up") {
+      navigate('/SignUp'); 
+    } else if (tab === "Log In") {
+
+    }
+  };
+
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+  };
 /*
 
 function handleSubmit(event: any) {
@@ -121,34 +137,42 @@ function handleSubmit(event: any) {
   }
 
 */
+
+
   return (
     <div className={'mainContainer'}>
       <header className="top-bar">
-        <div className="logo">
-          <img src={WaterdropLogo} alt="Water Drop Logo" />
-          <h1>WaterSaver</h1>
-        </div>
-        <nav className="nav">
-          {["Home", "Log In", "Sign Up"].map(tab => (
-            <div
-              key={tab}
-              className={`tab ${activeTab === tab ? "active" : ""}`}
-              onClick={() => {
-                setActiveTab(tab);
-                if (tab === "Home") navigate('/');
-                else if (tab === "Log In") navigate('/LogIn');
-                else if (tab === "Sign Up") navigate('/SignUp');
-              }}
-            >
-              {tab}
-            </div>
-          ))}
-        </nav>
-        <div className="greeting">
-          <span>Hi!</span>
-          <span className="dropdown-arrow">▼</span>
-        </div>
-      </header>
+                {/* Hamburger Menu Button */}
+                <div className="menu-button" onClick={toggleMenu}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div className="logo">
+                    <img src={WaterdropLogo} alt="Water Drop Logo" />
+                    <h1>WaterSaver</h1>
+                </div>
+                    <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+                    {["Home", "Log In", "SignUp"].map(tab => (
+                        <div
+                        key={tab}
+                        className={`tab ${activeTab === tab ? "active" : ""}`}
+                        onClick={() => {
+                            handleTabClick(tab);
+                            setMenuOpen(false); // Close menu on tab click
+                        }}
+                        >
+                        {tab}
+                        </div>
+                    ))}
+                    </nav>
+
+                    <div className="greeting">
+                    <span>Hi!</span>
+                    <span className="dropdown-arrow">▼</span>
+                    </div>
+            </header>
       <div className={'titleContainer'}>
         <div>Sign Up</div>
       </div>
@@ -220,7 +244,9 @@ function handleSubmit(event: any) {
       <br />
       <div className={'inputContainer'}>
         <input className={'inputButton'} type="button" onClick={onButtonClick_SignUp} value={'Sign Up'} />
-        <button className = "signUp" onClick={onButtonLogIn}>Already Have an account? Log In!</button>
+      </div>
+      <div className={'inputContainer'}>
+      <button className = "signUp" onClick={onButtonLogIn}>Already Have an account? Log In!</button>
       </div>
     </div>
   );

@@ -249,21 +249,6 @@ body {
   }
 }
 
-.dropdown-menu {
-  display: none; // Hide menu by default
-
-  @media (max-width: 768px) {
-    display: flex; // Show dropdown on mobile
-    flex-direction: column;
-    position: absolute;
-    top: 50px; // Position below the top bar
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-}
-
 .tab {
   cursor: pointer;
   padding: 10px 15px;
@@ -341,8 +326,6 @@ body {
       position: relative; 
       margin-top: 20px; 
       width: 100%; /* Full width */
-      max-height: 70vh; /* Max height limit for the container */
-      flex-wrap: wrap; /* Allow items to wrap if needed */
       padding: 0 10%; /* Add padding to center on larger screens */
     }
     

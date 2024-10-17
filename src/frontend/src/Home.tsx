@@ -12,7 +12,7 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ email, loggedIn, setLoggedIn }) => {
-  const [activeTab, setActiveTab] = useState<string>("Overview");
+  const [activeTab, setActiveTab] = useState<string>("Home");
   const navigate = useNavigate(); 
   const onButtonClick = () => {
     if (loggedIn) {
@@ -34,29 +34,45 @@ const Home: React.FC<HomeProps> = ({ email, loggedIn, setLoggedIn }) => {
     }
   };
 
+  const [isMenuOpen, setMenuOpen] = useState(false);
+    const toggleMenu = () => {
+      setMenuOpen(prev => !prev);
+    };
+
   return (
     <div className="mainContainer">
-       <header className="top-bar">
-        <div className="logo">
-          <img src={WaterdropLogo} alt="Water Drop Logo" />
-          <h1>WaterSaver</h1>
-        </div>
-        <nav className="nav">
-          {["Home", "Log In", "Sign Up"].map(tab => (
-            <div
-              key={tab}
-              className={`tab ${activeTab === tab ? "active" : ""}`}
-              onClick={() => handleTabClick(tab)}
-            >
-              {tab}
-            </div>
-          ))}
-        </nav>
-        <div className="greeting">
-          <span>Hi!</span>
-          <span className="dropdown-arrow">▼</span>
-        </div>
-      </header>
+        <header className="top-bar">
+                {/* Hamburger Menu Button */}
+                <div className="menu-button" onClick={toggleMenu}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div className="logo">
+                    <img src={WaterdropLogo} alt="Water Drop Logo" />
+                    <h1>WaterSaver</h1>
+                </div>
+                    <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+                    {["Home", "Log In", "Sign Up"].map(tab => (
+                        <div
+                        key={tab}
+                        className={`tab ${activeTab === tab ? "active" : ""}`}
+                        onClick={() => {
+                            handleTabClick(tab);
+                            setMenuOpen(false); // Close menu on tab click
+                        }}
+                        >
+                        {tab}
+                        </div>
+                    ))}
+                    </nav>
+
+                    <div className="greeting">
+                    <span>Hi!</span>
+                    <span className="dropdown-arrow">▼</span>
+                    </div>
+            </header>
       <div className={'titleContainer'}>
         <div>Welcome!</div>
       </div>

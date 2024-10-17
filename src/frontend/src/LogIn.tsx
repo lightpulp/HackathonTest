@@ -70,29 +70,45 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
     }
   };
 
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+  };
+
   return (
     <div className={'mainContainer'}>
       <header className="top-bar">
-        <div className="logo">
-          <img src={WaterdropLogo} alt="Water Drop Logo" />
-          <h1>WaterSaver</h1>
-        </div>
-        <nav className="nav">
-          {["Home", "Log In", "Sign Up"].map(tab => (
-            <div
-              key={tab}
-              className={`tab ${activeTab === tab ? "active" : ""}`}
-              onClick={() => handleTabClick(tab)}
-            >
-              {tab}
-            </div>
-          ))}
-        </nav>
-        <div className="greeting">
-          <span>Hi!</span>
-          <span className="dropdown-arrow">▼</span>
-        </div>
-      </header>
+                {/* Hamburger Menu Button */}
+                <div className="menu-button" onClick={toggleMenu}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div className="logo">
+                    <img src={WaterdropLogo} alt="Water Drop Logo" />
+                    <h1>WaterSaver</h1>
+                </div>
+                    <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+                    {["Home", "Log In", "Sign Up"].map(tab => (
+                        <div
+                        key={tab}
+                        className={`tab ${activeTab === tab ? "active" : ""}`}
+                        onClick={() => {
+                            handleTabClick(tab);
+                            setMenuOpen(false); // Close menu on tab click
+                        }}
+                        >
+                        {tab}
+                        </div>
+                    ))}
+                    </nav>
+
+                    <div className="greeting">
+                    <span>Hi!</span>
+                    <span className="dropdown-arrow">▼</span>
+                    </div>
+            </header>
       <div className={'titleContainer'}>
         <div>Login</div>
       </div>
@@ -119,7 +135,9 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
       <br />
       <div className={'inputContainer'}>
         <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
-        <button className = "signUp" onClick={onButtonSignUp}>Don't have and account? Sign Up!</button>
+      </div>
+      <div className={'inputContainer'}>
+      <button className = "signUp" onClick={onButtonSignUp}>Don't have and account? Sign Up!</button>
       </div>
     </div>
   );
