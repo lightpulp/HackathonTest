@@ -18,7 +18,7 @@
 .input-title {
     font-size: 2rem;
     margin: 1.5rem 0; // Increased vertical margin
-    color: #00796b;
+    color: #5474eb;
     text-align: center;
 
     @media (max-width: 768px) {
@@ -74,7 +74,7 @@ h2 {
 }
 
 .input-button {
-    background-color: #00796b;
+    background-color: #5474eb;
     color: white;
     padding: 0.75rem;
     border: none;
@@ -83,8 +83,8 @@ h2 {
     width: 100%;
 
     &:hover {
-        background-color: #004d40;
-    }
+      background-color: #1433a3;
+  }
 
     @media (max-width: 768px) {
         padding: 0.6rem; // Slightly less padding on mobile

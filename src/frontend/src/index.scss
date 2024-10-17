@@ -11,7 +11,7 @@
 
 input[type='button'] {
   border: none;
-  background: cornflowerblue;
+  background: #5474eb;
   color: white;
   padding: 12px; // Consistent padding
   width: 100%; // Full width for buttons
@@ -20,6 +20,10 @@ input[type='button'] {
   font-size: 1rem; // Responsive font size
   border-radius: 8px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #1433a3;
+  }
 }
 
 .inputContainer {
