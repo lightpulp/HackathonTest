@@ -71,21 +71,35 @@ const Impact: React.FC = () => {
                     <h2 className="article-header">Impact of Your Water Usage</h2> 
                     <div className="article-container">
                     <header className="article-header">
-                        <h1>Tapped Out: Exploring the Impacts of Water Pollution and Overuse</h1>
+                        <h1>Water and Sanitation Issues in the Philippines</h1>
                         <p className="author-date">By Author Name | Date</p>
                     </header>
                     <section className="article-content">
-                        <p>Water pollution and overuse are two critical issues facing our planet today...</p>
+                        <p>With a population of 113 million people, access to safe water in the Philippines is challenge for a significant proportion of the population. 
+                        According to UN and UNICEF data, 53% of households in the Philippines lack access to a safely managed water supply and 39% lack safe sanitation. 
+                        The situation in schools is even more serious, with 55% of schools lacking access to a safely managed water supply and 26% lacking safe sanitation.</p>
                         <img src="water-pollution.jpg" alt="Water Pollution" className="article-image" />
-                        <h2 className="article-header">Understanding Water Pollution</h2>
-                        <p>Water pollution is caused by the introduction of harmful contaminants into water bodies...</p>
+                        <h2 className="article-header">Water pollution and overuse in the Philippines</h2>
+                        <p>Water pollution in the Philippines has far-reaching consequences. Health impacts are severe, 
+                        with waterborne diseases being common in areas with poor water quality. 
+                        They are among the country’s top 10 factors leading to disease and death.
+
+                        The economic effects of water pollution are equally concerning. 
+                        Due to the impact of water-related diseases and contamination, healthcare costs increase and worker productivity declines. 
+                        These two factors account for USD 7 billion in annual economic losses.
+
+                        Furthermore, industries that rely on clean water also face economic challenges. 
+                        Environmental repercussions include the degradation of aquatic ecosystems and loss of biodiversity. 
+                        Polluted waters harm fish populations, reduce biodiversity and disrupt ecosystems. 
+                        This environmental degradation directly impacts the tourism and fishing industry. 
+                        With tourism accounting for 6.2% and fisheries 1.3% of the country’s GDP, declines in either sector have a significant impact on communities across the country.</p>
                     </section>
                     <aside className="related-articles">
                         <h2 className="article-header">You Might Also Like</h2>
                         <ul>
-                        <li><a href="/article1">Understanding Aquatic Ecosystems</a></li>
-                        <li><a href="/article2">The Crisis of Clean Water Access</a></li>
-                        <li><a href="/article3">Innovative Solutions for Water Conservation</a></li>
+                        <li><a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/aquatic-ecosystem#:~:text=An%20aquatic%20ecosystem%20is%20defined,environment%2C%20maintaining%20a%20dynamic%20equilibrium." target="_blank">Understanding Aquatic Ecosystems</a></li>
+                        <li><a href="https://www.worldvision.org/clean-water-news-stories/global-water-crisis-facts#:~:text=global%20water%20crisis-,Fast%20facts%3A%20Global%20water%20crisis,haul%2040%20pounds%20of%20water." target="_blank">The Crisis of Clean Water Access</a></li>
+                        <li><a href="https://cleanwaterinternational.org/simple-ways-to-conserve-water/?gad_source=1&gclid=EAIaIQobChMI5J6Wt-yUiQMV3NAWBR0o1haTEAAYASAAEgJ9MPD_BwE" target="_blank">Innovative Solutions for Water Conservation</a></li>
                         </ul>
                     </aside>
                     </div>

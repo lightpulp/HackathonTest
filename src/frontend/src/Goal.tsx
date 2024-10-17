@@ -110,13 +110,13 @@ const Goal: React.FC = () => {
                     <span className="dropdown-arrow">▼</span>
                     </div>
             </header>
-            <h1>Notes</h1>
+            <h1>Your Goals</h1>
             <div className="input-area">
                 <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Add a note..."
+                    placeholder="Add a goal..."
                 />
                 <button onClick={handleAddOrUpdate}>{editId !== null ? 'Update' : 'Add'}</button>
             </div>

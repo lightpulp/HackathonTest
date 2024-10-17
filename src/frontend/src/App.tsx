@@ -44,19 +44,17 @@ const App: React.FC = () => {
   return (
     <div className="app-container">
       <header className="top-bar">
-      {/* Hamburger Menu Button */}
-      <div className={`menu-button ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+        {/* Hamburger Menu Button */}
+        <div className={`menu-button ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
 
-      <div className="logo">
-        <img src={WaterdropLogo} alt="Water Drop Logo" />
-        <h1>WaterSaver</h1>
-      </div>
-
-
+        <div className="logo">
+          <img src={WaterdropLogo} alt="Water Drop Logo" />
+          <h1>WaterSaver</h1>
+        </div>
 
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
           {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
@@ -79,47 +77,49 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      <main className="main-content">
-        {activeTab === "Overview" && (
-          <div className="overview-section">
-            <div className="gallon-section">
-              <img src={WaterGallonMain} alt="Water Gallon" className="gallon-image" />
-              <img src={WaterGallonEmpty} alt="Water Gallon Empty" className="gallon-empty-image" />
-              <img src={WaterGallonFilled} alt="Water Gallon Filled" className="gallon-filled-image" />
+      <div className="content-wrapper"> {/* New wrapper for centering */}
+        <main className="main-content">
+          {activeTab === "Overview" && (
+            <div className="overview-section">
+              <div className="gallon-section">
+                <img src={WaterGallonMain} alt="Water Gallon" className="gallon-image" />
+                <img src={WaterGallonEmpty} alt="Water Gallon Empty" className="gallon-empty-image" />
+                <img src={WaterGallonFilled} alt="Water Gallon Filled" className="gallon-filled-image" />
+              </div>
+
+              <div className="bottle-tracking-section">
+                <button className="add-bottle-button" onClick={addBottle}>Add Bottle</button>
+                <div className="bottle-list">
+                  {bottlesUsed.map((_, index) => (
+                    <img key={index} src={WaterBottle} alt={`Bottle ${index + 1}`} className="bottle-image" />
+                  ))}
+                </div>
+
+                <div className="scroll-indicator">
+                  <p className="scroll-text">Scroll down to see your statistics</p>
+                  <div className="arrow-container">
+                    <img src={StaticArrows} alt="Static Arrows" className="static" />
+                    <img src={BouncingArrows} alt="Bouncing Arrows" className="bouncing" />
+                  </div>
+                </div>
+                <div className="bubbles">
+                  {/* Message Bubble for Bottles Used */}
+                  <div className="message-bubble">
+                    <img src={MessageBubbleBig} alt="Message Bubble" className="bubble-image" />
+                    <p className="bubble-text">{bottlesUsed.length} bottles used</p>
+                  </div>
+
+                  {/* Message Bubble for Daily Water Usage */}
+                  <div className="message-bubble">
+                    <img src={MessageBubbleSmall} alt="Message Bubble" className="bubble-image" />
+                    <p className="bubble-text">Your daily water usage is 0.8 gallons. Keep it up!</p>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div className="bottle-tracking-section">
-              <button className="add-bottle-button" onClick={addBottle}>Add Bottle</button>
-              <div className="bottle-list">
-                {bottlesUsed.map((_, index) => (
-                  <img key={index} src={WaterBottle} alt={`Bottle ${index + 1}`} className="bottle-image" />
-                ))}
-              </div>
-
-              <div className="scroll-indicator">
-                <p className="scroll-text">Scroll down to see your statistics</p>
-                <div className="arrow-container">
-                  <img src={StaticArrows} alt="Static Arrows" className="static" />
-                  <img src={BouncingArrows} alt="Bouncing Arrows" className="bouncing" />
-                </div>
-              </div>
-              <div className="bubbles">
-                {/* Message Bubble for Bottles Used */}
-                <div className="message-bubble">
-                  <img src={MessageBubbleBig} alt="Message Bubble" className="bubble-image" />
-                  <p className="bubble-text">{bottlesUsed.length} bottles used</p>
-                </div>
-
-                {/* Message Bubble for Daily Water Usage */}
-                <div className="message-bubble">
-                  <img src={MessageBubbleSmall} alt="Message Bubble" className="bubble-image" />
-                  <p className="bubble-text">Your daily water usage is 0.8 gallons. Keep it up!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </main>
+          )}
+        </main>
+      </div>
     </div>
   );
 };

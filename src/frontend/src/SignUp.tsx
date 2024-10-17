@@ -117,7 +117,7 @@ const SignUp: React.FC<SignUpProps> = ({ setLoggedIn, setEmail }) => {
     } else if (tab === "Sign Up") {
       navigate('/SignUp'); 
     } else if (tab === "Log In") {
-
+      navigate('/LogIn');
     }
   };
 
@@ -154,7 +154,7 @@ function handleSubmit(event: any) {
                     <h1>WaterSaver</h1>
                 </div>
                     <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
-                    {["Home", "Log In", "SignUp"].map(tab => (
+                    {["Home", "Log In", "Sign Up"].map(tab => (
                         <div
                         key={tab}
                         className={`tab ${activeTab === tab ? "active" : ""}`}

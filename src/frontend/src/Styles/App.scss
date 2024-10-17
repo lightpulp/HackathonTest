@@ -1,74 +1,9 @@
+// Variables
 $primary-color: #00BFFF; // Light blue for the theme
 $secondary-color: #F0F0F0; // Light gray background
 $font-family: 'Arial', sans-serif;
 
-// Test line
-
-.mainContainer {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.titleContainer {
-  display: flex;
-  flex-direction: column;
-  font-size: 64px;
-  font-weight: bolder;
-  align-items: center;
-  justify-content: center;
-}
-
-.resultContainer,
-.historyItem {
-  flex-direction: row;
-  display: flex;
-  width: 400px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.historyContainer {
-  flex-direction: column;
-  display: flex;
-  height: 200px;
-  align-items: center;
-  flex-grow: 5;
-  justify-content: flex-start;
-}
-
-.buttonContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 260px;
-}
-
-.inputContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin-bottom: .5%;
-}
-
-.inputContainer > .errorLabel {
-  color: red;
-  font-size: 12px;
-}
-
-.inputBox {
-  height: 48px;
-  width: 400px;
-  font-size: large;
-  border-radius: 8px;
-  border: 1px solid grey;
-  padding-left: 8px;
-}
-
+// Global styles
 * {
   box-sizing: border-box; // Ensure padding and borders are included in element's total width and height
 }
@@ -79,6 +14,7 @@ body {
   background-color: $secondary-color; // Set background color
 }
 
+// App container
 .app-container {
   display: flex;
   flex-direction: column;
@@ -86,25 +22,27 @@ body {
   padding: 20px; // Padding around the container
 }
 
+// Top bar styling
 .top-bar {
   display: flex;
-  justify-content: space-between; // Keep desktop layout
-  align-items: center; // Center items vertically
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 10px;
+  padding: 8px;
   background: linear-gradient(to bottom, #e0e0e0, #ffffff);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 
   @media (max-width: 768px) {
-    height: 70px; // Increase the height for mobile
+    height: 65px; // Increase the height for mobile
     padding: 15px 10px; // Adjust padding if needed
   }
 }
 
+// Menu button styling
 .menu-button {
   display: none; // Hidden by default
   background-color: transparent; // Default background
@@ -112,44 +50,42 @@ body {
   @media (max-width: 768px) {
     display: flex; // Show on mobile
     position: absolute;
-    left: 1%; // Adjust as needed
-    top: 50%; // Center vertically
-    transform: translateY(-50%); // Adjust to truly center vertically
-    flex-direction: column; // Stack bars vertically
+    left: 1%;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
     cursor: pointer;
-    margin-right: 2.5%; // Space from the logo
-    width: 60px; // Width for easier touch
-    height: 60px; // Height for easier touch
-    align-items: center; // Center bars horizontally
+    margin-right: 2.5%;
+    width: 60px;
+    height: 60px;
+    align-items: center;
 
     &.open {
-      background-color: rgb(207, 207, 207); // Background when menu is open
+      background-color: rgb(207, 207, 207);
       border-radius: 3px;
     }
 
     div {
-      width: 35px; // Width of the bars
-      height: 4px; // Height of the bars
-      background: #000000; // Color of the bars
-      border-radius: 3px; // Rounded edges for a nicer look
-      margin: 2px 0; // Space between bars
+      width: 35px;
+      height: 4px;
+      background: #000000;
+      border-radius: 3px;
+      margin: 2px 0;
       margin-top: 11px;
       transform: scaleX(1.15);
     }
-
   }
 }
 
-
-
+// Dropdown menu styling
 .dropdown-menu {
   display: none; // Hide menu by default
 
   &.open {
-    display: flex; // Show when open
+    display: flex;
     flex-direction: column;
     position: absolute;
-    top: 50px; // Position below the top bar
+    top: 50px;
     left: 0;
     right: 0;
     background-color: #fff;
@@ -159,7 +95,7 @@ body {
 
   .tab {
     padding: 10px;
-    text-align: center; // Center text
+    text-align: center;
 
     &:hover {
       background-color: #f0f0f0; // Change background on hover
@@ -167,13 +103,13 @@ body {
   }
 }
 
+// Logo styling
 .logo {
   display: flex;
   align-items: center;
 
   img {
     height: 40px;
-    margin-right: none;
   }
 
   h1 {
@@ -187,16 +123,16 @@ body {
     transform: translateX(-50%);
     align-items: center;
     justify-content: center;
-    flex: 1; // Allow logo to take available space for centering
+    flex: 1;
   }
 }
 
+// Navigation styling
 .nav {
-  
-  display: flex; // Show tabs on desktop
-  flex-direction: row; // Align tabs horizontally
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  position: absolute; // Default positioning for desktop
+  position: absolute;
   left: 27%;
   width: 40%;
   text-align: center;
@@ -206,63 +142,60 @@ body {
   }
 
   &.open {
-    display: flex; // Show on mobile
-    flex-direction: column; // Stack vertically
-    position: absolute; // Position absolutely
-    top: 80px; // Below the top bar
-    left: 8px; // Align to the left
-    right: 0; // Ensure full width
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 8px;
+    right: 0;
     background: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 2000; // Ensure it overlays other elements
-    transition: max-height 0.3s ease; // Add transition effect
-    max-height: 300px; // Set max height when open
+    z-index: 2000;
+    transition: max-height 0.3s ease;
+    max-height: 300px;
   }
 }
 
-
+// Hamburger menu styling
 .hamburger {
-  display: none; // Hide on larger screens
+  display: none;
 
   @media (max-width: 768px) {
-    display: flex; // Show on mobile
+    display: flex;
     flex-direction: column;
     cursor: pointer;
-    width: 60px; // Button width
-    height: 60px; // Button height
-    margin: auto; // Center the button in its container
-    justify-content: center; // Center the bars vertically
-    align-items: center; // Center the bars horizontally
-    text-align: center; // Center text if needed
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
 
     &.open {
-      background-color: rgb(255, 0, 0); // Change background when open
+      background-color: rgb(255, 0, 0);
     }
 
     div {
-      width: 30px; // Width of the bars
-      height: 4px; // Height of the bars
-      background: #000000; // Color of the bars
-      margin: 2px 0; // Spacing between the bars
-      border-radius: 3px; // Rounded edges
+      width: 30px;
+      height: 4px;
+      background: #000000;
+      margin: 2px 0;
+      border-radius: 3px;
     }
   }
 }
 
+// Tab styling
 .tab {
   cursor: pointer;
   padding: 10px 15px;
-  transition: color 0.3s; // Transition effect
-
-  // Default border for all tabs
-  border-bottom: 3px solid transparent; // Thicker default border
-  flex-grow: 0.5; // Allow each tab to grow and take equal space
-  flex-basis: auto;
+  transition: color 0.3s;
+  border-bottom: 3px solid transparent;
+  flex-grow: 0.5;
 
   &.active {
-    font-weight: bold; // Bold font for active tab
-    color: black; // Font color for active tab
-    border-bottom: 3px solid lightgrey; // Lighter grey underline for active tab ////////////
+    font-weight: bold;
+    color: black;
+    border-bottom: 3px solid lightgrey;
 
     @media (max-width: 768px) {
       background-color: rgb(207, 207, 207);
@@ -271,9 +204,10 @@ body {
   }
 
   &:hover {
-    color: #5474eb; // Dark blue on hover for all tabs
-    border-bottom: 3px solid #5474eb; // Blue underline on hover
+    color: #5474eb;
+    border-bottom: 3px solid #5474eb;
     transition: 0.2s;
+
     @media (max-width: 768px) {
       background-color: none;
       border-bottom: none;
@@ -281,38 +215,38 @@ body {
   }
 
   &:not(.active) {
-    color: grey; // Grey color when not active
+    color: grey;
   }
 
   @media (max-width: 768px) {
-    .tab {
-      &.active {
-        background-color: lightgrey; // Change background color for active tab
-        color: black; // Ensure text color is visible
-        border: none; // Remove any borders
-      }
+    &.active {
+      background-color: lightgrey;
+      color: black;
+      border: none;
     }
   }
 }
 
+// Greeting section
 .greeting {
-  margin-left: auto; // Ensure it's pushed to the right
+  margin-left: auto;
   display: flex;
   font-weight: 525;
-  align-items: center; // Vertically center
+  align-items: center;
   font-size: 1.4rem;
 }
 
 .dropdown-arrow {
-  margin-left: 5px; // Space between greeting and arrow
+  margin-left: 5px;
 }
 
+// Main content
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content */
-  margin-top: 80px; /* Adjust this margin for content to be below the fixed top bar */
-  width: 100%; /* Full width for content */
+  align-items: center;
+  margin-top: 80px;
+  width: 100%;
 
   .overview-section {
     display: flex;
@@ -321,235 +255,230 @@ body {
 
     .gallon-section {
       display: flex;
-      justify-content: center; /* Center contents horizontally */
-      align-items: center; /* Center contents vertically */
+      justify-content: center;
+      align-items: center;
       position: relative; 
       margin-top: 20px; 
-      width: 100%; /* Full width */
-      padding: 0 10%; /* Add padding to center on larger screens */
-    }
-    
-    .gallon-image,
-    .gallon-empty-image,
-    .gallon-filled-image {
-      position: absolute; // Stack images on top of each other
-      top: 0;
-      left: 0;
-      width: 100%; // Responsive width
-      height: auto; // Maintain aspect ratio
-      max-height: 70vh; // Responsive max height
-    }
-    
-    .gallon-image {
-      z-index: 0; // Base layer
-    }
-    
-    .gallon-empty-image {
-      z-index: 1; // Middle layer
-    }
-    
-    .gallon-filled-image {
-      z-index: 2; // Top layer
-    }
+      width: 100%;
+      padding: 0 10%; 
 
-    @media (max-width: 768px) {
-      .gallon-section {
-        justify-content: center;
-        margin-top: 10px; /* Adjust margin for mobile */
-        margin-left: 10%;
-        padding: 0 5%; /* Add padding to center on smaller screens */
-      }
-    
       .gallon-image,
       .gallon-empty-image,
       .gallon-filled-image {
-        width: 90%; /* Responsive width for mobile */
-        max-width: 300px; /* Set a max width for better control */
+        position: absolute; 
+        top: 0;
+        left: 0;
+        width: 100%; 
+        height: auto; 
+        max-height: 70vh; 
+      }
+
+      .gallon-image {
+        z-index: 0; 
+      }
+
+      .gallon-empty-image {
+        z-index: 1; 
+      }
+
+      .gallon-filled-image {
+        z-index: 2; 
+      }
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        margin-top: -50px; 
+        margin-left: 0%;
+        padding: 0 0; 
+
+        .gallon-image,
+        .gallon-empty-image,
+        .gallon-filled-image {
+          width: 100%; 
+          max-width: 768px; 
+        }
       }
     }
-    
-    .water-bottle-images {
-      display: flex; // Use flexbox for alignment
-      flex-direction: column; // Stack images vertically
-      align-items: center; // Center align images
-      position: relative; // Ensure correct positioning
-      width: auto; // Auto width to avoid overflow
-    }
-    
-    .water-image {
-      width: 500px; // Set width for images
-      height: auto; // Auto height for images
-      object-fit: cover; // Maintain aspect ratio
-    }
-  }
 
-  .scroll-indicator {
-    display: flex;
-    justify-content: center; // Center the GIF horizontally
-    margin-top: -100%; // Add space above the GIF
-    transition: 0.5s;
-  
-    .bouncing-arrows {
-      width: 30%; // Set the width of the GIF
-      height: auto; // Maintain aspect ratio
-    }
-  
-    .static-arrows {
-      width: 30%; // Set the width of the static image
-      height: auto; // Maintain aspect ratio
+    .water-bottle-images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative; 
+      width: auto; 
+      
+      .water-image {
+        width: 500px; 
+        height: auto; 
+        object-fit: cover; 
+      }
     }
   }
 
   .bottle-tracking-section {
     display: flex;
-    flex-direction: column; // Ensure the button is below the gallon section
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 500px; // Adjust space between gallon image and button
+    margin-top: 500px; 
 
     h2 {
       margin: 10px 0;
-      color: $primary-color; // Section title color
+      color: $primary-color;
     }
 
     .add-bottle-button {
-      background-color: $primary-color; // Button background
-      color: white; // Button text color
-      border: none; // No border
-      border-radius: 5px; // Rounded corners
-      padding: 10px 15px; // Button padding
-      cursor: pointer; // Pointer on hover
-      margin-top: 150%; // Add margin to space it out from the gallon images
-      transition: background-color 0.3s; // Transition effect
+      background-color: $primary-color;
+      color: white;
+      border: none; 
+      border-radius: 5px; 
+      padding: 10px 15px; 
+      cursor: pointer; 
+      margin-top: 150%; 
+      transition: background-color 0.3s;
 
       &:hover {
-        background-color: darken($primary-color, 10%); // Darken on hover
+        background-color: darken($primary-color, 10%); 
       }
     }
 
     .bottle-list {
       display: flex;
-      flex-wrap: wrap; // Wrap bottles to the next line
-      justify-content: center; // Center the bottles
-      margin-top: 10px; // Space above bottle list
+      flex-wrap: wrap; 
+      justify-content: center; 
+      margin-top: 10px; 
     }
 
     .bottle-image {
-      width: 50px; // Bottle size
-      margin: 5px; // Space between bottles
+      width: 50px; 
+      margin: 5px; 
     }
   }
 
   .scroll-indicator {
     display: flex;
-    flex-direction: column; // Stack text and arrows vertically
-    align-items: center; // Center horizontally
-    justify-content: center; // Center vertically (if needed)
-    margin-top: -105%; // Adjust space above the section
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -133%; 
 
     .scroll-text {
-      color: darkgrey; // Text color
-      margin-bottom: -5%; // Space below the text
-      font-size: 1.2rem; // Font size
-      text-align: center; // Center text
+      color: darkgrey; 
+      margin-bottom: -5%; 
+      font-size: 1.2rem; 
+      text-align: center; 
     }
 
     .arrow-container {
-      display: flex; // Flexbox to align arrows
-      justify-content: center; // Center arrows horizontally
+      display: flex; 
+      justify-content: center; 
+      margin-top: -10px; 
       transition: 1s;
-
+    
       img {
-        width: 30%; // Adjust width as needed
-        height: auto; // Maintain aspect ratio
-
-        // Hide the gif initially
+        width: 30%; 
+        height: auto; 
+    
         &.static {
-          display: block; // Show the static image by default
+          display: block; 
         }
-
+    
         &.bouncing {
-          display: none; // Hide the bouncing gif initially
+          display: none; 
         }
       }
-
+    
       &:hover {
         img.static {
-          display: none; // Hide static image on hover
+          display: none; 
         }
-
+    
         img.bouncing {
-          display: block; // Show bouncing gif on hover
+          display: block; 
         }
       }
     }
-  }
-
-  .message-bubble {
-    display: flex;
-    justify-content: right; /* Align to the right */
-    margin-top: 0.5rem; /* Space between bubbles */
-    padding: 1rem; /* Padding inside the bubble */
-    max-width: 500%; /* Max width for the bubble */
-  }
-
-  .message-bubble img {
-    width: 500%; /* Bubble image takes the full width of its container */
-    height: auto;
-  }
-
-  .bubble-text {
-    position: absolute; /* Position the text inside the image */
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the text within the bubble */
-    color: #000; // Adjust text color as needed 
-    font-size: 16px; // Font size for readability 
-    text-align: center;
-    pointer-events: none;
-  }
-}
-
-// Media queries for mobile responsiveness
-@media (max-width: 768px) {
-  .titleContainer {
-    font-size: 36px; // Smaller title size for mobile
-  }
-
-  .resultContainer,
-  .historyItem {
-    width: 100%; // Full width on mobile
-    flex-direction: column; // Stack items vertically
-  }
-
-  .inputBox {
-    width: 100%; // Full width for input
-    padding: 10px; // Increase padding for touch targets
-  }
-
-  .buttonContainer {
-    height: auto; // Allow buttons to adjust height
-  }
-
-  .main-content {
-    margin-top: 60px; // Reduce space for mobile
-    width: 100%; // Ensure full width
-  }
-
-  .gallon-section {
-    width: 100%;
-    margin-left: 40%;
-  }
-
-  .water-image {
-    width: 80%; // Adjust image size for mobile
-  }
-
-  .bottle-image {
-    width: 30px; // Smaller bottle size on mobile
-  }
-
-  .scroll-text {
-    font-size: 1rem; // Smaller font size for mobile
+    
+    @media (max-width: 768px) {
+      margin-top: -115%; 
+      margin-left: 25%;
+    
+      .scroll-text {
+        font-size: 1rem; 
+      }
+      
+      .arrow-container img {
+        width: 50%; 
+      }
+    }
+    
+    // Message bubble styling
+    .message-bubble {
+      display: flex;
+      justify-content: right; 
+      margin-top: 0.5rem; 
+      padding: 1rem; 
+      max-width: 500%; 
+    
+      img {
+        width: 500%; 
+        height: auto;
+      }
+    
+      .bubble-text {
+        position: absolute; 
+        top: 125%; 
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        color: #000; 
+        font-size: 16px; 
+        text-align: center;
+        pointer-events: none;
+      }
+    }
+    
+    // Media queries for mobile responsiveness
+    @media (max-width: 768px) {
+      .titleContainer {
+        font-size: 36px; 
+      }
+    
+      .resultContainer,
+      .historyItem {
+        width: 100%; 
+        flex-direction: column; 
+      }
+    
+      .inputBox {
+        width: 100%; 
+        padding: 10px; 
+      }
+    
+      .buttonContainer {
+        height: auto; 
+      }
+    
+      .main-content {
+        margin-top: 60px; 
+        width: 100%; 
+      }
+    
+      .gallon-section {
+        width: 100%;
+        margin-left: 40%;
+      }
+    
+      .water-image {
+        width: 80%; 
+      }
+    
+      .bottle-image {
+        width: 30px; 
+      }
+    
+      .scroll-text {
+        font-size: 1rem; 
+      }
+    }
   }
 }
