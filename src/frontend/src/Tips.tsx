@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./Styles/App.scss";
 import "./index.scss";
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
+import WaterdropLogo from "../public/Waterdrop_Logo.png";
 
 const Tips: React.FC = () => {
     const [activeTab, setActiveTab] = useState<string>("Tips & Advice");
@@ -23,29 +24,46 @@ const Tips: React.FC = () => {
             navigate('/Impact');
         }
     };
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const toggleMenu = () => {
+      setMenuOpen(prev => !prev);
+    };
+
+
     return(
         <div className="app-container">
-      <header className="top-bar">
-        <div className="logo">
-          <img src={WaterGallonMain} alt="Water Drop Logo" />
-          <h1>WaterSaver</h1>
-        </div>
-        <nav className="nav">
-          {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
-            <div
-              key={tab}
-              className={`tab ${activeTab === tab ? "active" : ""}`}
-              onClick={() => handleTabClick(tab)}
-            >
-              {tab}
-            </div>
-          ))}
-        </nav>
-        <div className="greeting">
-          <span>Hi!</span>
-          <span className="dropdown-arrow">▼</span>
-        </div>
-      </header>
+                  <header className="top-bar">
+                {/* Hamburger Menu Button */}
+                <div className="menu-button" onClick={toggleMenu}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div className="logo">
+                    <img src={WaterdropLogo} alt="Water Drop Logo" />
+                    <h1>WaterSaver</h1>
+                </div>
+                    <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+                    {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
+                        <div
+                        key={tab}
+                        className={`tab ${activeTab === tab ? "active" : ""}`}
+                        onClick={() => {
+                            handleTabClick(tab);
+                            setMenuOpen(false); // Close menu on tab click
+                        }}
+                        >
+                        {tab}
+                        </div>
+                    ))}
+                    </nav>
+
+                    <div className="greeting">
+                    <span>Hi!</span>
+                    <span className="dropdown-arrow">▼</span>
+                    </div>
+            </header>
 
       <main className="main-content">
         {activeTab === "Tips & Advice" && (
@@ -98,11 +116,11 @@ const Tips: React.FC = () => {
               <li className="listContent">Skip pre-rinsing clothes unless absolutely necessary.</li>
               <li className="listContent">Regularly inspect hoses and connections for leaks to prevent water waste.</li>
             </div>
-            <div className="divForContentLast">
+            <div className="divForContent">
               <h4 className="subTitleForActivetab">Outdoor</h4>
-              <li className="listContentLast">Water during the early parts of the day; Avoid watering when it’s windy.</li>
-              <li className="listContentLast">Use a broom, not a hose, to clean driveways and sidewalks.</li>
-              <li className="listContentLast">Check water bills for any instances of high water use, as this may be an indication of a leak.</li>
+              <li className="listContent">Water during the early parts of the day; Avoid watering when it’s windy.</li>
+              <li className="listContent">Use a broom, not a hose, to clean driveways and sidewalks.</li>
+              <li className="listContent">Check water bills for any instances of high water use, as this may be an indication of a leak.</li>
             </div>
           </div>
         )}

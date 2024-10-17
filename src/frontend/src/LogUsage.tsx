@@ -4,6 +4,7 @@ import "./Styles/ActiveTab.scss";
 import "./Styles/LogUsage.scss";
 import { useNavigate } from 'react-router-dom';
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
+import WaterdropLogo from "../public/Waterdrop_Logo.png";
 
 const LogUsage: React.FC = () => {
     const [usage, setUsage] = useState<number | ''>('');
@@ -110,28 +111,44 @@ const LogUsage: React.FC = () => {
         }
     };
 
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const toggleMenu = () => {
+      setMenuOpen(prev => !prev);
+    };
+
     return (
         <div className="input-container">
             <header className="top-bar">
+                {/* Hamburger Menu Button */}
+                <div className="menu-button" onClick={toggleMenu}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
                 <div className="logo">
-                    <img src={WaterGallonMain} alt="Water Drop Logo" />
+                    <img src={WaterdropLogo} alt="Water Drop Logo" />
                     <h1>WaterSaver</h1>
                 </div>
-                <nav className="nav">
+                    <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
                     {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
                         <div
-                            key={tab}
-                            className={`tab ${activeTab === tab ? "active" : ""}`}
-                            onClick={() => handleTabClick(tab)}
+                        key={tab}
+                        className={`tab ${activeTab === tab ? "active" : ""}`}
+                        onClick={() => {
+                            handleTabClick(tab);
+                            setMenuOpen(false); // Close menu on tab click
+                        }}
                         >
-                            {tab}
+                        {tab}
                         </div>
                     ))}
-                </nav>
-                <div className="greeting">
+                    </nav>
+
+                    <div className="greeting">
                     <span>Hi!</span>
                     <span className="dropdown-arrow">▼</span>
-                </div>
+                    </div>
             </header>
             <h1 className="input-title">Water Usage Input</h1>
             <form className="input-form" onSubmit={handleSubmit}>

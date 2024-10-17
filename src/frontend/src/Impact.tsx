@@ -3,7 +3,7 @@ import "./Styles/App.scss";
 import "./Styles/ActiveTab.scss";
 import { useNavigate } from 'react-router-dom';
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
-
+import WaterdropLogo from "../public/Waterdrop_Logo.png";
 const Impact: React.FC = () => {
     const [usage, setUsage] = useState<number | ''>('');
     const [activeTab, setActiveTab] = useState<string>("Impact");
@@ -25,29 +25,45 @@ const Impact: React.FC = () => {
               navigate('/Impact');
           }
     };
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const toggleMenu = () => {
+      setMenuOpen(prev => !prev);
+    };
+
     return (
         <div className="app-container">
-        <header className="top-bar">
-        <div className="logo">
-            <img src={WaterGallonMain} alt="Water Drop Logo" />
-            <h1>WaterSaver</h1>
-        </div>
-        <nav className="nav">
-            {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
-            <div
-                key={tab}
-                className={`tab ${activeTab === tab ? "active" : ""}`}
-                onClick={() => handleTabClick(tab)}
-            >
-                {tab}
-            </div>
-            ))}
-        </nav>
-        <div className="greeting">
-            <span>Hi!</span>
-            <span className="dropdown-arrow">▼</span>
-        </div>
-        </header>
+                   <header className="top-bar">
+                {/* Hamburger Menu Button */}
+                <div className="menu-button" onClick={toggleMenu}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div className="logo">
+                    <img src={WaterdropLogo} alt="Water Drop Logo" />
+                    <h1>WaterSaver</h1>
+                </div>
+                    <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+                    {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
+                        <div
+                        key={tab}
+                        className={`tab ${activeTab === tab ? "active" : ""}`}
+                        onClick={() => {
+                            handleTabClick(tab);
+                            setMenuOpen(false); // Close menu on tab click
+                        }}
+                        >
+                        {tab}
+                        </div>
+                    ))}
+                    </nav>
+
+                    <div className="greeting">
+                    <span>Hi!</span>
+                    <span className="dropdown-arrow">▼</span>
+                    </div>
+            </header>
 
         <main className="main-content">
         {activeTab === "Impact" && (

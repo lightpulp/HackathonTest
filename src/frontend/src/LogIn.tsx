@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./Styles/App.scss";
 import "./index.scss";
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
-
+import WaterdropLogo from "../public/Waterdrop_Logo.png";
 interface LoginProps {
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   setEmail: React.Dispatch<React.SetStateAction<string>>;
@@ -70,7 +70,7 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
     <div className={'mainContainer'}>
       <header className="top-bar">
         <div className="logo">
-          <img src={WaterGallonMain} alt="Water Drop Logo" />
+          <img src={WaterdropLogo} alt="Water Drop Logo" />
           <h1>WaterSaver</h1>
         </div>
         <nav className="nav">

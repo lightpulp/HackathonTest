@@ -37,7 +37,6 @@ const App: React.FC = () => {
   };
 
   const [isMenuOpen, setMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setMenuOpen(prev => !prev);
   };
@@ -45,17 +44,18 @@ const App: React.FC = () => {
   return (
     <div className="app-container">
       <header className="top-bar">
-      <div className="logo">
-    <img src={WaterdropLogo} alt="Water Drop Logo" />
-    <h1>WaterSaver</h1>
-  </div>
+      {/* Hamburger Menu Button */}
+      <div className="menu-button" onClick={toggleMenu}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
 
-  {/* Hamburger Menu Button */}
-  <div className="menu-button" onClick={toggleMenu}>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+      <div className="logo">
+        <img src={WaterdropLogo} alt="Water Drop Logo" />
+        <h1>WaterSaver</h1>
+      </div>
+
 
 
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>

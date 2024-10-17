@@ -10,7 +10,7 @@
 
     @media (max-width: 768px) {
         padding: 1rem; // Less padding on smaller screens
-        margin: 3% auto; // Adjust margin for smaller screens
+        margin: 5% auto; // More margin to give space at the top
         max-width: 100%; // Allow the container to fill the screen
     }
 }
@@ -23,7 +23,7 @@
 
     @media (max-width: 768px) {
         font-size: 1.5rem; // Responsive title size
-        margin: 1rem 0; // Adjust margin for mobile
+        margin: 4rem 0 2rem 0; // More top margin for mobile
     }
 }
 
@@ -33,6 +33,7 @@
     flex-direction: column; // Stack label and input vertically
     margin-bottom: 1.5rem;
     text-align: left;
+ 
 }
 
 label {
@@ -42,20 +43,24 @@ label {
     font-size: 0.875rem; // Smaller font size
 
     @media (max-width: 768px) {
-        font-size: 0.8rem; // Smaller font size for mobile
+        margin-left: -30%;
+        font-size: .8rem; // Smaller font size for mobile
     }
 }
 
-input {
+input{
     max-width: 100%;
-    width:300px; 
+    width:500px; 
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 
-    @media (max-width: 768px) {
+    @media (max-width: 768px){
         padding: 0.4rem;
+        margin-left: -30%;
+        font-size: 1rem;
+        min-width: fit-content;
     }
 }
 
