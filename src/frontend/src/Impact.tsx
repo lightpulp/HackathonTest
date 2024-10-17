@@ -4,7 +4,6 @@ import "./Styles/ActiveTab.scss";
 import { useNavigate } from 'react-router-dom';
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
 import WaterdropLogo from "../public/Waterdrop_Logo.png";
-import WaterOverUse from "../public/water_over_use.jpg";
 const Impact: React.FC = () => {
     const [usage, setUsage] = useState<number | ''>('');
     const [activeTab, setActiveTab] = useState<string>("Impact");
@@ -79,7 +78,8 @@ const Impact: React.FC = () => {
                         <p>With a population of 113 million people, access to safe water in the Philippines is challenge for a significant proportion of the population. 
                         According to UN and UNICEF data, 53% of households in the Philippines lack access to a safely managed water supply and 39% lack safe sanitation. 
                         The situation in schools is even more serious, with 55% of schools lacking access to a safely managed water supply and 26% lacking safe sanitation.</p>
-                        <img src={WaterOverUse} alt="Water Pollution" className="article-image" />
+                        <img src="../public/water_over_use.jpg" alt="Water Pollution" className="article-image" />
+                        <img src={WaterOverUse} alt="Water Drop Logo" />
                         <h2 className="article-header">Water pollution and overuse in the Philippines</h2>
                         <p>Water pollution in the Philippines has far-reaching consequences. Health impacts are severe, 
                         with waterborne diseases being common in areas with poor water quality. 

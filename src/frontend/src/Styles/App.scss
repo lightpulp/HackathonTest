@@ -188,10 +188,13 @@ body {
 // Tab styling
 .tab {
   cursor: pointer;
-  padding: 10px 15px;
-  transition: color 0.3s;
-  border-bottom: 3px solid transparent;
-  flex-grow: 0.5;
+  padding: 10px; // Maintain padding for better spacing
+  flex: 1; // Allow tabs to grow equally
+  min-width: 200px; // Set a minimum width for the tabs
+  display: flex; // Enable flexbox for centering
+  justify-content: center; // Center text horizontally
+  align-items: center; // Center text vertically
+  transition: color 0.3s, background-color 0.3s;
 
   &.active {
     font-weight: bold;
@@ -207,7 +210,7 @@ body {
   &:hover {
     color: #5474eb;
     border-bottom: 3px solid #5474eb;
-    transition: 0.2s;
+    transition: 0.1s;
 
     @media (max-width: 768px) {
       background-color: none;
