@@ -29,33 +29,50 @@ const App: React.FC = () => {
       navigate('/Tips'); 
     } else if (tab === "Overview") {
       navigate('/App');
+    } else if (tab === "Goals") {
+      navigate('/App');
+    } else if (tab === "Impact") {
+      navigate('/Impact');
     }
-    else if (tab === "Goals") {
-        navigate('/App');
-    }
-    else if (tab === "Impact") {
-        navigate('/Impact');
-    }
+  };
+
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
   };
 
   return (
     <div className="app-container">
       <header className="top-bar">
-        <div className="logo">
-          <img src={WaterdropLogo} alt="Water Drop Logo" />
-          <h1>WaterSaver</h1>
-        </div>
-        <nav className="nav">
+      <div className="logo">
+    <img src={WaterdropLogo} alt="Water Drop Logo" />
+    <h1>WaterSaver</h1>
+  </div>
+
+  {/* Hamburger Menu Button */}
+  <div className="menu-button" onClick={toggleMenu}>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+
+        <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
           {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
             <div
               key={tab}
               className={`tab ${activeTab === tab ? "active" : ""}`}
-              onClick={() => handleTabClick(tab)}
+              onClick={() => {
+                handleTabClick(tab);
+                setMenuOpen(false); // Close menu on tab click
+              }}
             >
               {tab}
             </div>
           ))}
         </nav>
+
         <div className="greeting">
           <span>Hi!</span>
           <span className="dropdown-arrow">▼</span>
@@ -81,27 +98,27 @@ const App: React.FC = () => {
 
               <div className="scroll-indicator">
                 <p className="scroll-text">Scroll down to see your statistics</p>
-                  <div className="arrow-container">
+                <div className="arrow-container">
                   <img src={StaticArrows} alt="Static Arrows" className="static" />
                   <img src={BouncingArrows} alt="Bouncing Arrows" className="bouncing" />
-                  </div>
                 </div>
+              </div>
               <div className="bubbles">
-              {/* Message Bubble for Bottles Used */}
-              <div className="message-bubble">
-                <img src={MessageBubbleBig} alt="Message Bubble" className="bubble-image" />
-                <p className="bubble-text">{bottlesUsed.length} bottles used</p>
-              </div>
-              
-              {/* Message Bubble for Daily Water Usage */}
-              <div className="message-bubble">
-                <img src={MessageBubbleSmall} alt="Message Bubble" className="bubble-image" />
-                <p className="bubble-text">Your daily water usage is 0.8 gallons. Keep it up!</p>
-              </div>
+                {/* Message Bubble for Bottles Used */}
+                <div className="message-bubble">
+                  <img src={MessageBubbleBig} alt="Message Bubble" className="bubble-image" />
+                  <p className="bubble-text">{bottlesUsed.length} bottles used</p>
+                </div>
+
+                {/* Message Bubble for Daily Water Usage */}
+                <div className="message-bubble">
+                  <img src={MessageBubbleSmall} alt="Message Bubble" className="bubble-image" />
+                  <p className="bubble-text">Your daily water usage is 0.8 gallons. Keep it up!</p>
+                </div>
               </div>
             </div>
           </div>
-        )} 
+        )}
       </main>
     </div>
   );
