@@ -110,7 +110,7 @@ const Goal: React.FC = () => {
                     <span className="dropdown-arrow">▼</span>
                     </div>
             </header>
-            <h1>Your Goals</h1>
+            <h1 className="goalTitle">Your Goals</h1>
             <div className="input-area">
                 <input
                     type="text"
