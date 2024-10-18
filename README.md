@@ -1,28 +1,28 @@
-# Water Usage Tracker Application
+--------
+# Water Saver ICP Website
 
 This application tracks water usage and provides insights to help users reduce water consumption. Below are the setup instructions for running the project.
 
-## Get started with one click:
-### Locally:
+## Environment Setup
 
-Make sure you have you have the latest version of Docker (e.g. >25) and VS Code installed and running, then click the button below
+- Install Visual Studio Code
+- Install Gitpod [VSCode Extension]
+- Install Remote - SSH [VSCode Extension]
+ 
 
-[![Open locally in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/icPHubPH/azle-react)
-
-### In your browser:
-
-In Gitpod 
+## In your browser:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Sempiiee/Hackathon/)
 
-## 🚀 Develop
+>  Select Visual Studio Code Desktop   
+>  Select Standard Class
 
-When the editor opened, run the following commands to start a local ICP node and deploy the canister smart contract:
-Follow these steps to set up and run the backend of the application:
+When the editor is opened, run the following commands to start a local ICP node and deploy the canister smart contract:
+
 
 ## Installation Guide
 
-Follow these steps to set up and run the backend of the application:
+Follow these steps to set up the canisters
    
 1. **Install npm version 10.9.0 globally**:
 
@@ -66,28 +66,8 @@ Follow these steps to set up and run the backend of the application:
    ```
 
 ---
+The smart contract will be reachable under `http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943`
 
-```
-
-The smart contract will be reachable under `http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943`.
-
-```bash
-# create configuration
-curl -X POST http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/configuration/insert -H 'content-type: application/json' -d '{"key": "site_name", "value": "ICP HUB PH"}'
-# update configuration
-curl -X POST http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/configuration/update -H 'content-type: application/json' -d '{"key": "site_name", "value": "ICP HUB Philippines"}'
-# delete configuration
-curl -X POST http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/configuration/delete -H 'content-type: application/json' -d '{"key": "site_name"}'
-# get configurations endpoint
-curl http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/configurations
-
-```
-You can also use tools like Postman or HTTPie to interact with the smart contract.
-To redeploy the smart contract, run `dfx deploy` again.
-
-When ready, run `dfx deploy --ic` to deploy your application to the ICP mainnet.
-The command will print a different canister URL for mainnet, ending in `.raw.icp0.io`.
-You can make calls to the smart contract on mainnet just like to the local one!
 
 ## 🛠️ Technology Stack
 
@@ -107,11 +87,3 @@ You can make calls to the smart contract on mainnet just like to the local one!
 - [React quick start guide](https://react.dev/learn)
 - [`dfx.json` reference schema](https://internetcomputer.org/docs/current/references/dfx-json-reference/)
 - [Developer Experience Feedback Board](https://dx.internetcomputer.org/)
-
-
-## 💡 Tips and Tricks
-
-- When developing remotely, navigating to the canister's frontend in the browser will not work.
-Use `curl` on the command line instead, or develop locally.
-
-- If you get an error "Error: An error happened during communication with the replica: ... Connection refused", run `dfx start --clean` to start dfx.
