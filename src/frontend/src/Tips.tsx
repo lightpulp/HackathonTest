@@ -26,6 +26,10 @@ const Tips: React.FC = () => {
     const toggleMenu = () => {
       setMenuOpen(prev => !prev);
     };
+    const toggleDropdown = () => {
+      setDropdownOpen(prev => !prev);
+    };
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
 
     return(
@@ -57,10 +61,17 @@ const Tips: React.FC = () => {
                     ))}
                     </nav>
 
-                    <div className="greeting">
+                    <div className="greeting" onClick={toggleDropdown}>
                     <span>Hi!</span>
                     <span className="dropdown-arrow">▼</span>
                     </div>
+
+                    {isDropdownOpen && (
+                    <div className="dropdown-menu open">
+                        <div className="tab" onClick={() => navigate('/Profile')}>Profile</div>
+                        <div className="tab" onClick={() => navigate('/LogIn')}>Sign Out</div>
+                    </div>
+                    )}
             </header>
 
       <main className="main-content">

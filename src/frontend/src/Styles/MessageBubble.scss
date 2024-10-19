@@ -4,19 +4,17 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end; // Align all messages to the right
+    position: relative;
+    margin-right: 20px;
+    margin-top: 20px;
 }
 
 .message-bubble {
     display: inline-block;
-    flex-direction: column;
-    align-items: flex-end;
-    position: fixed;
-    right: 0%;
-    transform: translateY(-50%);
-    padding: 15px 15px;
+    padding: 10px 15px;
     border-radius: 20px;
     max-width: 80%;
-    margin: 10px;
+    margin: 10px 0; // Vertical margin only
     position: relative;
     font-size: 1rem;
     line-height: 1.4;
