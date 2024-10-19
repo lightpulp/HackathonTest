@@ -83,7 +83,6 @@ const Impact: React.FC = () => {
                     <div className="article-container">
                     <header className="article-header">
                         <h1>Water and Sanitation Issues in the Philippines</h1>
-                        <p className="author-date">By Author Name | Date</p>
                     </header>
                     <section className="article-content">
                         <p>With a population of 113 million people, access to safe water in the Philippines is challenge for a significant proportion of the population. 

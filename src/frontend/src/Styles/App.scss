@@ -19,9 +19,11 @@ body {
 // App container
 .app-container {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   padding: 20px; // Padding around the container
+  //background-color: red;
 }
 
 // Content wrapper
@@ -29,6 +31,12 @@ body {
   display: flex; 
   justify-content: center; 
   align-items: flex-start; 
+}
+
+.content-wrapper::after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 .right-side {
@@ -49,55 +57,52 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50%;
 
     .gallon-section {
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative; 
-      margin-top: 22%; 
+      margin-top: 20px; 
       width: 100%;
-      padding: 0 10%; 
+      padding: 0; 
       flex: 1;
-    
+      
+
       // Apply hover effect to the parent container
       &:hover {
-        .gallon-image,
-        .gallon-empty-image,
-        .gallon-filled-image {
-          transform: scale(1.1); // Scale up to 110%
-          transition: transform 0.3s ease; // Smooth transition
-        }
+          .gallon-image,
+          .gallon-empty-image,
+          .gallon-filled-image {
+              transform: scale(1.15); // Scale up to 115%
+              transition: transform 0.3s ease; // Smooth transition
+          }
       }
 
-      @media (max-width: 768px) {
-        margin-top: 23.5%;
-      }
-    
       .gallon-image,
       .gallon-empty-image,
       .gallon-filled-image {
-      position: absolute; 
-      top: 0;
-      left: 0;
-      width: 100%; 
-      height: auto; 
-      max-height: 70vh; 
-      transition: transform 0.3s ease; // Smooth transition for both scaling up and down
-  }
-    
+        position: absolute; 
+        width: 100%; 
+        height: auto; 
+        max-height: 70vh; 
+        transition: transform 0.3s ease; // Smooth transition for both scaling up and down
+      }
+      
       .gallon-image {
-        z-index: 0; 
+          z-index: 0; 
       }
-    
+      
       .gallon-empty-image {
-        z-index: 1; 
+          z-index: 1; 
       }
-    
+      
       .gallon-filled-image {
-        z-index: 2; 
+          z-index: 2; 
       }
-    
+
+      
       @media (max-width: 768px) {
         .gallon-section {
           justify-content: center;
@@ -108,7 +113,7 @@ body {
         .gallon-image,
         .gallon-empty-image,
         .gallon-filled-image {
-          width: 100%; /* Responsive width for mobile */
+          width: 150%; /* Responsive width for mobile */
           max-width: 3000px; /* Set a max width for better control */
         }
       }
@@ -127,7 +132,7 @@ body {
         object-fit: cover; 
       }
     }
-  }
+  }  
 
   .bottle-tracking-section {
     display: flex;
@@ -221,14 +226,11 @@ body {
   
       .scroll-text {
         font-size: 1rem; // Reduce font size for mobile
-
       }
   
       .arrow-container img {
         width: 50%; // Increase size of arrows on mobile
       }
     }
-
-
   }
 }

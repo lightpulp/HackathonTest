@@ -242,7 +242,7 @@ function handleSubmit(event: any) {
       </div>
       <br />
       <div className={'buttonContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick_SignUp} value={'Sign Up'} />
+        <input className={'inputButton'} type="submit" onClick={onButtonClick_SignUp} value={'Sign Up'} />
       </div>
       <div className={'inputContainer'}>
       <button className = "signUp" onClick={onButtonLogIn}>Already Have an account? Log In</button>

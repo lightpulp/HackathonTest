@@ -132,7 +132,7 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
       </div>
       <br />
       <div className={'buttonContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
+        <input className={'inputButton'} type="submit" onClick={onButtonClick} value={'Log in'} />
       </div>
       <div className={'inputContainer'}>
       <button className = "signUp" onClick={onButtonSignUp}>Don't have and account? Sign Up</button>

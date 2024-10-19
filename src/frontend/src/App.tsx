@@ -1,3 +1,5 @@
+// App.tsx
+
 import React, { useState, useRef } from "react";
 import TopBar from './Styles/TopBar.scss';
 import "./Styles/App.scss";
@@ -10,8 +12,6 @@ import WaterGallonFilled from "../public/Water_Gallon_Filled.png";
 import BouncingArrows from "../public/Bouncing_Arrows.gif";
 import StaticArrows from "../public/Static_Arrows.png";
 import WaterBottle from "../public/Water_Bottle.png";
-{/*import MessageBubbleBig from "../public/Message_Bubble_Big.png";
-import MessageBubbleSmall from "../public/Message_Bubble_Small.png";*/}
 import WaterdropLogo from "../public/Waterdrop_Logo.png";
 
 const App: React.FC = () => {
@@ -130,19 +130,22 @@ const App: React.FC = () => {
                     <img src={BouncingArrows} alt="Bouncing Arrows" className="bouncing" />
                   </div>
                 </div>
-
-                <div className="message-bubbles">
-      <div className="message-bubble">
-        You are averaging <span style={{ color: 'blue' }}>1.3 gallons</span> of water daily!
-      </div>
-      <div className="message-bubble">
-        That is equivalent to <span style={{ color: 'green' }}>14</span> <span style={{ color: 'blue' }}>350ml</span> bottles of water.
-      </div>
-    </div>
               </div>
             </div>
           )}
         </main>
+
+        {/* New Div for Message Bubbles */}
+        <div className="message-bubbles-container">
+          <div className="message-bubbles">
+            <div className="message-bubble">
+              You are averaging <span style={{ color: 'blue' }}>1.3 gallons</span> of water daily!
+            </div>
+            <div className="message-bubble">
+              That is equivalent to <span style={{ color: 'green' }}>14</span> <span style={{ color: 'blue' }}>350ml</span> bottles of water.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
