@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import "./Styles/App.scss";
 import "./Styles/ActiveTab.scss";
 import { useNavigate } from 'react-router-dom';
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
@@ -30,6 +29,10 @@ const Impact: React.FC = () => {
     const toggleMenu = () => {
       setMenuOpen(prev => !prev);
     };
+    const toggleDropdown = () => {
+        setDropdownOpen(prev => !prev);
+      };
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
 
     return (
         <div className="app-container">
@@ -60,10 +63,17 @@ const Impact: React.FC = () => {
                     ))}
                     </nav>
 
-                    <div className="greeting">
+                    <div className="greeting" onClick={toggleDropdown}>
                     <span>Hi!</span>
                     <span className="dropdown-arrow">▼</span>
                     </div>
+
+                    {isDropdownOpen && (
+                    <div className="dropdown-menu open">
+                        <div className="tab" onClick={() => navigate('/Profile')}>Profile</div>
+                        <div className="tab" onClick={() => navigate('/LogIn')}>Sign Out</div>
+                    </div>
+                    )}
             </header>
 
         <main className="main-content">
@@ -73,13 +83,15 @@ const Impact: React.FC = () => {
                     <div className="article-container">
                     <header className="article-header">
                         <h1>Water and Sanitation Issues in the Philippines</h1>
-                        <p className="author-date">By Author Name | Date</p>
                     </header>
                     <section className="article-content">
                         <p>With a population of 113 million people, access to safe water in the Philippines is challenge for a significant proportion of the population. 
                         According to UN and UNICEF data, 53% of households in the Philippines lack access to a safely managed water supply and 39% lack safe sanitation. 
                         The situation in schools is even more serious, with 55% of schools lacking access to a safely managed water supply and 26% lacking safe sanitation.</p>
-                        <img src={WaterUse} alt="Water Drop Logo" />
+                        <div className="article-header">
+                            <img src={WaterUse} alt="Water Drop Logo" />
+                            <h6 className="author-date">https://images.app.goo.gl/i9MJmZG7Y8oucuc69</h6>
+                        </div>
                         <h2 className="article-header">Water pollution and overuse in the Philippines</h2>
                         <p>Water pollution in the Philippines has far-reaching consequences. Health impacts are severe, 
                         with waterborne diseases being common in areas with poor water quality. 

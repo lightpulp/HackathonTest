@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Styles/App.scss";
 import "./index.scss";
-import WaterGallonMain from "../public/Water_Gallon_Main.png";
 import WaterdropLogo from "../public/Waterdrop_Logo.png";
 interface LoginProps {
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
@@ -133,8 +131,8 @@ const LogIn: React.FC<LoginProps> = ({ setLoggedIn, setEmail }) => {
         <label className="errorLabel">{passwordError}</label>
       </div>
       <br />
-      <div className={'inputContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
+      <div className={'buttonContainer'}>
+        <input className={'inputButton'} type="submit" onClick={onButtonClick} value={'Log in'} />
       </div>
       <div className={'inputContainer'}>
       <button className = "signUp" onClick={onButtonSignUp}>Don't have and account? Sign Up</button>

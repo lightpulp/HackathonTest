@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Styles/App.scss";
 import "./index.scss";
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
 import WaterdropLogo from "../public/Waterdrop_Logo.png";
@@ -231,8 +230,8 @@ const SignUp: React.FC<SignUpProps> = ({ setLoggedIn, setEmail }) => {
         <label className="errorLabel">{passwordError}</label>
       </div>
       <br />
-      <div className={'inputContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick_SignUp} value={'Sign Up'} />
+      <div className={'buttonContainer'}>
+        <input className={'inputButton'} type="submit" onClick={onButtonClick_SignUp} value={'Sign Up'} />
       </div>
       <div className={'inputContainer'}>
       <button className = "signUp" onClick={onButtonLogIn}>Already Have an account? Log In</button>

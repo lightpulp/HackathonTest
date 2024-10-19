@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import "./Styles/App.scss";
 import "./Styles/ActiveTab.scss";
 import "./Styles/LogUsage.scss";
 import { useNavigate } from 'react-router-dom';
@@ -115,6 +114,10 @@ const LogUsage: React.FC = () => {
     const toggleMenu = () => {
       setMenuOpen(prev => !prev);
     };
+    const toggleDropdown = () => {
+        setDropdownOpen(prev => !prev);
+      };
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
 
     return (
         <div className="input-container">
@@ -145,10 +148,17 @@ const LogUsage: React.FC = () => {
                     ))}
                     </nav>
 
-                    <div className="greeting">
+                    <div className="greeting" onClick={toggleDropdown}>
                     <span>Hi!</span>
                     <span className="dropdown-arrow">▼</span>
                     </div>
+
+                    {isDropdownOpen && (
+                    <div className="dropdown-menu open">
+                        <div className="tab" onClick={() => navigate('/Profile')}>Profile</div>
+                        <div className="tab" onClick={() => navigate('/LogIn')}>Sign Out</div>
+                    </div>
+                    )}
             </header>
             <h1 className="input-title">Water Usage Input</h1>
             <form className="input-form" onSubmit={handleSubmit}>

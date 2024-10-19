@@ -1,71 +1,67 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Styles/App.scss";
 import "./index.scss";
-import WaterGallonMain from "../public/Water_Gallon_Main.png";
+import "./Styles/ActiveTab.scss";
 import WaterdropLogo from "../public/Waterdrop_Logo.png";
 
 const Tips: React.FC = () => {
     const [activeTab, setActiveTab] = useState<string>("Tips & Advice");
     const navigate = useNavigate();
+    
     const handleTabClick = (tab: string) => {
         setActiveTab(tab);
-        if (tab === "Log Usage") {
-          navigate('/LogUsage'); 
-        } else if (tab === "Tips & Advice") {
-          navigate('/Tips'); 
-        } else if (tab === "Overview") {
-          navigate('/App');
-        }
-        else if (tab === "Goals") {
-            navigate('/Goal');
-        }
-        else if (tab === "Impact") {
-            navigate('/Impact');
-        }
+        navigate(`/${tab.replace(/ & /g, "").replace(/\s+/g, "")}`);
     };
+    
     const [isMenuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => {
-      setMenuOpen(prev => !prev);
+        setMenuOpen(prev => !prev);
     };
 
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const toggleDropdown = () => {
+        setDropdownOpen(prev => !prev);
+    };
 
-    return(
+    return (
         <div className="app-container">
-                  <header className="top-bar">
-                {/* Hamburger Menu Button */}
+            <header className="top-bar">
                 <div className="menu-button" onClick={toggleMenu}>
                     <div></div>
                     <div></div>
                     <div></div>
                 </div>
-
                 <div className="logo">
                     <img src={WaterdropLogo} alt="Water Drop Logo" />
                     <h1>WaterSaver</h1>
                 </div>
-                    <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+                <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
                     {["Log Usage", "Tips & Advice", "Overview", "Goals", "Impact"].map(tab => (
                         <div
-                        key={tab}
-                        className={`tab ${activeTab === tab ? "active" : ""}`}
-                        onClick={() => {
-                            handleTabClick(tab);
-                            setMenuOpen(false); // Close menu on tab click
-                        }}
+                            key={tab}
+                            className={`tab ${activeTab === tab ? "active" : ""}`}
+                            onClick={() => {
+                                handleTabClick(tab);
+                                setMenuOpen(false);
+                            }}
                         >
-                        {tab}
+                            {tab}
                         </div>
                     ))}
-                    </nav>
-
-                    <div className="greeting">
+                </nav>
+                <div className="greeting" onClick={toggleDropdown}>
                     <span>Hi!</span>
                     <span className="dropdown-arrow">▼</span>
+                </div>
+                {isDropdownOpen && (
+                    <div className="dropdown-menu open">
+                        <div className="tab" onClick={() => navigate('/Profile')}>Profile</div>
+                        <div className="tab" onClick={() => navigate('/LogIn')}>Sign Out</div>
                     </div>
+                )}
             </header>
 
-      <main className="main-content">
+            <main className="main-content">
         {activeTab === "Tips & Advice" && (
           <div>
             <h2 className="titleForActivetab">Water-Saving Tips & Advice</h2>
@@ -125,7 +121,8 @@ const Tips: React.FC = () => {
           </div>
         )}
       </main>
-    </div>
+        </div>
     );
 };
+
 export default Tips;

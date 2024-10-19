@@ -1,3 +1,5 @@
+@import './Styles/TopBar.scss';
+
 .mainContainer {
   max-width: 100%; // Wider for mobile
   margin-top: 10%; // Centered
@@ -9,14 +11,14 @@
   align-items: center; // Center items horizontally
 }
 
-input[type='button'] {
+input[type='submit'] {
   border: none;
   color: white;
-  padding: 12px; // Consistent padding
-  width: 100%; // Full width for buttons
-  max-width: 300px; // Limit button width
-  margin-top: 1rem; // Space above button
-  font-size: 1rem; // Responsive font size
+  padding: 12px;
+  max-width: 800px;
+  width: 560px;
+  margin-top: 1rem;
+  font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
   background: #5474eb;
@@ -26,11 +28,13 @@ input[type='button'] {
 }
 
 .inputContainer {
-  margin-bottom: 1rem;
+  margin-bottom: .1rem;
   width: 100%; // Full width for input container
   display: flex; // Flexbox for centering inputs
   justify-content: center; // Center inputs
-  
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Centers items horizontally */
+   
 }
 
 .inputBox {
@@ -57,8 +61,7 @@ input[type='button'] {
   color: blue;
   border: none;
   border-radius: 4px;
-  padding: 0.25rem 0.5rem;
-
+  background-color: transparent;
   &:hover {
     background-color: #bdbdbd;
   }
@@ -72,6 +75,7 @@ input[type='button'] {
 .errorLabel {
   color: red;
   font-size: 0.9rem;
+  max-width: 100%;
 }
 
 .titleContainer {
@@ -84,28 +88,46 @@ input[type='button'] {
     font-size: 1rem; // Further reduce font size on very small screens
   }
 
+  .inputContainer{
+    padding-left: 20.5%;
+
+  }
+
   .inputBox {
-    margin-left: 0; // Reset margin for mobile
+    margin-left: 0;
     font-size: 0.9rem;
     max-width: 100%;
     margin-left: -25%;
     min-width: fit-content;
-    width: 40%; // Full width on mobile
+    width: 40%;
+  }
+  input[type='submit'] {
+    width: 210px;
+    margin-left: 0%;
+    margin-bottom: 20px;
   }
 
   .inputBoxSelect {
-    margin-left: 0; // Reset margin for mobile
+    margin-left: 0;
     font-size: 0.9rem;
-    max-width: 80%;
+    max-width: 100%;
     margin-left: -25%;
-    width: 70%; // Full width on mobile
+    width: 90%; 
   }
 
+  .signUp{
+    margin-left: -30%;
+  }
+
+
   .titleContainer {
-    text-align: center; // Center title for better aesthetics
-    margin-top: 10rem;
-    margin-bottom: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 }
+
+
+
 
 
