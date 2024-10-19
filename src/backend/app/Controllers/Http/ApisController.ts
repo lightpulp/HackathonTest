@@ -4,9 +4,6 @@ import { WaterConsumption } from 'Database/entities/waterconsumption'
 import { Response, Request } from 'express';
 
 export default class ApisController {
-    static async greet(request: Request, response: Response) {
-        response.json({ greeting: `Hello, ${request.query.name}` });
-    }
 
     static async configurations(request: Request, response: Response){
         const configuration = await Configuration.find();
