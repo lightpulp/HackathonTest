@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import "./Styles/App.scss";
 import "./Styles/ActiveTab.scss";
 import "./Styles/Goal.scss";
 import { useNavigate } from 'react-router-dom';

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Styles/App.scss";
 import "./index.scss";
-import WaterGallonMain from "../public/Water_Gallon_Main.png";
 import WaterdropLogo from "../public/Waterdrop_Logo.png";
 
 const Tips: React.FC = () => {

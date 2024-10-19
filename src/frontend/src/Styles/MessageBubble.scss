@@ -1,0 +1,37 @@
+// MessageBubble.scss
+
+.message-bubbles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; // Align all messages to the right
+}
+
+.message-bubble {
+    display: inline-block;
+    flex-direction: column;
+    align-items: flex-end;
+    position: fixed;
+    right: 0%;
+    transform: translateY(-50%);
+    padding: 15px 15px;
+    border-radius: 20px;
+    max-width: 80%;
+    margin: 10px;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.4;
+    background-color: #ffffff; // Background color for user messages
+    color: #000; // Text color
+
+    // Arrow pointing to the message
+    &::after {
+        content: '';
+        position: absolute;
+        top: 85%; // Position below the bubble
+        right: 20px; // Position from the right side
+        width: 20px;
+        height: 20px;
+        background-color: inherit; // Match the bubble background
+        transform: rotate(45deg); // Rotate to form a triangle
+    }
+}

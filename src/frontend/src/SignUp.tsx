@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Styles/App.scss";
 import "./index.scss";
 import WaterGallonMain from "../public/Water_Gallon_Main.png";
 import WaterdropLogo from "../public/Waterdrop_Logo.png";
@@ -242,7 +241,7 @@ function handleSubmit(event: any) {
         <label className="errorLabel">{passwordError}</label>
       </div>
       <br />
-      <div className={'inputContainer'}>
+      <div className={'buttonContainer'}>
         <input className={'inputButton'} type="button" onClick={onButtonClick_SignUp} value={'Sign Up'} />
       </div>
       <div className={'inputContainer'}>
